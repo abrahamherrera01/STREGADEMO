@@ -1,13 +1,37 @@
 <app-nav></app-nav>
 <div class="container-fluid p-5 ">
+ 
   <div class="row">
-    <mat-form-field class="chip-list " appearance="outline">
-      <mat-label>Búsqueda</mat-label>
-      <input matInput>
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-  </div>
-  <app-cards class="row"></app-cards>
+    <div class="col-12">
+        <mat-form-field class="chip-list" appearance="outline">
+            <mat-label>Buscar por nombre</mat-label>
+            <input matInput [(ngModel)]="palabra_busqueda" (keyup.enter)="search(palabra_busqueda)">
+            <mat-icon matSuffix (click)="search(palabra_busqueda)">search</mat-icon>
+        </mat-form-field>
+    </div>
 </div>
 
- 
+  <div class="row">
+    <app-cards class="col-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 ml-2 mt-3" *ngFor="let customer of customers"
+      [full_name]="customer.full_name" [rfc]="customer.rfc"></app-cards>
+  </div>
+</div>
+
+
+
+<div class="row container-fluid">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+      <li class="page-item " style="margin-right: 30px;">
+        {{page}} de {{totalPages}}
+      </li>
+      <li class="page-item  ">
+        <a class="page-link " [ngClass]="{'previousbutton': previousbutton, 'disabled': !previousbutton}" href="#"
+          tabindex="-1" (click)="previous()">Previous</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#" (click)="next()">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

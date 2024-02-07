@@ -8,6 +8,9 @@ import { CardsComponent } from './cards/cards.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { DatosComponent } from './datos/datos.component';
 import { NavComponent } from './nav/nav.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; // Importa FormsModule aquí
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { NavComponent } from './nav/nav.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
