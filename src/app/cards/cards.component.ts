@@ -13,13 +13,24 @@ export class CardsComponent {
 
   @Input() full_name!: string;
   @Input() rfc!: any;
+  @Input() id!: number;
   @Input() picture!: any;
+  @Input() sum_orders!: number;
 
  
 
   abrirModal() {
+    console.log(this.full_name);
+    
+    console.log(this.sum_orders);
+    
     const dialogRef = this.dialog.open(DatosComponent, {
       width: '100%', 
+      data: { 
+        full_name: this.full_name,
+        id: this.id,
+        sum_orders: this.sum_orders
+      }
     });
   }
 }
