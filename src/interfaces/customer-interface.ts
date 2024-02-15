@@ -44,7 +44,15 @@ export interface Customer {
   user_id: any
   created_at: string
   updated_at: string
-  deleted_at: any
+  deleted_at: any;
+  sum_orders: SumOrder[];
+}
+
+export interface SumOrder {
+  customer_id:       number;
+  total_gross_price: number;
+  total_tax_price:   number;
+  total_total_price: number;
 }
 
 export interface Link {

@@ -12,8 +12,8 @@
 </div>
 
   <div class="row">
-    <app-cards class="col-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 ml-2 mt-3" *ngFor="let customer of customers"
-      [full_name]="customer.full_name" [rfc]="customer.rfc"></app-cards>
+    <app-cards class="col-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 ml-2 mt-3" *ngFor="let customer of customers; index as i;"
+      [full_name]="customer.full_name" [rfc]="customer.rfc" [id]="customer.id" [sum_orders]="customer.sum_orders[0].total_total_price"></app-cards>
   </div>
 </div>
 

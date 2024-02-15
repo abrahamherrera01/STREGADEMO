@@ -1,8 +1,9 @@
    <div class="card pt-2 " style=" width: 100%;">
      <img src="../../assets/logo/ICON.svg" class="card-img-top fade-in-image card-image">
-     <div class="card-body" style="font-size: 15px;" >
+     <div class="card-body" style="font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" >
        <span class="card-text " >Nombre Cliente: {{full_name}} </span><br>
        <span class="card-text">RFC: {{rfc}}</span>
+       <p class="card-text">id: {{id}}</p>
      </div>
      <mat-card-actions class="text-center ">
        <button style="width: 100%; color: white; " class="bg-primary" mat-button (click)="abrirModal()">Ver
