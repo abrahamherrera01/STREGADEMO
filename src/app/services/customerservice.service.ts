@@ -18,11 +18,11 @@ export class CustomerserviceService {
 
     if(search ==null){
       //carga por defecto
-      return this.http.get<CustomerInterface>(`http://127.0.0.1:8000/api/customers/getCustomersByWord?page=${page}`);
+      return this.http.get<CustomerInterface>(`${ this.baseUrl }/api/customers/getCustomersByWord?page=${page}`);
     }
     else{
       //carga en la busqueda
-      return this.http.get<CustomerInterface>(`http://127.0.0.1:8000/api/customers/getCustomersByWord/${search}?page=${page}`);
+      return this.http.get<CustomerInterface>(`${ this.baseUrl }/api/customers/getCustomersByWord/${search}?page=${page}`);
     }
 
    }
