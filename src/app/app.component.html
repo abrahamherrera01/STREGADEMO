@@ -13,7 +13,20 @@
 
   <div class="row">
     <app-cards class="col-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 ml-2 mt-3" *ngFor="let customer of customers; index as i;"
-      [full_name]="customer.full_name" [rfc]="customer.rfc" [id]="customer.id" [sum_orders]="customer.sum_orders[0].total_total_price"></app-cards>
+      [full_name]="customer.full_name" [rfc]="customer.rfc" [id]="customer.id" 
+      [sum_orders]="customer.sum_orders[0].total_total_price"
+      [id_client_bp]="customer.id_client_bp"
+      [gender]="customer.gender"
+      [phone_1]="customer.phone_1"
+      [phone_2]="customer.phone_2"
+      [cellphone]="customer.cellphone"
+      [email_1]="customer.email_1"
+      [city]="customer.city"
+      [delegacy]="customer.delegacy"
+      [colony]="customer.colony"
+      [address]="customer.address"
+      [zip_code]="customer.zip_code">
+    </app-cards>
   </div>
 </div>
 
