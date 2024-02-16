@@ -11,102 +11,115 @@
               <hr />
             </div>
           </div>
-
           <div class="row">
             <div class="col-12">
-
-              <div class="row" style="margin-left: -10px;">
-                <div class="container">
-                  <div class="row-cols-1 row-cols-md-2 row-cols-lg-2 g-1 g-lg-2">
-                    <!-- client id_bp -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">IDBP del Cliente</span>
-                        <span class="detail-content fw-bold">{{ id_client_bp }}</span>
-                      </div>
-                    </div>
-                    <!-- client rfc -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">RFC</span>
-                        <span class="detail-content fw-bold">{{ rfc }}</span>
-                      </div>
-                    </div>
-                    <!-- client gender -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">Sexo</span>
-                        <span class="detail-content fw-bold">{{ gender | titlecase }}</span>
-                      </div>
-                    </div>
-                    <!-- client phone_1 -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">Teléfono 1</span>
-                        <span class="detail-content fw-bold">{{ phone_1 }}</span>
-                      </div>
-                    </div>
-                    <!-- client phone_2 -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">Teléfono 2</span>
-                        <span class="detail-content fw-bold">{{ phone_2 }}</span>
-                      </div>
-                    </div>
-                    <!-- client cellphone -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">Teléfono Celular</span>
-                        <span class="detail-content fw-bold">{{ cellphone }}</span>
-                      </div>
-                    </div>
-                    <!-- client email_1 -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">Email</span>
-                        <span class="detail-content fw-bold">{{ email_1 }}</span>
-                      </div>
-                    </div>
-                    <!-- client city -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">Ciudad</span>
-                        <span class="detail-content fw-bold">{{ city | titlecase }}</span>
-                      </div>
-                    </div>
-                    <!-- client delegacy -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">Delegación</span>
-                        <span class="detail-content fw-bold">{{ delegacy | titlecase }}</span>
-                      </div>
-                    </div>
-                    <!-- client colony -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">Colonia</span>
-                        <span class="detail-content fw-bold">{{ colony | titlecase }}</span>
-                      </div>
-                    </div>
-                    <!-- client address -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">Dirección</span>
-                        <span class="detail-content fw-bold">{{ address | titlecase }}</span>
-                      </div>
-                    </div>
-                    <!-- client zip_code -->
-                    <div class="col">
-                      <div class="details-bg">
-                        <span class="detail-text">C.P.</span>
-                        <span class="detail-content fw-bold">{{ zip_code }}</span>
-                      </div>
-                    </div>
-    
+              <div class="my-accordion">
+                <div class="card">
+                  <div class="card-header bg-primary" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <span style="font-weight: bold;">INFORMACIÓN DEL CLIENTE</span>
+                      </button>
+                    </h5>
                   </div>
+                  <div id="collapseTwo" class="collapse dispose" data-parent="#my-accordion" aria-labelledby="headingTwo" >
+                    <div class="card-body collapse-content" style="width: 100%;">
+                      <div class="row" style="margin-left: -10px;">
+                        <div class="container">
+                          <div class="row-cols-1 row-cols-md-2 row-cols-lg-2 g-2 g-lg-3">
+                            <!-- client id_bp -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">IDBP del Cliente</span>
+                                <span class="detail-content fw-bold">{{ id_client_bp }}</span>
+                              </div>
+                            </div>
+                            <!-- client rfc -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">RFC</span>
+                                <span class="detail-content fw-bold">{{ rfc }}</span>
+                              </div>
+                            </div>
+                            <!-- client gender -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">Sexo</span>
+                                <span class="detail-content fw-bold">{{ gender | titlecase }}</span>
+                              </div>
+                            </div>
+                            <!-- client phone_1 -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">Teléfono 1</span>
+                                <span class="detail-content fw-bold">{{ phone_1 }}</span>
+                              </div>
+                            </div>
+                            <!-- client phone_2 -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">Teléfono 2</span>
+                                <span class="detail-content fw-bold">{{ phone_2 }}</span>
+                              </div>
+                            </div>
+                            <!-- client cellphone -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">Teléfono Celular</span>
+                                <span class="detail-content fw-bold">{{ cellphone }}</span>
+                              </div>
+                            </div>
+                            <!-- client email_1 -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">Email</span>
+                                <span class="detail-content fw-bold">{{ email_1 }}</span>
+                              </div>
+                            </div>
+                            <!-- client city -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">Ciudad</span>
+                                <span class="detail-content fw-bold">{{ city | titlecase }}</span>
+                              </div>
+                            </div>
+                            <!-- client delegacy -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">Delegación</span>
+                                <span class="detail-content fw-bold">{{ delegacy | titlecase }}</span>
+                              </div>
+                            </div>
+                            <!-- client colony -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">Colonia</span>
+                                <span class="detail-content fw-bold">{{ colony | titlecase }}</span>
+                              </div>
+                            </div>
+                            <!-- client address -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">Dirección</span>
+                                <span class="detail-content fw-bold">{{ address | titlecase }}</span>
+                              </div>
+                            </div>
+                            <!-- client zip_code -->
+                            <div class="col">
+                              <div class="details-bg">
+                                <span class="detail-text">C.P.</span>
+                                <span class="detail-content fw-bold">{{ zip_code }}</span>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- <hr style="border: 1px solid #707070;"> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-
             </div>
           </div>
 
@@ -126,7 +139,7 @@
                   </div>
                   
                   <div [id]="'collapse' + i " class="collapse  dispose"  data-parent="#accordion"> <!-- id="collapseOne" aria-labelledby="headingOne" aria-labelledby="heading"-->
-                    <div class="card-body" style="width: 100%; overflow-x:scroll;">
+                    <div class="card-body collapse-content" style="width: 100%; overflow-x:scroll;">
                       <table class="table">
                         <thead>
                           <tr>
@@ -136,7 +149,6 @@
                             <th scope="col">Costo Total</th>
                             <th scope="col">Kilometraje</th>
                             <th scope="col">Observaciones</th>
-                            <th scope="col">Encuesta</th>
                             <th scope="col">Satisfacción</th>
                             <th scope="col">CSI</th>
                             <th scope="col">NPS</th>
@@ -145,7 +157,6 @@
                             <th scope="col">Asesor</th>
                             <th scope="col">Trabajo</th>
                             <th scope="col">Comentarios</th>
-                            <th scope="col">Incidencia ID</th>
                             <th scope="col">Incidencia</th>
                           </tr>
                         </thead>
@@ -155,9 +166,8 @@
                             <td>{{ order.id_order_bp}}</td>
                             <td>{{ order.service_date}}</td>
                             <td>${{ order.total_price | number:'.2-2' }}</td>
-                            <td>{{ order.order_km | number:'.2-2' }}</td>
+                            <td>{{ order.order_km | number }} km</td>
                             <td>{{ order.observations }}</td>
-                            <td *ngIf="order.survey != null; else elseId">{{ order.survey.id }}</td>
                             <ng-template #elseId><td>NT</td></ng-template>
                             <td *ngIf="order.survey != null; else elseId">{{ order.survey.satisfaction }}</td>
                             <td *ngIf="order.survey != null; else elseId">{{ order.survey.csi }}</td>
@@ -182,7 +192,6 @@
                             <td *ngIf="order.order_type == 'sale' else elseComments">NA</td>
                             <ng-template #elseComments> <td *ngIf="order.order_type == 'aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.comments}}</td></ng-template>
                             
-                            <td *ngIf="order.incidence != null; else elseId">{{order.incidence.id}}</td>
                             <td *ngIf="order.incidence != null; else elseId">{{order.incidence.name}}</td>
                             
                           </tr>

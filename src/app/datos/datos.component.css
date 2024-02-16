@@ -17,3 +17,9 @@
 .detail-content {
     margin-left: auto;
 }
+
+.collapse-content {
+    max-height: 180px; /* Altura máxima del contenido */
+    overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es más grande que la altura máxima */
+  }
+  
