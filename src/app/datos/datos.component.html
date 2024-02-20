@@ -139,8 +139,8 @@
                   </div>
                   
                   <div [id]="'collapse' + i " class="collapse  dispose"  data-parent="#accordion"> <!-- id="collapseOne" aria-labelledby="headingOne" aria-labelledby="heading"-->
-                    <div class="card-body collapse-content" style="width: 100%; overflow-x:scroll;">
-                      <table class="table">
+                    <div class="card-body collapse-content " style="width: 100%; overflow-x:scroll; padding-top: 0;">
+                      <table class="table sticky-table">
                         <thead>
                           <tr>
                             <th scope="col">ID</th>
@@ -162,7 +162,7 @@
                         </thead>
                         <tbody >
                           <tr *ngFor="let order of dato.orders">
-                            <th scope="row">{{ order.id }}</th>
+                            <td scope="row">{{ order.id }}</td>
                             <td>{{ order.id_order_bp}}</td>
                             <td>{{ order.service_date}}</td>
                             <td>${{ order.total_price | number:'.2-2' }}</td>
