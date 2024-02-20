@@ -21,5 +21,12 @@
 .collapse-content {
     max-height: 180px; /* Altura máxima del contenido */
     overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es más grande que la altura máxima */
-  }
+}
+
+.sticky-table th {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff; /* Fondo blanco para mantener la apariencia de la fila pegajosa */
+    z-index: 1; /* Asegura que la fila pegajosa esté sobre el contenido de la tabla */
+}
   
