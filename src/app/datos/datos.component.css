@@ -23,6 +23,11 @@
     overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es más grande que la altura máxima */
 }
 
+.collapse-table {
+    max-height: 280px; /* Altura máxima del contenido */
+    overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es más grande que la altura máxima */
+}
+
 .sticky-table th {
     position: sticky;
     top: 0;
