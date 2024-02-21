@@ -31,20 +31,6 @@ export class CardsComponent {
  
 
   abrirModal() {
-    console.log(this.full_name);
-    
-    console.log(this.sum_orders);
-    console.log(this.id_client_bp);
-    console.log(this.gender);
-    console.log(this.phone_1);
-    console.log(this.phone_2);
-    console.log(this.cellphone);
-    console.log(this.email_1);
-    console.log(this.city);
-    console.log(this.delegacy);
-    console.log(this.colony);
-    console.log(this.address);
-    console.log(this.zip_code);
     
     const dialogRef = this.dialog.open(DatosComponent, {
       width: '100%', 

@@ -17,30 +17,47 @@ export class AppComponent {
   nextbutton=false
 
   public page:number = 1;
-  public firstPage: number = 0;
+  public firstPage: number = 1;
 
   public palabra_busqueda:string = '';
+  public palabra_vin:string = '';
+
+  public show: boolean = false;
+  public displayName: string = '';
+  public displayVin: string = '';
+  public isName: boolean = false;
+  public isVin: boolean = false;
+  public messageNotFound: boolean = false;
 
   constructor(
     private CustomerserviceServices: CustomerserviceService
     ) { }
 
   ngOnInit(): void {
-    this.CustomerserviceServices.getCustomers(this.page).subscribe((data:CustomerInterface) => {
-      this.customers = data.data.data; 
-      this.totalPages = data.data.last_page;
-      this.firstPage = data.data.current_page;
-    });
+    // this.CustomerserviceServices.getCustomers(this.page).subscribe((data:CustomerInterface) => {
+    //   this.customers = data.data.data; 
+    //   this.totalPages = data.data.last_page;
+    //   this.firstPage = data.data.current_page;
+    // });
   }
 
-  search(palabra:string){
+  search(palabra:string, search = ''){
+
+    if (palabra !== '' && search === 'name') {
+      this.isVin = true;
+      this.isName = false;
+    }else{
+      if ( palabra !== '' && search === 'vin') {
+        this.isName = true;
+      }else{
+        this.isVin = false;
+        this.isName = false;
+      }
+    }
+
     if (palabra == '') {
-      console.log('Entra');
-      this.CustomerserviceServices.getCustomers(this.firstPage).subscribe((data:CustomerInterface) => {
-        this.customers = data.data.data; 
-        this.totalPages = data.data.last_page;
-        this.page = this.firstPage;
-      });
+      this.show = false;
+      this.messageNotFound = false;
     }else {
       this.CustomerserviceServices.getCustomers(this.firstPage, palabra )
        .subscribe((data:CustomerInterface) => {
@@ -48,6 +65,14 @@ export class AppComponent {
          this.totalPages = data.data.last_page;
          this.page = this.firstPage;
        });
+       setTimeout(() => {
+         if (this.customers.length !== 0) {
+          this.messageNotFound = false;
+         }else{
+          this.messageNotFound = true;
+         }
+       }, 500);
+       this.show = true;
     }
   }
 

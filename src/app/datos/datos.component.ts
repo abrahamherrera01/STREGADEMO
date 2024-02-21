@@ -57,7 +57,6 @@ export class DatosComponent implements OnInit{
     this.address = this.data.address;
     this.zip_code = this.data.zip_code;
     
-    console.log(this.data.id);
     this.getVehiclesWithOrdersByCustomer(this.data.id);
     this.sum_order = this.data.sum_orders;
     
@@ -69,7 +68,6 @@ export class DatosComponent implements OnInit{
         next: (response) => {
           // console.log(response.data);
           this.datos = response.data;
-          console.log(this.datos);
           // if (this.datos.length > 1) {
           //   console.log('Entro');
           //   for (let i = 0; i < this.datos.length; i++) {
