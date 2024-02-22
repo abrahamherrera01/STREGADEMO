@@ -13,6 +13,7 @@ export class CustomerserviceService {
   private baseUrl:string = environment.baseUrl;      
 
   constructor(private http: HttpClient) { }
+  
 
   getCustomers(  page:number, search?:string): Observable<CustomerInterface> {
 
@@ -30,4 +31,12 @@ export class CustomerserviceService {
    public getVehiclesWithOrdersByCustomer(id: number): Observable<VehiclesOrderByCustomer>{       
     return this.http.get<VehiclesOrderByCustomer>(`${ this.baseUrl }/api/customers/getVehiclesWithOrdersByCustomer/${ id }`);
    }
+
+   public uploadImage(customer_id:any,path: any ): Observable<any>{
+    let formData: FormData = new FormData();
+    formData.append('customer_id', customer_id);
+    formData.append('path', path);
+
+    return this.http.post<any>(`${this.baseUrl}/api/customers/uploadImageCustomer`, formData);
+  }
 }

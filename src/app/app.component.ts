@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CustomerserviceService } from './services/customerservice.service';
 import { Customer, CustomerInterface } from 'src/interfaces/customer-interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -28,6 +29,7 @@ export class AppComponent {
   public isName: boolean = false;
   public isVin: boolean = false;
   public messageNotFound: boolean = false;
+  public baseUrl:string = environment.baseUrl+'/api/getImage/';   
 
   constructor(
     private CustomerserviceServices: CustomerserviceService

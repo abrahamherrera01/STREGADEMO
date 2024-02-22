@@ -1,5 +1,6 @@
    <div class="card pt-2 " style=" width: 100%;">
-     <img src="../../assets/logo/ICON.svg" class="card-img-top fade-in-image card-image">
+    <a (click)="getporfile(id,picture,full_name)"><img src="{{picture}}" class="card-img-top fade-in-image card-image" >
+    </a>
      <div class="card-body" style="font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" >
        <span class="card-text " >Nombre Cliente: {{full_name}} </span><br>
        <span class="card-text">RFC: {{rfc}}</span>
