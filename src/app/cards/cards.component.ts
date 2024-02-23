@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DatosComponent } from '../datos/datos.component';
 import { CustomerInterface } from '../../interfaces/customer-interface';
- 
+import { PorfileComponent } from '../porfile/porfile.component';
+
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -29,8 +30,18 @@ export class CardsComponent {
   @Input() zip_code!: string;
 
  
+  getporfile(id: number, picture: string,name:string) {
+    const dialogRef = this.dialog.open(PorfileComponent, {
+      width: '100%',
+      data: { id: id, picture: picture,name:name, email:this.email_1,id_bp:this.id_client_bp,
+      rfc:this.rfc,
+      phone1:this.phone_1,
+      phone2:this.cellphone,
+      address:this.address+' '+this.colony+' '+this.zip_code+' '+this.city} 
+    });
+   }
 
-  abrirModal() {
+  details() {
     
     const dialogRef = this.dialog.open(DatosComponent, {
       width: '100%', 

@@ -9,7 +9,8 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { DatosComponent } from './datos/datos.component';
 import { NavComponent } from './nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; // Importa FormsModule aquí
+import { FormsModule } from '@angular/forms';
+import { PorfileComponent } from './porfile/porfile.component'; // Importa FormsModule aquí
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms'; // Importa FormsModule aquí
     AppComponent,
     CardsComponent,
     DatosComponent,
-    NavComponent
+    NavComponent,
+    PorfileComponent
   ],
   imports: [
     BrowserModule,
