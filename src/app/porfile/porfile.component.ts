@@ -18,9 +18,12 @@ export class PorfileComponent {
   public id_bp!:string;
   public rfc!:string;
   public phone1!:number;
+  public phone2!:number;
   public address!:string;
 
   public inputValue!:File;
+  fileSelected: boolean = false;
+
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,private _customerserviceService:CustomerserviceService) {
      this.picture =this.data.picture;
@@ -30,11 +33,17 @@ export class PorfileComponent {
      this.id_bp =  this.data.id_bp;
      this.rfc =  this.data.rfc;
      this.phone1=this.data.phone1;
+     this.phone2=this.data.phone2;
      this.address=this.data.address;
     
      
 
   }
+
+
+checkFileInput(event: any) {
+  this.fileSelected = event.target.files && event.target.files.length > 0;
+}
 
   upload(value: any) {
     const archivo = value.files[0];

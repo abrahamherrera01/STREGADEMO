@@ -9,16 +9,19 @@
             <h5 class="my-3">{{name}}</h5>
             <p class="text-muted mb-1">business Pro id: {{id_bp}}</p>
             <p class="text-muted mb-4">RFC: {{rfc}}</p>
-            <p class="text-muted mb-1">Actualizar Imagen</p>
             <hr>
 
-            <div class="d-flex justify-content-center mb-2">
-                <input type="file" #value accept=".jpg, .jpeg, .png"> <!-- id="inputValue" [(ngModel)]="inputValue"-->
-            </div>
-
-            <div class="d-flex justify-content-center mb-2">
-              <button class=" btn bg-light" [disabled]="!value" (click)="upload(value)">Actualizar</button>
-            </div>
+            <div class="d-flex justify-content-center align-items-center mb-2">
+                <mat-icon class="mr-2">edit</mat-icon>
+                <label for="inputValue" class="file-input-label">Seleccionar archivo</label>
+                <input type="file" id="inputValue" #value accept=".jpg, .jpeg, .png" style="display: none;"
+                       (change)="checkFileInput($event)">
+              </div>
+              
+              <div class="d-flex justify-content-center mb-2">
+                <button class="btn bg-primary text-light" [disabled]="!fileSelected" (click)="upload(value)">Actualizar</button>
+              </div>
+              
 
           </div>
         </div>
@@ -38,7 +41,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Email</p>
+                <p class="mb-0">Correo</p>
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">{{email}}</p>
@@ -47,7 +50,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Phone</p>
+                <p class="mb-0">Teléfono</p>
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">{{phone1}}</p>
@@ -56,10 +59,10 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <p class="mb-0">Mobile</p>
+                <p class="mb-0">Teléfono Celular</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">(098) 765-4321</p>
+                <p class="text-muted mb-0">{{phone2}}</p>
               </div>
             </div>
             <hr>
@@ -73,6 +76,7 @@
             </div>
           </div>
         </div>
+        <!--
         <div class="row">
           <div class="col-md-6">
             <div class="card mb-4 mb-md-0">
@@ -91,7 +95,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>
