@@ -10,7 +10,7 @@ import { DatosComponent } from './datos/datos.component';
 import { NavComponent } from './nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { PorfileComponent } from './porfile/porfile.component'; // Importa FormsModule aquí
+import { ProfileComponent } from './profile/profile.component'; // Importa FormsModule aquí
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { PorfileComponent } from './porfile/porfile.component'; // Importa Forms
     CardsComponent,
     DatosComponent,
     NavComponent,
-    PorfileComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

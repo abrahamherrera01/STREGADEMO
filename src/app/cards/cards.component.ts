@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DatosComponent } from '../datos/datos.component';
 import { CustomerInterface } from '../../interfaces/customer-interface';
-import { PorfileComponent } from '../porfile/porfile.component';
+import { ProfileComponent } from '../profile/profile.component';
+
 
 @Component({
   selector: 'app-cards',
@@ -31,7 +32,7 @@ export class CardsComponent {
 
  
   getporfile(id: number, picture: string,name:string) {
-    const dialogRef = this.dialog.open(PorfileComponent, {
+    const dialogRef = this.dialog.open(ProfileComponent, {
       width: '100%',
       data: { id: id, picture: picture,name:name, email:this.email_1,id_bp:this.id_client_bp,
       rfc:this.rfc,
