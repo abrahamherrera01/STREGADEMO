@@ -1,14 +1,4 @@
-.horizontal {
-    height: auto;
-    max-width: 100%;
-}
-
-.vertical {
-    width: auto;
-    max-height: 100%;
-}
-
-.horizontal-vertical {
-    max-width: 100%;
-    max-height: 100%;
-}
+img {
+  
+    object-fit:scale-down;
+  }

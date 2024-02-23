@@ -36,33 +36,37 @@ export class PorfileComponent {
 
   }
 
-  upload(value:any){
-    // console.log(this.inputValue);
+  upload(value: any) {
     const archivo = value.files[0];
-    console.log(archivo);
- 
-
-    
     Swal.fire({
-        title: "¿Quieres actualizar la Imagen?",
-        showCancelButton: true,
-        confirmButtonText: "Actualizar"
+      title: "¿Quieres actualizar la Imagen?",
+      showCancelButton: true,
+      confirmButtonText: "Actualizar"
     }).then((result) => {
-        if (result.isConfirmed) {        
-            this._customerserviceService.uploadImage(this.id,archivo)
-            .subscribe(
-              ( resp ) => {
-                if(resp.status === "success"){
-                  Swal.fire("Imagen Actualizada Correctamente", "", "success");
- 
-                }else{
-                  Swal.fire(resp.message != undefined ? resp.message : resp.errors != undefined && resp.errors.length > 0 ? resp.errors[0] : 'Ocurrió un problema', "", "error");
+      if (result.isConfirmed) {        
+        this._customerserviceService.uploadImage(this.id, archivo).subscribe(
+          (resp) => {
+            if (resp.status === "success") {
+              Swal.fire("Imagen Actualizada Correctamente", "", "success");
+  
+              // Actualizar la imagen en el <img> después de la carga exitosa
+              const reader = new FileReader();
+              reader.onload = (e) => {
+                const imgElement = document.getElementById('avatarImage') as HTMLImageElement;
+                if (imgElement && e.target) { // Verificar que tanto imgElement como e.target no sean nulos
+                  imgElement.src = e.target.result as string;
                 }
- 
-               }              
-            )  
-        }
+              };
+              reader.readAsDataURL(archivo);
+            } else {
+              Swal.fire(resp.message != undefined ? resp.message : resp.errors != undefined && resp.errors.length > 0 ? resp.errors[0] : 'Ocurrió un problema', "", "error");
+            }
+          }              
+        );  
+      }
     });
   }
+  
+  
 
 }
