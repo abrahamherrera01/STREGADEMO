@@ -34,8 +34,10 @@ export class CardsComponent {
     const dialogRef = this.dialog.open(PorfileComponent, {
       width: '100%',
       data: { id: id, picture: picture,name:name, email:this.email_1,id_bp:this.id_client_bp,
-      rfc:this.rfc,phone1:this.phone_1,
-      address:this.address} 
+      rfc:this.rfc,
+      phone1:this.phone_1,
+      phone2:this.cellphone,
+      address:this.address+' '+this.colony+' '+this.zip_code+' '+this.city} 
     });
    }
 
