@@ -66,35 +66,7 @@ export class DatosComponent implements OnInit{
     this._customerserviceServices.getVehiclesWithOrdersByCustomer(id)
       .subscribe({
         next: (response) => {
-          // console.log(response.data);
           this.datos = response.data;
-          // if (this.datos.length > 1) {
-          //   console.log('Entro');
-          //   for (let i = 0; i < this.datos.length; i++) {
-          //     // console.log(response.data[i].orders);
-          //     console.log(this.datos[i].orders);
-          //     // this.dataSource = new MatTableDataSource(response.data[i].orders[i]);
-          //     this.dataSource = new MatTableDataSource(this.datos[i].orders);
-          //   }
-          // }else{
-          //   for (let i = 0; i < this.datos.length; i++) {
-          //     // console.log(response.data[i].orders);
-          //     console.log(this.datos[i].orders[i]);
-          //     // this.dataSource = new MatTableDataSource(response.data[i].orders);
-          //     this.dataSource = new MatTableDataSource(this.datos[i].orders);
-          //   }
-          // }
-
-          // if (this.datos.length > 1) {
-          //     for (let i = 0; i < this.datos.length; i++) {
-          //       for (let j = 0; j < this.datos[i].orders.length; j++) {
-          //         console.log(this.datos[i].orders[j].id);
-          //         this.dataSource = new MatTableDataSource(this.datos[i].orders[j]);
-          //       }
-          //     }
-          //   }
-            // console.log(this.datos[1].orders[0].id);
-            
         }
       });
   }

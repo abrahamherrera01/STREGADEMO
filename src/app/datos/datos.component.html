@@ -112,7 +112,6 @@
                               </div>
                             </div>
                           </div>
-                          <!-- <hr style="border: 1px solid #707070;"> -->
                         </div>
                       </div>
                     </div>
@@ -128,24 +127,23 @@
             <div class="col-12">
               <div id="accordion" class="collapse-table">
                 <div *ngFor="let dato of datos; index as i "  class="card">
-                  <div class="card-header bg-secondary" id="heading{{i}}"> <!-- id="headingOne" -->
+                  <div class="card-header bg-secondary" id="heading{{i}}">
                     <h5 class="mb-0">
                       <button class="btn  " data-toggle="collapse" [attr.data-target]="'#collapse' + i" aria-expanded="true"
-                        [attr.aria-controls]="'collapse' + i"> <!-- #collapseOne-->
-                        <!-- <span style="font-weight: bold;">  Chevrolet Cavalier 2019 1.5 LT At Vin:LSGKB52H8KV128726</span> -->
+                        [attr.aria-controls]="'collapse' + i"> 
                         <span style="font-weight: bold;">{{ i + 1 }} {{ dato.name }} Vin: {{ dato.vin }}</span>
                       </button>
                     </h5>
                   </div>
                   
-                  <div [id]="'collapse' + i " class="collapse  dispose"  data-parent="#accordion"> <!-- id="collapseOne" aria-labelledby="headingOne" aria-labelledby="heading"-->
+                  <div [id]="'collapse' + i " class="collapse  dispose"  data-parent="#accordion">
                     <div class="card-body collapse-table " style="width: 100%; overflow-x:scroll; padding-top: 0;">
                       <table class="table sticky-table">
                         <thead>
                           <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Order ID</th>
-                            <th scope="col">Fecha Servicio</th>
+                            <th scope="col">Fecha Facturación</th>
                             <th scope="col">Costo Total</th>
                             <th scope="col">Kilometraje</th>
                             <th scope="col">Observaciones</th>
@@ -164,7 +162,8 @@
                           <tr *ngFor="let order of dato.orders">
                             <td scope="row">{{ order.id }}</td>
                             <td>{{ order.id_order_bp}}</td>
-                            <td>{{ order.service_date}}</td>
+                            <td *ngIf="order.order_type == 'aftersale' ">{{ order.service_billing_date}}</td>
+                            <td *ngIf="order.order_type == 'sale' ">{{ order.sale_billing_date}}</td>
                             <td>${{ order.total_price | number:'.2-2' }}</td>
                             <td>{{ order.order_km | number }} km</td>
                             <td>{{ order.observations }}</td>
@@ -172,8 +171,8 @@
                             <td *ngIf="order.survey != null; else elseId">{{ order.survey.satisfaction }}</td>
                             <td *ngIf="order.survey != null; else elseId">{{ order.survey.csi }}</td>
 
-                            <td *ngIf="order.order_type == 'aftersale'; else elseNps">NA</td> <!--{{order.survey.nps}}-->
-                            <ng-template #elseNps><td *ngIf="order.order_type == 'sale' && order.survey != null; else elseNpsVtas">{{order.survey.nps}}</td></ng-template> <!--*ngIf="order.survey == null"-->
+                            <td *ngIf="order.order_type == 'aftersale'; else elseNps">NA</td>
+                            <ng-template #elseNps><td *ngIf="order.order_type == 'sale' && order.survey != null; else elseNpsVtas">{{order.survey.nps}}</td></ng-template>
                             
                             <ng-template #elseNpsVtas><td>NT</td></ng-template>
                             
@@ -197,39 +196,7 @@
                           </tr>
                         </tbody>
                       </table>
-                      <!-- <table mat-table [dataSource]="dataSource" matSort>
-                        <div>
-                          <ng-container matColumnDef="id" sticky>
-                            <div style="width: 50px;">
-                              <th class="th__table" mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-                              <td  data-titulo="id" class="fw-bold td__table" mat-cell *matCellDef="let row">{{ temp }}</td>
-                            </div>
-                          </ng-container>
-                          <ng-container matColumnDef="orderId" sticky>
-                              <th class="th__table" mat-header-cell *matHeaderCellDef mat-sort-header>Order ID</th>
-                              <td  data-titulo="orderId" class="fw-bold td__table" mat-cell *matCellDef="let row">{{ row.id_order_bp }}</td>
-                          </ng-container>
-                          <ng-container matColumnDef="serviceDate" sticky>
-                              <th class="th__table" mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Servicio</th>
-                              <td  data-titulo="serviceDate" class="fw-bold td__table" mat-cell *matCellDef="let row">{{ row.service_date }}</td>
-                          </ng-container>
-                          <ng-container matColumnDef="totalPrice" sticky>
-                              <th class="th__table" mat-header-cell *matHeaderCellDef mat-sort-header>Costo Total</th>
-                              <td  data-titulo="totalPrice" class="fw-bold td__table" mat-cell *matCellDef="let row">${{ row.total_price | number:'.2-2' }}</td>
-                          </ng-container>
-                          <ng-container matColumnDef="orderKm" sticky>
-                              <th class="th__table" mat-header-cell *matHeaderCellDef mat-sort-header>Kilometraje</th>
-                              <td  data-titulo="orderKm" class="fw-bold td__table" mat-cell *matCellDef="let row">{{ row.order_km | number }} km</td>
-                          </ng-container>
-                          <ng-container matColumnDef="observations" sticky>
-                              <th class="th__table" mat-header-cell *matHeaderCellDef mat-sort-header>Observaciones</th>
-                              <td  data-titulo="observations" class="fw-bold td__table" mat-cell *matCellDef="let row">{{ row.observations}}</td>
-                          </ng-container>
-                        </div>
-
-                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                      </table> -->
+                      
                     </div>
                   </div>
                 </div>
