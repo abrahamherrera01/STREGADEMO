@@ -8,7 +8,7 @@
           <div class="row">
             <div class="col-12 text-center">
               <!-- <h3>{{ fullName }}</h3> -->
-              <h3>Ordenes de Servicio</h3>
+              <h3>Ordenes</h3>
               <hr />
             </div>
           </div>
@@ -163,8 +163,8 @@
                           <tr *ngFor="let order of dato.orders">
                             <td scope="row">{{ order.id }}</td>
                             <td>{{ order.id_order_bp}}</td>
-                            <td *ngIf="order.order_type == 'aftersale' ">{{ order.service_billing_date}}</td>
-                            <td *ngIf="order.order_type == 'sale' ">{{ order.sale_billing_date}}</td>
+                            <td *ngIf="order.order_type == 'Aftersale' ">{{ order.service_billing_date}}</td>
+                            <td *ngIf="order.order_type == 'Sale' ">{{ order.sale_billing_date}}</td>
                             <td>${{ order.total_price | number:'.2-2' }}</td>
                             <td>{{ order.order_km | number }} km</td>
                             <td>{{ order.observations }}</td>
