@@ -41,7 +41,7 @@ export class CardsComponent {
     });
    }
 
-  abrirModal() {
+  details() {
     
     const dialogRef = this.dialog.open(DatosComponent, {
       width: '100%', 
