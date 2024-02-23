@@ -24,7 +24,7 @@
 }
 
 .collapse-table {
-    max-height: 380px; /* Altura máxima del contenido */
+    max-height: 480px; /* Altura máxima del contenido */
     overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es más grande que la altura máxima */
 }
 
