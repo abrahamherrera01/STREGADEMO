@@ -1,15 +1,14 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 import Swal from "sweetalert2";
 import { CustomerserviceService } from '../services/customerservice.service';
-
 @Component({
-  selector: 'app-porfile',
-  templateUrl: './porfile.component.html',
-  styleUrls: ['./porfile.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class PorfileComponent {
+export class ProfileComponent {
 
   public picture!:string;
   public id!:string;
