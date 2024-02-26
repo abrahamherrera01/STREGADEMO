@@ -1,5 +1,5 @@
 <div class="card pt-2" style="width: 100%;">
-  <a (click)="getProfile(id, picture, full_name)">
+  <a class="btn" (click)="getProfile(id, picture, full_name)">
     <img src="{{picture}}" (error)="handleImageError()" class="card-img-top fade-in-image card-image" >
   </a>
   <div class="card-body" style="font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
