@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CustomerserviceService } from './services/customerservice.service';
 import { Customer, CustomerInterface } from 'src/interfaces/customer-interface';
 import { environment } from 'src/environments/environment';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -61,19 +62,20 @@ export class AppComponent {
       this.show = false;
       this.messageNotFound = false;
     }else {
-      this.CustomerserviceServices.getCustomers(this.firstPage, palabra )
-       .subscribe((data:CustomerInterface) => {
+      const apiCall = [
+        this.CustomerserviceServices.getCustomers(this.firstPage, palabra )
+      ];
+      forkJoin(apiCall)
+       .subscribe(([data]) => {
          this.customers = data.data.data; 
          this.totalPages = data.data.last_page;
          this.page = this.firstPage;
-       });
-       setTimeout(() => {
          if (this.customers.length !== 0) {
           this.messageNotFound = false;
          }else{
           this.messageNotFound = true;
          }
-       }, 500);
+       });
        this.show = true;
     }
   }
