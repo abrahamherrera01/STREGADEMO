@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 import Swal from "sweetalert2";
 import { CustomerserviceService } from '../services/customerservice.service';
-@Component({
+ @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
@@ -40,9 +40,9 @@ export class ProfileComponent {
   }
 
 
-checkFileInput(event: any) {
-  this.fileSelected = event.target.files && event.target.files.length > 0;
-}
+  checkFileInput(event: any) {
+    this.fileSelected = event.target.files && event.target.files.length > 0;
+  }
 
   upload(value: any) {
     const archivo = value.files[0];
@@ -56,8 +56,7 @@ checkFileInput(event: any) {
           (resp) => {
             if (resp.status === "success") {
               Swal.fire("Imagen Actualizada Correctamente", "", "success");
-  
-              // Actualizar la imagen en el <img> después de la carga exitosa
+
               const reader = new FileReader();
               reader.onload = (e) => {
                 const imgElement = document.getElementById('avatarImage') as HTMLImageElement;
@@ -66,6 +65,10 @@ checkFileInput(event: any) {
                 }
               };
               reader.readAsDataURL(archivo);
+
+              setTimeout(() => {
+                window.location.reload();
+              }, 2000);
             } else {
               Swal.fire(resp.message != undefined ? resp.message : resp.errors != undefined && resp.errors.length > 0 ? resp.errors[0] : 'Ocurrió un problema', "", "error");
             }
@@ -74,7 +77,5 @@ checkFileInput(event: any) {
       }
     });
   }
-  
-  
 
 }
