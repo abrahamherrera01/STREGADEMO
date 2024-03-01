@@ -13,6 +13,9 @@
             <mat-error *ngIf="loginForm.get('password')?.invalid">Ingresa una contraseña de al menos 6 caracteres</mat-error>
         </mat-form-field>
     
-        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>    
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid || loading"> <!-- Deshabilita el botón cuando el formulario no es válido o está cargando -->
+            <span *ngIf="!loading">Login</span> <!-- Muestra "Login" cuando no está cargando -->
+            <mat-spinner *ngIf="loading" diameter="20" color="accent"></mat-spinner> <!-- Muestra el spinner cuando está cargando -->
+        </button>    
     </form>
 </div>
