@@ -27,7 +27,7 @@ import { ProfileComponent } from './profile/profile.component'; // Importa Forms
     BrowserAnimationsModule,
     AngularMaterialModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

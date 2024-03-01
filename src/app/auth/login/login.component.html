@@ -1,0 +1,18 @@
+<div class="login-container">
+    <img src="../../../assets/logo/logostrega.png" alt="Logo" class="logo">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Ingresa tu correo electronico">
+            <mat-error *ngIf="loginForm.get('email')?.invalid">Ingresa un correo valido</mat-error>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" placeholder="Ingresta tu contraseña">
+            <mat-error *ngIf="loginForm.get('password')?.invalid">Ingresa una contraseña de al menos 6 caracteres</mat-error>
+        </mat-form-field>
+    
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>    
+    </form>
+</div>
