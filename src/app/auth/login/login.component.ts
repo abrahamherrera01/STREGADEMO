@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import Swal from "sweetalert2";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService:AuthService
+    private authService:AuthService,
+    private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -30,7 +32,8 @@ export class LoginComponent {
         (response) => {
           if( response.status === "success" ){
             localStorage.setItem('token', response.token);
-            localStorage.setItem('user', JSON.stringify(response.user));
+            localStorage.setItem('user', JSON.stringify(response.user));            
+            this.redirectTo( response.user.type );
             this.loading = false;
           }else {
             Swal.fire({
@@ -64,5 +67,25 @@ export class LoginComponent {
 
   get password() {
     return this.loginForm.get('password');
+  }
+
+  redirectTo(role: string) {
+    switch (role) {
+      case 'Customer':
+        this.router.navigate(['/customer']);
+        break;
+      case 'Sales_executive':
+        this.router.navigate(['/sales-executive']);
+        break;
+      case 'Manager':
+        this.router.navigate(['/manager']);
+        break;
+      case 'Administrator':
+        this.router.navigate(['/administrator']);
+        break;
+      default:
+        console.log('Role not recognized');
+        break;
+    }
   }
 }
