@@ -172,25 +172,25 @@
                             <td *ngIf="order.survey != null; else elseId">{{ order.survey.satisfaction }}</td>
                             <td *ngIf="order.survey != null; else elseId">{{ order.survey.csi }}</td>
 
-                            <td *ngIf="order.order_type == 'aftersale'; else elseNps">NA</td>
-                            <ng-template #elseNps><td *ngIf="order.order_type == 'sale' && order.survey != null; else elseNpsVtas">{{order.survey.nps}}</td></ng-template>
+                            <td *ngIf="order.order_type == 'Aftersale'; else elseNps">NA</td>
+                            <ng-template #elseNps><td *ngIf="order.order_type == 'Sale' && order.survey != null; else elseNpsVtas">{{order.survey.nps}}</td></ng-template>
                             
                             <ng-template #elseNpsVtas><td>NT</td></ng-template>
                             
-                            <td *ngIf="order.order_type == 'sale'; else elseRecommend">NA</td>
-                            <ng-template #elseRecommend><td *ngIf="order.order_type == 'aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.recomendation}}</td></ng-template>
+                            <td *ngIf="order.order_type == 'Sale'; else elseRecommend">NA</td>
+                            <ng-template #elseRecommend><td *ngIf="order.order_type == 'Aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.recomendation}}</td></ng-template>
                             
-                            <td *ngIf="order.order_type == 'sale' else elseEfficiency">NA</td>
-                            <ng-template #elseEfficiency> <td *ngIf="order.order_type == 'aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.efficiency}}</td></ng-template>
+                            <td *ngIf="order.order_type == 'Sale' else elseEfficiency">NA</td>
+                            <ng-template #elseEfficiency> <td *ngIf="order.order_type == 'Aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.efficiency}}</td></ng-template>
                             
-                            <td *ngIf="order.order_type == 'sale' else elseAdvisor">NA</td>
-                            <ng-template #elseAdvisor> <td *ngIf="order.order_type == 'aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.advisor}}</td></ng-template>
+                            <td *ngIf="order.order_type == 'Sale' else elseAdvisor">NA</td>
+                            <ng-template #elseAdvisor> <td *ngIf="order.order_type == 'Aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.advisor}}</td></ng-template>
                             
-                            <td *ngIf="order.order_type == 'sale' else elseJob">NA</td>
-                            <ng-template #elseJob> <td *ngIf="order.order_type == 'aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.job}}</td></ng-template>
+                            <td *ngIf="order.order_type == 'Sale' else elseJob">NA</td>
+                            <ng-template #elseJob> <td *ngIf="order.order_type == 'Aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.job}}</td></ng-template>
 
-                            <td *ngIf="order.order_type == 'sale' else elseComments">NA</td>
-                            <ng-template #elseComments> <td *ngIf="order.order_type == 'aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.comments}}</td></ng-template>
+                            <td *ngIf="order.order_type == 'Sale' else elseComments">NA</td>
+                            <ng-template #elseComments> <td *ngIf="order.order_type == 'Aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.comments}}</td></ng-template>
                             
                             <td *ngIf="order.incidence != null; else elseId">{{order.incidence.name}}</td>
                             
