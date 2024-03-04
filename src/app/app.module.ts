@@ -8,14 +8,12 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { DatosComponent } from './datos/datos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ProfileComponent } from './profile/profile.component'; // Importa FormsModule aquí
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DatosComponent,
-    ProfileComponent
   ],
   imports: [
     BrowserModule,
