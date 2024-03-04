@@ -18,9 +18,10 @@ export class LoginComponent {
     private authService:AuthService,
     private router: Router
   ) {
+    this.user_exists();
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required]]
     });
   }
 
@@ -43,8 +44,7 @@ export class LoginComponent {
             this.loading = false;
           }      
         },
-        (error) => {
-          console.error('Error al iniciar sesión:', error);
+        (error) => {          
           Swal.fire({
             icon: "error",            
             text: 'Error al iniciar sesión:' + error            
@@ -87,5 +87,14 @@ export class LoginComponent {
         console.log('Role not recognized');
         break;
     }
+  }
+
+  user_exists():void {
+    let userString = localStorage.getItem('user');
+    if( userString != undefined ){
+      let user =  JSON.parse(userString);
+      this.redirectTo( user.type);
+    }
+
   }
 }
