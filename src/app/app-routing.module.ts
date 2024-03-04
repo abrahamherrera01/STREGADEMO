@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'sales-executive', loadChildren: () => import('./users/sales-executive/sales-executive.module').then(m => m.SalesExecutiveModule) },
   { path: 'manager', loadChildren: () => import('./users/manager/manager.module').then(m => m.ManagerModule) },
   { path: 'administrator', loadChildren: () => import('./users/administrator/administrator.module').then(m => m.AdministratorModule) },
+  { path: 'clients', loadChildren: () => import('./clients/clients.module').then(m => m.ClientsModule) },
   { path: '**', redirectTo: 'auth' }
 ];
 
