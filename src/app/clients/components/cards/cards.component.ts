@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DatosComponent } from '../../../datos/datos.component';
+import { DatosComponent } from '../datos/datos.component';
 import { ProfileComponent } from '../profile/profile.component';
  
 

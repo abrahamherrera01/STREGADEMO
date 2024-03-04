@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CustomerserviceService } from '../services/customerservice.service';
+import { CustomerserviceService } from 'src/app/services/customerservice.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Order } from 'src/interfaces/vehicles-order-by-customer.interface';
 import { MatSort } from '@angular/material/sort';

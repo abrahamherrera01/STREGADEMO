@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { FormsModule } from '@angular/forms';
 import { NavComponent } from '../shared/nav/nav.component';
+import { DatosComponent } from './components/datos/datos.component';
 
 
  
@@ -18,7 +19,8 @@ import { NavComponent } from '../shared/nav/nav.component';
     ProfileComponent,
     SearchComponent,
     CardsComponent,
-    NavComponent
+    NavComponent,
+    DatosComponent
   ],
   imports: [
     CommonModule,
