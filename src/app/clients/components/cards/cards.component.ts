@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DatosComponent } from '../datos/datos.component';
 import { ProfileComponent } from '../profile/profile.component';
+ 
 
 @Component({
   selector: 'app-cards',
@@ -9,6 +10,7 @@ import { ProfileComponent } from '../profile/profile.component';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent {
+
 
   constructor(public dialog: MatDialog) {}
 
@@ -28,6 +30,7 @@ export class CardsComponent {
   @Input() colony!: string;
   @Input() address!: string;
   @Input() zip_code!: string;
+
 
   handleImageError() {
     this.picture = '../../assets/logo/ICON.svg';
@@ -72,4 +75,5 @@ export class CardsComponent {
       }
     });
   }
+
 }
