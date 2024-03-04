@@ -5,15 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
-import { DatosComponent } from './datos/datos.component';
-import { HttpClientModule } from '@angular/common/http';
+ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DatosComponent,
   ],
   imports: [
     BrowserModule,
