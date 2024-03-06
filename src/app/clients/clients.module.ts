@@ -8,8 +8,8 @@ import { CardsComponent } from './components/cards/cards.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { FormsModule } from '@angular/forms';
-import { NavComponent } from '../shared/nav/nav.component';
 import { DatosComponent } from './components/datos/datos.component';
+import { SharedModule } from '../shared/shared.module';
 
 
  
@@ -18,8 +18,7 @@ import { DatosComponent } from './components/datos/datos.component';
   declarations: [
     ProfileComponent,
     SearchComponent,
-    CardsComponent,
-    NavComponent,
+    CardsComponent,    
     DatosComponent
   ],
   imports: [
@@ -27,7 +26,8 @@ import { DatosComponent } from './components/datos/datos.component';
     ClientsRoutingModule,
     MatFormFieldModule,
     AngularMaterialModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class ClientsModule { }

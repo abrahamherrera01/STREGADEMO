@@ -8,12 +8,14 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
 
 @NgModule({
   declarations: [
-    NavComponent,
-    
+    NavComponent,    
   ],
   imports: [
     CommonModule,
     AngularMaterialModule
+  ],
+  exports: [
+    NavComponent
   ]
 })
 export class SharedModule { }
