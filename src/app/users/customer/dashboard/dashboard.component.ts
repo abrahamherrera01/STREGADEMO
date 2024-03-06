@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavItem } from 'src/app/shared/nav/nav.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +7,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-
+  navItems:NavItem[] = [
+    {
+      name: "Subida manual de cartera de leads",
+      path: ""
+    },
+    {
+      name: "Asignar/Desasignar leads",
+      path: ""
+    },
+    {
+      name: "Asignar/Desasignar cartera",
+      path: ""
+    },
+    {
+      name: "Administrar gestor",
+      path: ""
+    },
+    {
+      name: "Administrar ejecutivo de ventas",
+      path: ""
+    },
+    {
+      name: "Generar reportes",
+      path: ""
+    },
+  ]
 }

@@ -1,37 +1,38 @@
 .logo{
-    margin-left: 10%;
+    margin-left: 1%;
 }
 
-
-h1 {
-    padding: 0 1rem;
+.mat-toolbar {
+    justify-content: space-between;
+}
+  
+.logout-button {
+    margin-left: auto; 
 }
 
-h2 {padding: 1rem;}
-
- 
-
-mat-sidenav-container {
-    height:100%;
+.opt-toolbar {
+    font-size: 12px;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 150px;
+    line-height: 1.2;
 }
 
- mat-sidenav {
-    padding-top: 3.5rem;
-    @media screen and (min-width: 600px) {
-      padding-top: 4rem;
+.spacer {
+    flex-grow: 1;
+}
+
+@media only screen and (max-width: 1100px) {
+    .opt-toolbar,
+    .logout-button,
+    .logo {
+        display: none;
     }
+}
 
-    .entry{
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding:0.75rem;
-    }
-  }
-
- mat-sidenav-content{
-    padding-top: 3.5rem;
-    @media screen and (min-width: 600px) {
-        padding-top: 4rem;
+@media only screen and (min-width: 1100px) {
+    .show-menu {
+        display: none;
     }
 }
