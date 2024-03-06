@@ -23,6 +23,7 @@ export class ProfileComponent {
 
   public inputValue!:File;
   fileSelected: boolean = false;
+  message_picture=false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,private _customerserviceService:CustomerserviceService) {
     this.picture =this.data.picture;
@@ -36,8 +37,20 @@ export class ProfileComponent {
     this.address=this.data.address; 
   }
 
-  checkFileInput(event: any) {
-    this.fileSelected = event.target.files && event.target.files.length > 0;
+  checkFileInput(event: any, value: any) {
+    this.fileSelected = event.target.files && event.target.files.length > 0;  
+    this.message_picture=true;
+    const imagev = value.files[0];
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const imgElement = document.getElementById('ImageUpload') as HTMLImageElement;
+      if (imgElement && e.target) { 
+        imgElement.src = e.target.result as string;
+      }
+    };
+    reader.readAsDataURL(imagev);
+ 
   }
 
   upload(value: any) {
