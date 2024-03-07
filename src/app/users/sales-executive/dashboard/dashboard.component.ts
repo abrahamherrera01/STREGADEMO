@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavItem } from 'src/app/shared/nav/nav.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-
+  navItems:NavItem[] = [
+    {
+      name: "Cartera asignada",
+      path: ""
+    }
+  ];
 }
