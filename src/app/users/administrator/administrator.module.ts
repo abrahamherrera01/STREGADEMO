@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { AdministratorRoutingModule } from './administrator-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { AngularMaterialModule } from 'src/app/angular-material/angular-material.module';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
-    AdministratorRoutingModule
+    AdministratorRoutingModule,
+    SharedModule,
+    AngularMaterialModule
   ]
 })
 export class AdministratorModule { }
