@@ -33,10 +33,12 @@ export class SearchComponent  implements OnInit{
   constructor(private CustomerserviceServices: CustomerserviceService) { }
 
   ngOnInit(): void {
-    const lastSearch = localStorage.getItem('last_search');
-    if (lastSearch) {
-      this.lastSearch = lastSearch;
-      this.search(lastSearch);
+    const last = localStorage.getItem('last_search');
+    console.log(last);
+    if (last) {
+      this.lastSearch = last;
+ 
+      this.search(last);
     }
   }
 
@@ -65,18 +67,26 @@ export class SearchComponent  implements OnInit{
       const apiCall = [
         this.CustomerserviceServices.getCustomers(this.firstPage, palabra)
       ];
-      forkJoin(apiCall)
-        .subscribe(([data]) => {
-          this.customers = data.data.data; 
-          this.totalPages = data.data.last_page;
-          this.page = this.firstPage;
-          if (this.customers.length !== 0) {
-            this.messageNotFound = false;
-          } else {
-            this.messageNotFound = true;
+      
+ 
+      forkJoin(apiCall).subscribe(
+        {
+          next: ([data]) => {
+            this.customers = data.data.data; 
+            this.totalPages = data.data.last_page;
+            this.page = this.firstPage;
+            if (this.customers.length !== 0) {
+              this.messageNotFound = false;
+            } else {
+              this.messageNotFound = true;
+            }
+            this.show = true;
+          },
+          error: (error) => {
+            console.log(error);
           }
-        });
-      this.show = true;
+        }        
+      );
     }
   }
 
@@ -87,10 +97,26 @@ export class SearchComponent  implements OnInit{
       return;
     }
     this.page = this.page + 1;
-    this.CustomerserviceServices.getCustomers(this.page, this.palabra_busqueda).subscribe((data: CustomerInterface) => {
-      this.customers = data.data.data; 
-      this.totalPages = this.totalPages;
-    });
+    const apiCall = [
+      this.CustomerserviceServices.getCustomers(this.page, this.palabra_busqueda)
+    ];
+    forkJoin(apiCall).subscribe(
+      {
+        next: ([data]) => {
+          this.customers = data.data.data; 
+          this.totalPages = this.totalPages;
+          if (this.customers.length !== 0) {
+            this.messageNotFound = false;
+          } else {
+            this.messageNotFound = true;
+          }
+          this.show = true;
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      }        
+    );
   }
 
   previous() {
@@ -99,11 +125,28 @@ export class SearchComponent  implements OnInit{
       return;
     }
     this.page = this.page - 1;
-    this.CustomerserviceServices.getCustomers(this.page, this.palabra_busqueda).subscribe((data: CustomerInterface) => {
-      this.customers = data.data.data; 
-      this.totalPages = this.totalPages;
-    });
+    const apiCall = [
+      this.CustomerserviceServices.getCustomers(this.page, this.palabra_busqueda)
+    ];
+    forkJoin(apiCall).subscribe(
+      {
+        next: ([data]) => {
+          this.customers = data.data.data; 
+          this.totalPages = this.totalPages;
+          if (this.customers.length !== 0) {
+            this.messageNotFound = false;
+          } else {
+            this.messageNotFound = true;
+          }
+          this.show = true;
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      }        
+    );
+
   }
 
-
 }
+

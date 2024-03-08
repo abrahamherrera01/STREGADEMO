@@ -30,27 +30,30 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe(
-        (response) => {
-          if( response.status === "success" ){
-            localStorage.setItem('token', response.token);
-            localStorage.setItem('user', JSON.stringify(response.user));            
-            this.redirectTo( response.user.type );
-            this.loading = false;
-          }else {
+        {
+          next: ({ code, status, message, token, user }) => {
+            if (code === 200 && status === 'success') {
+              localStorage.setItem('token', token);
+              localStorage.setItem('user', JSON.stringify(user));            
+              this.redirectTo( user.type );
+              this.loading = false;
+            } else {
+              Swal.fire({
+                icon: "error",            
+                text: 'Error al iniciar sesión: ' + message            
+              });
+              this.loading = false;
+            }
+          },
+
+          error: (error) => {
             Swal.fire({
               icon: "error",            
-              text: 'Error al iniciar sesión: ' + response.message            
+              text: 'Error al iniciar sesión:' + error            
             });
             this.loading = false;
-          }      
-        },
-        (error) => {          
-          Swal.fire({
-            icon: "error",            
-            text: 'Error al iniciar sesión:' + error            
-          });
-          this.loading = false;
-        }
+          }
+        }        
       );
     } else {      
       Swal.fire({

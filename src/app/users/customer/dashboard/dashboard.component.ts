@@ -7,30 +7,5 @@ import { NavItem } from 'src/app/shared/nav/nav.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  navItems:NavItem[] = [
-    {
-      name: "Subida manual de cartera de leads",
-      path: ""
-    },
-    {
-      name: "Asignar/Desasignar leads",
-      path: ""
-    },
-    {
-      name: "Asignar/Desasignar cartera",
-      path: ""
-    },
-    {
-      name: "Administrar gestor",
-      path: ""
-    },
-    {
-      name: "Administrar ejecutivo de ventas",
-      path: ""
-    },
-    {
-      name: "Generar reportes",
-      path: ""
-    },
-  ]
+  navItems:NavItem[] = [];
 }

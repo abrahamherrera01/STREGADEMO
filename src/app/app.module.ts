@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
  import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 
 @NgModule({
@@ -20,6 +21,9 @@ import { FormsModule } from '@angular/forms';
     AngularMaterialModule,
     HttpClientModule,
     FormsModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
  
   providers: [],

@@ -2,3 +2,8 @@ img {
   
     object-fit:scale-down;
   }
+
+  .box {
+    max-height: 900px; 
+    overflow-y: auto;
+  }
