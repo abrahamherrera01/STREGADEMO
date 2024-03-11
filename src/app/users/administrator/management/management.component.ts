@@ -10,6 +10,10 @@ import { HorizontalBarData } from 'src/app/graphics/interfaces/horizontal-bar.in
   styleUrls: ['./management.component.css']
 })
 export class ManagementComponent implements OnInit {
+  breadcrumbItems = [
+    { text: 'Dashboard', link: '/administrator/dashboard' },    
+    { text: 'Gestion' }
+  ];
   
   pieData1: PieData = {    
     title: 'Leads Atendidos'
