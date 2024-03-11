@@ -1,0 +1,25 @@
+.breadcrumb {
+    padding: 8px 15px;
+    margin: 0;
+    list-style: none;    
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+  
+.breadcrumb-item {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    font-weight: bold;
+}
+
+.breadcrumb-item:last-child {
+    font-weight: bold;
+}
+  
