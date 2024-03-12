@@ -189,8 +189,7 @@
                               <td *ngIf="order.order_type == 'Sale' else elseJob">NA</td>
                               <ng-template #elseJob> <td *ngIf="order.order_type == 'Aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.job}}</td></ng-template>
   
-                              <td *ngIf="order.order_type == 'Sale' else elseComments">NA</td>
-                              <ng-template #elseComments> <td *ngIf="order.order_type == 'Aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.comments}}</td></ng-template>
+                              <td *ngIf="order.survey != null; else elseNpsVtas">{{order.survey.comments}}</td>
                               
                               <td *ngIf="order.incidence != null; else elseId">{{order.incidence.name}}</td>
                               
