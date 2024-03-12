@@ -151,10 +151,10 @@
                               <th scope="col">Satisfacción</th>
                               <th scope="col">CSI</th>
                               <th scope="col">NPS</th>
-                              <th scope="col">Recomendación</th>
+                              <!-- <th scope="col">Recomendación</th>
                               <th scope="col">Eficiencia</th>
                               <th scope="col">Asesor</th>
-                              <th scope="col">Trabajo</th>
+                              <th scope="col">Trabajo</th> -->
                               <th scope="col">Comentarios</th>
                               <th scope="col">Incidencia</th>
                             </tr>
@@ -177,7 +177,7 @@
                               
                               <ng-template #elseNpsVtas><td>NT</td></ng-template>
                               
-                              <td *ngIf="order.order_type == 'Sale'; else elseRecommend">NA</td>
+                              <!-- <td *ngIf="order.order_type == 'Sale'; else elseRecommend">NA</td>
                               <ng-template #elseRecommend><td *ngIf="order.order_type == 'Aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.recomendation}}</td></ng-template>
                               
                               <td *ngIf="order.order_type == 'Sale' else elseEfficiency">NA</td>
@@ -187,7 +187,7 @@
                               <ng-template #elseAdvisor> <td *ngIf="order.order_type == 'Aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.advisor}}</td></ng-template>
                               
                               <td *ngIf="order.order_type == 'Sale' else elseJob">NA</td>
-                              <ng-template #elseJob> <td *ngIf="order.order_type == 'Aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.job}}</td></ng-template>
+                              <ng-template #elseJob> <td *ngIf="order.order_type == 'Aftersale' && order.survey != null; else elseNpsVtas">{{order.survey.job}}</td></ng-template> -->
   
                               <td *ngIf="order.survey != null; else elseNpsVtas">{{order.survey.comments}}</td>
                               
