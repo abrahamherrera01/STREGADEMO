@@ -10,7 +10,7 @@ export class DashboardComponent {
   navItems:NavItem[] = [
     {
       name: "Subida manual de cartera de leads",
-      path: ""
+      path: "load-leads-and-wallet"
     },
     {
       name: "Asignar/Desasignar leads",
