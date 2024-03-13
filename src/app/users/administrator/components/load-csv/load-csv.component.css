@@ -1,0 +1,87 @@
+.mat-mdc-card {
+    margin: 25px 0px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+}
+
+.select-container {
+    flex-grow: 1; 
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.title {
+    margin-right: auto; 
+}
+
+.select-field {
+    margin-left: 16px; 
+}
+
+.file-input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.custom-file-input {
+    display: none; 
+}
+
+.custom-file-label {
+    padding: 40px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.custom-file-label:hover {
+    background-color: #e0e0e0;
+}
+
+.custom-file-label:active {
+    background-color: #d0d0d0;
+}
+
+.custom-file-label:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+}
+
+.actions-container {
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.actions-container button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.custom-textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    width: 100%;
+    box-sizing: border-box;
+    resize: none; /* Evita que el usuario pueda redimensionar el textarea */
+}
+
+.custom-textarea:hover {
+    background-color: #e0e0e0;
+}
+
+.custom-textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #fff;
+}

@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManagementComponent } from './management/management.component';
+import { LoadLeadsAndWalletComponent } from './load-leads-and-wallet/load-leads-and-wallet.component';
+import { ManageLeadsComponent } from './manage-leads/manage-leads.component';
+import { ManageWalletComponent } from './manage-wallet/manage-wallet.component';
 
 const routes: Routes = [
   { path: 'dashboard', 
     component: DashboardComponent, 
     children: [
       { path: '', component: ManagementComponent },
+      { path: 'load-leads-and-wallet', component: LoadLeadsAndWalletComponent },
+      { path: 'manage-leads', component: ManageLeadsComponent },
+      { path: 'manage-wallet', component: ManageWalletComponent },
       { path: '', redirectTo: '', pathMatch: 'full' }
     ]
   },    
