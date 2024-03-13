@@ -1,3 +1,7 @@
+.mat-mdc-card {
+    margin: 25px 0px;
+}
+
 .header-container {
     display: flex;
     align-items: center;

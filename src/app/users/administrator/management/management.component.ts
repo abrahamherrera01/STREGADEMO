@@ -16,27 +16,33 @@ export class ManagementComponent implements OnInit {
   ];
   
   pieData1: PieData = {    
-    title: 'Leads Atendidos'
+    title: 'Leads Atendidos',
+    width: '90%'
   }
 
   pieData2: PieData = {    
-    title: 'Clientes encuestados'
+    title: 'Clientes encuestados',
+    width: '90%'
   }
 
   doughnutData:DoughnutData = {    
-    title: 'Citas agendadas'
+    title: 'Citas agendadas',
+    width: '90%'
   }
 
   stackedLineData:StackedLineData = {    
-    title: 'Comparación semana anterior'
+    title: 'Comparación semana anterior',
+    width: '90%'
   }
 
   datasetBarData:DatasetBarData = {    
-    title: 'Desempeño gestores'
+    title: 'Desempeño gestores',
+    width: '90%'
   }
 
   horizontalBarData:HorizontalBarData = {    
-    title: 'Tickets atendidos'
+    title: 'Tickets atendidos',
+    width: '90%'
   }
 
   ngOnInit(): void {}

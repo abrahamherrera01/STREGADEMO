@@ -9,12 +9,15 @@ import { ManagementComponent } from './management/management.component';
 import { GraphicsModule } from 'src/app/graphics/graphics.module';
 import { LoadLeadsAndWalletComponent } from './load-leads-and-wallet/load-leads-and-wallet.component';
 import { LoadCsvComponent } from './components/load-csv/load-csv.component';
+import { ManageLeadsComponent } from './manage-leads/manage-leads.component';
+import { ManageLeadsOrWalletComponent } from './components/manage-leads-or-wallet/manage-leads-or-wallet.component';
+import { ManageWalletComponent } from './manage-wallet/manage-wallet.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,    
-    ManagementComponent, LoadLeadsAndWalletComponent, LoadCsvComponent
+    ManagementComponent, LoadLeadsAndWalletComponent, LoadCsvComponent, ManageLeadsComponent, ManageLeadsOrWalletComponent, ManageWalletComponent
   ],
   imports: [
     CommonModule,

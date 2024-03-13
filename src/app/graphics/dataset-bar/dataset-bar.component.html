@@ -3,7 +3,7 @@
       <mat-card-title>{{ datasetBarData.title }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <div [id]="domId" class="graph"></div>
+        <div [id]="domId" class="graph" [style]="'width: ' + datasetBarData.width + ';'"></div>
         <mat-divider></mat-divider>
     </mat-card-content>    
 </mat-card>  

@@ -14,11 +14,11 @@ export class DashboardComponent {
     },
     {
       name: "Asignar/Desasignar leads",
-      path: ""
+      path: "manage-leads"
     },
     {
       name: "Asignar/Desasignar cartera",
-      path: ""
+      path: "manage-wallet"
     },
     {
       name: "Administrar gestor",
