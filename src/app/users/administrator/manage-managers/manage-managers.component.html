@@ -1,0 +1,29 @@
+<app-breadcrumb [items]="breadcrumbItems"></app-breadcrumb>
+
+<mat-card class="animate__animated animate__pulse card">
+    <mat-card-content>
+        <div class="row">
+            <div class="col d-flex justify-content-end">
+                <mat-form-field>
+                    <mat-label>Selecciona una marca</mat-label>
+                    <mat-select>
+                        <mat-option value="marca1">Marca 1</mat-option>
+                        <mat-option value="marca2">Marca 2</mat-option>
+                        <mat-option value="marca3">Marca 3</mat-option>
+                    </mat-select>                
+                </mat-form-field> 
+            </div>
+            <div class="col">
+                <button mat-fab color="primary" 
+                        matTooltip="Agregar un gestor"  
+                        matTooltipPosition="after" 
+                        aria-label="Botón para agregar un gestor" 
+                        class="animate__animated animate__rubberBand"
+                        (click)="addManager()"
+                >
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>       
+        </div>
+    </mat-card-content>
+</mat-card>
