@@ -1,0 +1,75 @@
+<mat-card class="animate__animated animate__fadeIn">
+    <mat-card-header>        
+        <mat-card-title>Dar de alta a gestor</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="addManager()" class="p-3">
+            <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <input matInput placeholder="Nombre(s)" required formControlName="name">
+                    <mat-error *ngIf="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)">
+                        Nombre(s) es obligatorio.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <input matInput placeholder="Apellidos" required formControlName="surname">
+                    <mat-error *ngIf="form.get('surname')?.invalid && (form.get('surname')?.dirty || form.get('surname')?.touched)">
+                        Apellidos son obligatorios.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <input matInput type="tel" placeholder="Teléfono" required formControlName="phone">
+                    <mat-error *ngIf="form.get('phone')?.invalid && (form.get('phone')?.dirty || form.get('phone')?.touched)">
+                        Agrega un telefono valido 
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <input matInput type="email" placeholder="Email" required formControlName="email">
+                    <mat-error *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
+                        Agrega un email valido 
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <input matInput type="password" placeholder="Contraseña" required formControlName="password">
+                    <mat-error *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched)">
+                        La contraseña debe tener al menos 6 caracteres
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <input matInput type="password" placeholder="Confirmar Contraseña" required formControlName="confirmPassword">                    
+                    <mat-error *ngIf="form.get('confirmPassword')?.invalid">
+                        Las contraseñas no coinciden
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            </div>
+            <div class="row">
+                <button mat-raised-button color="primary" class="animate__animated appear-animation" [disabled]="form.invalid">Agregar</button>                
+            </div>
+        </form>
+
+        <div>
+            
+        </div>
+        <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-footer>
+        <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+  

@@ -22,7 +22,7 @@ export class DashboardComponent {
     },
     {
       name: "Administrar gestor",
-      path: ""
+      path: "manage-managers"
     },
     {
       name: "Administrar ejecutivo de ventas",
