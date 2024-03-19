@@ -24,7 +24,7 @@
         </div>
 
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-5 content-table">
                 <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">                    
                     <ng-container matColumnDef="add">
                       <th mat-header-cell *matHeaderCellDef> Add </th>
@@ -57,11 +57,15 @@
             </div>
             <div class="col-md-2 d-flex justify-content-center align-items-center vh-50">
                 <div class="content-buttons">
-                    <button mat-raised-button color="primary" class="animate__animated animate__shakeX  animate__slow mb-3">Asignar {{ type }}</button>                                    
-                    <button mat-raised-button color="primary" class="animate__animated animate__shakeX  animate__slow">Desasignar {{ type }}</button>                
+                    <p>
+                      <button mat-raised-button color="primary" class="animate__animated animate__shakeX  animate__slow mt-3">Asignar {{ type }}</button>                                    
+                    </p>         
+                    <p>
+                      <button mat-raised-button color="primary" class="animate__animated animate__shakeX  animate__slow">Desasignar {{ type }}</button>                
+                    </p>                               
                 </div>                
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 content-table">
                 <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">                    
                     <ng-container matColumnDef="add">
                       <th mat-header-cell *matHeaderCellDef> Add </th>

@@ -1,5 +1,6 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, Inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-manager',
@@ -11,10 +12,19 @@ export class AddManagerComponent {
   passwordCorrect:boolean = false;
   loading: boolean = false;
 
+  title = 'Dar de alta a gestor';
+  text_button = 'Agregar';
+
   constructor(
     private formBuilder: FormBuilder,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private dialogRef: MatDialogRef<AddManagerComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    if( data.manager_id != null ){
+      this.title = 'Actualizar gestor';
+      this.text_button = 'Actualizar';
+    }
     this.form = new FormGroup({
       name: new FormControl('', Validators.required),
       surname: new FormControl('', Validators.required),
@@ -44,7 +54,8 @@ export class AddManagerComponent {
       console.log('Formulario válido, datos:', this.form.value);
       setTimeout(() => {
         this.loading = false;
-      }, 2000)            
+        this.dialogRef.close();
+      }, 3000)            
     } else {
       console.error('El form no es válido. Por favor, verifica los campos.');
     }
