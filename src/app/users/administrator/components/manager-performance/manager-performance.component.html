@@ -1,0 +1,27 @@
+<mat-card class="animate__animated animate__fadeIn">
+    <mat-card-header>      
+      <mat-card-title>Desempeño de gestor</mat-card-title>
+    </mat-card-header>    
+    <mat-card-content>
+      <div class="row mt-3">
+        <div class="col-md-6 col-sm-12">      
+            <app-pie [pieData]="pieData1"></app-pie>             
+        </div>
+        <div class="col-md-6 col-sm-12">      
+            <app-pie [pieData]="pieData2"></app-pie>             
+        </div>
+      </div>   
+      <div class="row mt-3">
+        <div class="col-md-6 col-sm-12">      
+            <app-horizontal-bar [horizontalBarData]="horizontalBarData"></app-horizontal-bar>             
+        </div>  
+        <div class="col-md-6 col-sm-12">   
+            <app-stacked-line [stackedLineData]="stackedLineData"></app-stacked-line>             
+        </div>
+      </div>            
+    </mat-card-content>    
+    <mat-card-footer>
+      <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>
+  

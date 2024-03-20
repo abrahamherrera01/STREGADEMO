@@ -4,27 +4,28 @@
 
 .content-table {    
     max-height: 400px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    border-radius: 8px; /* Bordes redondeados para la tabla */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para la tabla */
+    overflow-y: auto;            
+    padding: 0px;
 }
 
-/* Estilo para la barra de desplazamiento */
+.content-table h6 {
+    padding: 0px 10px;
+}
+
 .content-table::-webkit-scrollbar {        
     height: 5px;  
     width: 10px !important;  
 }
 
 .content-table::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Color de fondo de la barra de desplazamiento */
+    background: #f1f1f1; 
 }
 
 .content-table::-webkit-scrollbar-thumb {
-    background: #888; /* Color del agarre de la barra de desplazamiento */
-    border-radius: 50px; /* Bordes redondeados para el agarre */
+    background: #888; 
+    border-radius: 50px; 
 }
 
 .content-table::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Cambio de color al pasar el cursor sobre la barra de desplazamiento */
+    background: #555; 
 }
