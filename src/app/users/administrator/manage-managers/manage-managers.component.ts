@@ -2,6 +2,7 @@ import { Component, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddManagerComponent } from '../components/add-manager/add-manager.component';
 import Swal from "sweetalert2";
+import { ManagerPerformanceComponent } from '../components/manager-performance/manager-performance.component';
 export interface Lead {
   name: string;
   age: number;  
@@ -55,6 +56,17 @@ export class ManageManagersComponent {
 
     const dialogRef = this.dialog.open(AddManagerComponent, {
       data: { manager_id:manager_id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal ha sido cerrado');
+    });
+  }
+
+  managerPerformance( manager_id:number ){
+    const dialogRef = this.dialog.open(ManagerPerformanceComponent, {
+      data: { manager_id:manager_id },
+      width: '1000px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
