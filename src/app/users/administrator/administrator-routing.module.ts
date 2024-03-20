@@ -6,6 +6,7 @@ import { LoadLeadsAndWalletComponent } from './load-leads-and-wallet/load-leads-
 import { ManageLeadsComponent } from './manage-leads/manage-leads.component';
 import { ManageWalletComponent } from './manage-wallet/manage-wallet.component';
 import { ManageManagersComponent } from './manage-managers/manage-managers.component';
+import { ManageSalesExecutivesComponent } from './manage-sales-executives/manage-sales-executives.component';
 
 const routes: Routes = [
   { path: 'dashboard', 
@@ -16,6 +17,7 @@ const routes: Routes = [
       { path: 'manage-leads', component: ManageLeadsComponent },
       { path: 'manage-wallet', component: ManageWalletComponent },
       { path: 'manage-managers', component: ManageManagersComponent },
+      { path: 'manage-sales-executives', component: ManageSalesExecutivesComponent },
       { path: '', redirectTo: '', pathMatch: 'full' }
     ]
   },    

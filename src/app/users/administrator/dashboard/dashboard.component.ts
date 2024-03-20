@@ -26,7 +26,7 @@ export class DashboardComponent {
     },
     {
       name: "Administrar ejecutivo de ventas",
-      path: ""
+      path: "manage-sales-executives"
     },
     {
       name: "Generar reportes",
