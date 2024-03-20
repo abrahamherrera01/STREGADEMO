@@ -16,12 +16,13 @@ import { ManageManagersComponent } from './manage-managers/manage-managers.compo
 import { AddManagerComponent } from './components/add-manager/add-manager.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ManagerPerformanceComponent } from './components/manager-performance/manager-performance.component';
+import { ManageSalesExecutivesComponent } from './manage-sales-executives/manage-sales-executives.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,    
-    ManagementComponent, LoadLeadsAndWalletComponent, LoadCsvComponent, ManageLeadsComponent, ManageLeadsOrWalletComponent, ManageWalletComponent, ManageManagersComponent, AddManagerComponent, ManagerPerformanceComponent
+    ManagementComponent, LoadLeadsAndWalletComponent, LoadCsvComponent, ManageLeadsComponent, ManageLeadsOrWalletComponent, ManageWalletComponent, ManageManagersComponent, AddManagerComponent, ManagerPerformanceComponent, ManageSalesExecutivesComponent
   ],
   imports: [
     CommonModule,

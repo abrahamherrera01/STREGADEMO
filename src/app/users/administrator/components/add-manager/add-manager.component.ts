@@ -21,6 +21,7 @@ export class AddManagerComponent {
     private dialogRef: MatDialogRef<AddManagerComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
+    //this.title = data.title;
     if( data.manager_id != null ){
       this.title = 'Actualizar gestor';
       this.text_button = 'Actualizar';

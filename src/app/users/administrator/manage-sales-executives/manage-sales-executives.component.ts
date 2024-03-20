@@ -1,8 +1,8 @@
 import { Component, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 import { AddManagerComponent } from '../components/add-manager/add-manager.component';
-import Swal from "sweetalert2";
-import { ManagerPerformanceComponent } from '../components/manager-performance/manager-performance.component';
+
 export interface Manager {
   name: string;
   age: number;  
@@ -24,18 +24,18 @@ const ELEMENT_DATA2: Manager[] = [
   { name: 'Neon', age: 22, email: 'Ne282@gmail.com'},
 ];
 @Component({
-  selector: 'app-manage-managers',
-  templateUrl: './manage-managers.component.html',
-  styleUrls: ['./manage-managers.component.css']
+  selector: 'app-manage-sales-executives',
+  templateUrl: './manage-sales-executives.component.html',
+  styleUrls: ['./manage-sales-executives.component.css']
 })
-export class ManageManagersComponent {
+export class ManageSalesExecutivesComponent {
   breadcrumbItems = [
     { text: 'Dashboard', link: '/administrator/dashboard' },    
-    { text: 'Administrar gestores' }
+    { text: 'Administrar ejecutivos de ventas' }
   ];
 
   displayedColumns: string[] = ['add', 'nombre', 'edad', 'email'];
-  managersToBeAssigned: string[] = ['add', 'nombre', 'edad', 'email', 'actualizar', 'revisar', 'eliminar'];
+  managersToBeAssigned: string[] = ['add', 'nombre', 'edad', 'email', 'actualizar', 'eliminar'];
   dataSource1 = ELEMENT_DATA1;
   dataSource2 = ELEMENT_DATA2;
 
@@ -44,7 +44,7 @@ export class ManageManagersComponent {
     private dialog: MatDialog
   ) { }
 
-  addManagerOrUpdate( manager_id:number|null = null ) {
+  addSaleExecutiveOrUpdate( manager_id:number|null = null ){
     if( manager_id === null ){
       // animación al dar click 
       const button = this.elementRef.nativeElement.querySelector('.add_manager');
@@ -56,17 +56,6 @@ export class ManageManagersComponent {
 
     const dialogRef = this.dialog.open(AddManagerComponent, {
       data: { manager_id:manager_id }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('El modal ha sido cerrado');
-    });
-  }
-
-  managerPerformance( manager_id:number ){
-    const dialogRef = this.dialog.open(ManagerPerformanceComponent, {
-      data: { manager_id:manager_id },
-      width: '1000px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
