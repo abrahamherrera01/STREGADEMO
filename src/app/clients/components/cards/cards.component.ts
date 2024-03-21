@@ -49,7 +49,8 @@ export class CardsComponent {
         rfc: this.rfc,
         phone1: this.phone_1,
         phone2: this.cellphone,
-        address: this.address+' '+this.colony+' '+this.zip_code+' '+this.city
+        address: this.address+' '+this.colony+' '+this.zip_code+' '+this.city,
+        sum_orders: this.sum_orders,
       } 
     });
   }

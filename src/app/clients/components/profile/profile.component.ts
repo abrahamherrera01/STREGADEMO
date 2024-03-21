@@ -41,7 +41,7 @@ export class ProfileComponent {
     this.address=this.data.address; 
 
     this.getVehiclesWithOrdersByCustomer( +this.id );
-    this.sum_order = 1000;
+    this.sum_order = this.data.sum_orders;    
   }
 
   checkFileInput(event: any, value: any) {
