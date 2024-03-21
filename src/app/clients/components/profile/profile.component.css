@@ -63,7 +63,7 @@ section {
   color: white;
   background-color: #15344A;   
   left: 50%; 
-  top: -0.5%;
+  top: -3px;
   transform: translate(-50%, -50%); 
   border-radius: 20px;
   padding: 5px 15px;  
@@ -71,7 +71,7 @@ section {
 }
 
 .v-sum_order {
-  width: 250px; 
+  width: 350px; 
   height: 0;
   border-bottom: 40px solid #15344A; 
   border-left: 20px solid transparent; 
