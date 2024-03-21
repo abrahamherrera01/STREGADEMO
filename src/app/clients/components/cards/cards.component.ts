@@ -39,6 +39,7 @@ export class CardsComponent {
   getProfile(id: number, picture: string, name: string) {
     const dialogRef = this.dialog.open(ProfileComponent, {
       width: '1700px',
+      maxHeight: '80vh',
       data: { 
         id: id, 
         picture: picture,
