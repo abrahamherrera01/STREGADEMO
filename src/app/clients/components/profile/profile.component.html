@@ -127,6 +127,13 @@
                       {{ order.order_km | number }} km
                     </div>
                     <mat-divider></mat-divider>
+                    <div class="col-12">
+                      <span>Observaciones: {{ order.observations }}</span> 
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="col-12">
+                      <span>Satisfacción: {{ order.survey?.satisfaction }}</span> 
+                    </div>
                   </div> 
                 </div>                               
               </mat-expansion-panel>            
@@ -180,6 +187,14 @@
                       {{ order.order_km | number }} km
                     </div>
                     <mat-divider></mat-divider>
+                    <div class="col-12">
+                      <span>Observaciones: {{ order.observations }}</span> 
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="col-12">
+                      <span>Satisfacción: {{ order.survey?.satisfaction }}</span> 
+                    </div>       
+                    <mat-divider></mat-divider>             
                   </div> 
                 </div>                               
               </mat-expansion-panel>            
