@@ -1,17 +1,16 @@
-<section style="background-color: #eee;" >
+<section class="container-fluid">
   <div class="container p-2">
     <div class="row">
-      <div class="col-lg-4 box" >
+      <div class="col-lg-4 box">
         <div class="card mb-4">
           <div class="card-body text-center">
             <div class="img-container">
               <img id="avatarImage" src="{{picture}}" alt="avatar">
-            </div>            
+            </div>
             <h5 class="my-3">{{name}}</h5>
-            <p class=
-            "text-muted mb-1">business Pro id: {{id_bp}}</p>
+            <p class="text-muted mb-1">business Pro id: {{id_bp}}</p>
             <p class="text-muted mb-4">RFC: {{rfc}}</p>
-            <hr>
+
             <div class="d-flex justify-content-center align-items-center mb-2">
               <mat-icon class="mr-2">edit</mat-icon>
               <label for="inputValue" class="file-input-label">Actualizar Imagen </label>
@@ -19,7 +18,8 @@
                 (change)="checkFileInput($event ,value)">
             </div>
             <div class="alert  " role="alert" *ngIf="message_picture">
-              Imagen seleccionada<hr>
+              Imagen seleccionada
+              <hr>
               <img id="ImageUpload" src="" alt="avatar" class="rounded-3 " width="40%">
               <div class="d-flex justify-content-center mb-5">
                 <button class="btn bg-primary text-light mt-4 mb-3" [disabled]="!fileSelected"
@@ -30,10 +30,10 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-8">
-        <div class="card mb-4">
-          <div class="card-body">
-            <div class="row">
+      <div class="col-lg-8 test">
+        <div class=" mb-4">
+          <div class="">
+            <div class="row field">
               <div class="col-sm-3">
                 <p class="mb-0">Nombre Completo</p>
               </div>
@@ -41,8 +41,8 @@
                 <p class="text-muted mb-0">{{name}}</p>
               </div>
             </div>
-            <hr>
-            <div class="row">
+
+            <div class="row field">
               <div class="col-sm-3">
                 <p class="mb-0">Correo</p>
               </div>
@@ -50,8 +50,8 @@
                 <p class="text-muted mb-0">{{email}}</p>
               </div>
             </div>
-            <hr>
-            <div class="row">
+
+            <div class="row field">
               <div class="col-sm-3">
                 <p class="mb-0">Teléfono</p>
               </div>
@@ -59,8 +59,8 @@
                 <p class="text-muted mb-0">{{phone1}}</p>
               </div>
             </div>
-            <hr>
-            <div class="row">
+
+            <div class="row field">
               <div class="col-sm-3">
                 <p class="mb-0">Teléfono Celular</p>
               </div>
@@ -68,8 +68,8 @@
                 <p class="text-muted mb-0">{{phone2}}</p>
               </div>
             </div>
-            <hr>
-            <div class="row">
+
+            <div class="row field">
               <div class="col-sm-3">
                 <p class="mb-0">Dirección</p>
               </div>
@@ -79,26 +79,116 @@
             </div>
           </div>
         </div>
-        <!--
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card mb-4 mb-md-0">
-                <div class="card-body">
-                  <p class="mb-4"><span class="text-primary font-italic me-1">Ventas</span> 
-                  </p>
-                
+        <div class="vehicles">
+          <div class="v-title">
+            Venta
+          </div>
+          <div class="sale v-container">            
+            <mat-accordion>
+              <mat-expansion-panel *ngFor="let dato of datos; index as i">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{ i + 1 }} {{ dato.name }} Vin: {{ dato.vin }}
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row o-row o-row-title">
+                  <div class="col">
+                    ID
+                  </div>
+                  <div class="col">
+                    ORDER ID
+                  </div>
+                  <div class="col">
+                    FECHA DE FACTURACIÓN
+                  </div>
+                  <div class="col">
+                    COSTO TOTAL
+                  </div>
+                  <div class="col">
+                    KILOMETRAJE
+                  </div>  
+                  <mat-divider></mat-divider>                                  
                 </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card mb-4 mb-md-0">
-                <div class="card-body">
-                  <p class="mb-4"><span class="text-primary font-italic me-1">Postventa</span> 
-                  </p>
+                <div *ngFor="let order of dato.orders">
+                  <div class="row o-row" *ngIf="order.order_type == 'Sale'">
+                    <div class="col">
+                      {{ order.id }}
+                    </div>
+                    <div class="col">
+                      {{ order.id_order_bp}}
+                    </div>
+                    <div class="col">
+                      {{ order.service_date }}
+                    </div>
+                    <div class="col">
+                      ${{ order.total_price | number:'.2-2' }}
+                    </div>
+                    <div class="col">
+                      {{ order.order_km | number }} km
+                    </div>
+                    <mat-divider></mat-divider>
+                  </div> 
+                </div>                               
+              </mat-expansion-panel>            
+            </mat-accordion>  
+          </div>
+
+          <div class="v-title">
+            Postventa
+          </div>
+          <div class="aftersale v-container">            
+            <mat-accordion>
+              <mat-expansion-panel *ngFor="let dato of datos; index as i">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{ i + 1 }} {{ dato.name }} Vin: {{ dato.vin }}
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row o-row o-row-title">
+                  <div class="col">
+                    ID
+                  </div>
+                  <div class="col">
+                    ORDER ID
+                  </div>
+                  <div class="col">
+                    FECHA DE FACTURACIÓN
+                  </div>
+                  <div class="col">
+                    COSTO TOTAL
+                  </div>
+                  <div class="col">
+                    KILOMETRAJE
+                  </div>  
+                  <mat-divider></mat-divider>                                  
                 </div>
-              </div>
-            </div>
-          </div>-->
+                <div *ngFor="let order of dato.orders">
+                  <div class="row o-row" *ngIf="order.order_type == 'Aftersale'">
+                    <div class="col">
+                      {{ order.id }}
+                    </div>
+                    <div class="col">
+                      {{ order.id_order_bp}}
+                    </div>
+                    <div class="col">
+                      {{ order.service_date }}
+                    </div>
+                    <div class="col">
+                      ${{ order.total_price | number:'.2-2' }}
+                    </div>
+                    <div class="col">
+                      {{ order.order_km | number }} km
+                    </div>
+                    <mat-divider></mat-divider>
+                  </div> 
+                </div>                               
+              </mat-expansion-panel>            
+            </mat-accordion>  
+          </div>
+          <div class="aftersale">
+
+          </div>                  
+        </div>        
       </div>
     </div>
   </div>
