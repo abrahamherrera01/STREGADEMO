@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 import Swal from "sweetalert2";
 import { CustomerserviceService } from 'src/app/services/customerservice.service';
+import { Datum } from 'src/interfaces/vehicles-order-by-customer.interface';
 
 @Component({
   selector: 'app-profile',
@@ -21,6 +22,9 @@ export class ProfileComponent {
   public phone2!:number;
   public address!:string;
 
+  public datos!: Datum[];
+  public sum_order:number;
+
   public inputValue!:File;
   fileSelected: boolean = false;
   message_picture=false;
@@ -35,6 +39,9 @@ export class ProfileComponent {
     this.phone1=this.data.phone1;
     this.phone2=this.data.phone2;
     this.address=this.data.address; 
+
+    this.getVehiclesWithOrdersByCustomer( +this.id );
+    this.sum_order = 1000;
   }
 
   checkFileInput(event: any, value: any) {
@@ -85,6 +92,16 @@ export class ProfileComponent {
         );  
       }
     });
+  }
+
+  public getVehiclesWithOrdersByCustomer(id: number){
+    this._customerserviceService.getVehiclesWithOrdersByCustomer(id)
+      .subscribe({
+        next: (response) => {
+          this.datos = response.data;
+          console.log(this.datos);
+        }
+      });
   }
 
 }

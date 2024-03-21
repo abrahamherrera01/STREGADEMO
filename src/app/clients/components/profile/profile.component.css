@@ -1,3 +1,6 @@
+section {
+  background-color: #d6d6d6;
+}
 .img-container {
   background-color: #15344A;
   width: 100%; /* Ancho deseado */
@@ -33,4 +36,48 @@
   background-image: linear-gradient(to right, #08F3FA, #07BDF2, #0882EA);  
   border: 0px solid transparent; 
   z-index: 0; 
+}
+
+.test {  
+  padding: 0px;
+  margin: 0px;  
+  overflow: hidden;
+}
+.field {
+  background-color: white;
+  margin: 0 10px;
+  margin-bottom: 8px;
+  padding: 10px 5px;
+  border-radius: 10px;
+}
+
+.vehicles {  
+  background-color: #fff;
+  padding: 15px;
+}
+
+.v-container {
+  background-color: #d6d6d6;
+  padding: 0px 20px 20px 20px;
+  border-radius: 0 0 30px 30px;
+  margin-bottom: 20px;
+}
+
+.v-title {
+  text-align: center;
+  color: white;
+  background-color: #15344A;
+  font-size: 20px;
+  padding: 5px 0;  
+}
+
+.o-row {
+  padding: 5px 0px;
+  font-size: 10px;
+}
+
+.o-row-title {  
+  font-size: 10px;
+  background-color: #15344A;
+  color: white;
 }
