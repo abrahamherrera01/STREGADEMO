@@ -89,10 +89,10 @@
           <div class="sale v-container"> 
             <mat-progress-bar mode="indeterminate" *ngIf="order_loading" class="pt-3"></mat-progress-bar>           
             <mat-accordion>
-              <mat-expansion-panel *ngFor="let dato of datos; index as i">
+              <mat-expansion-panel *ngFor="let saleVehicle of saleVehicles; index as i">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    {{ i + 1 }} {{ dato.name }} Vin: {{ dato.vin }}
+                    {{ i + 1 }} {{ saleVehicle.name }} Vin: {{ saleVehicle.vin }}
                   </mat-panel-title>
                 </mat-expansion-panel-header>
                 <div class="row o-row o-row-title">
@@ -113,7 +113,7 @@
                   </div>  
                   <mat-divider></mat-divider>                                  
                 </div>
-                <div *ngFor="let order of dato.orders">
+                <div *ngFor="let order of saleVehicle.orders">
                   <div class="row o-row" *ngIf="order.order_type == 'Sale'">
                     <div class="col">
                       {{ order.id }}
@@ -150,10 +150,10 @@
           <div class="aftersale v-container"> 
             <mat-progress-bar mode="indeterminate" *ngIf="order_loading" class="pt-3"></mat-progress-bar>                      
             <mat-accordion>
-              <mat-expansion-panel *ngFor="let dato of datos; index as i">
+              <mat-expansion-panel *ngFor="let aftersaleVehicle of aftersaleVehicles; index as i">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
-                    {{ i + 1 }} {{ dato.name }} Vin: {{ dato.vin }}
+                    {{ i + 1 }} {{ aftersaleVehicle.name }} Vin: {{ aftersaleVehicle.vin }}
                   </mat-panel-title>
                 </mat-expansion-panel-header>
                 <div class="row o-row o-row-title">
@@ -174,7 +174,7 @@
                   </div>  
                   <mat-divider></mat-divider>                                  
                 </div>
-                <div *ngFor="let order of dato.orders">
+                <div *ngFor="let order of aftersaleVehicle.orders">
                   <div class="row o-row" *ngIf="order.order_type == 'Aftersale'">
                     <div class="col">
                       {{ order.id }}

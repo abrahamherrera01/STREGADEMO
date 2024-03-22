@@ -82,6 +82,7 @@ section {
   transform: translateX(-50%); 
   display: flex;
   justify-content: center; 
+  border-radius: 50px 50px 0 0;
 }
 
 .v-sum_order span {

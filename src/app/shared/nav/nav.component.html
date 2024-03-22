@@ -7,7 +7,7 @@
   <button mat-button class="opt-toolbar" *ngFor="let item of navItems" [routerLink]="item.path">
     {{ item.name }}
   </button>
-  <button mat-icon-button class="logout-button" (click)="logout($event)">
+  <button mat-icon-button class="logout-button" (click)="logout($event)" *ngIf="logged">
     <mat-icon>exit_to_app</mat-icon>
   </button>
 </mat-toolbar>

@@ -12,6 +12,7 @@ export interface NavItem {
 })
 export class NavComponent implements OnDestroy {
   @Input() navItems!: NavItem[];
+  logged:boolean;
   
   isMenuOpen: boolean = false;
 
@@ -22,6 +23,7 @@ export class NavComponent implements OnDestroy {
   ) {
     this.clickListener = this.onDocumentClick.bind(this);
     document.addEventListener('click', this.clickListener);
+    this.logged = this.isLogged();
   }
 
   ngOnDestroy() {
@@ -52,6 +54,16 @@ export class NavComponent implements OnDestroy {
     
     if (!target.closest('.mat-sidenav') && !target.closest('.mat-mdc-button-touch-target') && this.isMenuOpen) {
       this.isMenuOpen = false;      
+    }
+  }
+
+  isLogged():boolean {
+    const user = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
+    if( user == undefined && token == undefined ){
+      return false;
+    }else{
+      return true;
     }
   }
 }
