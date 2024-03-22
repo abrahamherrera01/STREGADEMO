@@ -23,6 +23,8 @@ export class ProfileComponent {
   public address!:string;
 
   public datos!: Datum[];
+  public saleVehicles!: Datum[];
+  public aftersaleVehicles!: Datum[];
   public sum_order:number;
   public order_loading:boolean = false;
 
@@ -101,7 +103,9 @@ export class ProfileComponent {
       .subscribe({
         next: (response) => {
           this.datos = response.data;
-          this.order_loading = false;
+          this.saleVehicles = response.saleVehicles;
+          this.aftersaleVehicles = response.aftersaleVehicles;
+          this.order_loading = false;          
         }
       });
   }
