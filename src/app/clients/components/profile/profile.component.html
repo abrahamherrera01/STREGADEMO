@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-8 test">
+      <div class="col-lg-8 test">        
         <div class=" mb-4">
           <div class="">
             <div class="row field">
@@ -79,14 +79,15 @@
             </div>
           </div>
         </div>
-        <div class="vehicles">
+        <div class="vehicles animate__animated animate__fadeIn animate__slow">
           <div class="v-principal-title">
             Ventas
           </div>
           <div class="v-title">
             Venta
           </div>
-          <div class="sale v-container">            
+          <div class="sale v-container"> 
+            <mat-progress-bar mode="indeterminate" *ngIf="order_loading" class="pt-3"></mat-progress-bar>           
             <mat-accordion>
               <mat-expansion-panel *ngFor="let dato of datos; index as i">
                 <mat-expansion-panel-header>
@@ -146,7 +147,8 @@
           <div class="v-title">
             Postventa
           </div>
-          <div class="aftersale v-container">            
+          <div class="aftersale v-container"> 
+            <mat-progress-bar mode="indeterminate" *ngIf="order_loading" class="pt-3"></mat-progress-bar>                      
             <mat-accordion>
               <mat-expansion-panel *ngFor="let dato of datos; index as i">
                 <mat-expansion-panel-header>
