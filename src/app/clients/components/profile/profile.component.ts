@@ -24,6 +24,7 @@ export class ProfileComponent {
 
   public datos!: Datum[];
   public sum_order:number;
+  public order_loading:boolean = false;
 
   public inputValue!:File;
   fileSelected: boolean = false;
@@ -95,11 +96,12 @@ export class ProfileComponent {
   }
 
   public getVehiclesWithOrdersByCustomer(id: number){
+    this.order_loading = true;
     this._customerserviceService.getVehiclesWithOrdersByCustomer(id)
       .subscribe({
         next: (response) => {
           this.datos = response.data;
-          console.log(this.datos);
+          this.order_loading = false;
         }
       });
   }
