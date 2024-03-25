@@ -1,15 +1,31 @@
-<div class="card pt-2" style="width: 100%;">
-    <a class="btn" (click)="getProfile(id, picture, full_name)">
-      <img src="{{picture}}" (error)="handleImageError()" class="card-img-top fade-in-image card-image" >
-    </a>
-    <div class="card-body" style="font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-      <span class="card-text">Nombre Cliente: {{full_name}} </span><br>
-      <span class="card-text">RFC: {{rfc}}</span>
-      <p class="card-text">id: {{id}}</p>
-    </div>
-    <mat-card-actions class="text-center">
-      <button style="width: 100%; color: white;  background-color: rgb(67,81,175);"   mat-button (click)="details()">Ver
-        Detalles</button>
-    </mat-card-actions>
-  </div>
-  
+<div class="card">
+  <a class="btn" (click)="getProfile(id, picture, full_name)">
+    <div class="row">
+      <div class="col-5">
+        <div class="margen">
+          <div class="img-container" >
+            <img id="avatarImage" src="{{picture}}" (error)="handleImageError()" alt="avatar"
+              class="animate__animated animate__fadeIn">
+          </div>
+        </div>
+      </div>
+      <div class="col-4 text" >
+        <div class="text-start">
+          <p>
+            <span class="txt">Nombre Cliente:</span>  {{full_name}} <br>
+            <span class="txt">RFC:</span>  {{rfc}} <br>
+            <span class="txt">ID:</span>  {{id}} <br>
+          </p>
+        </div>
+      </div>
+      <div class="col-2">
+        <button class="btns">DETALLES</button>
+      </div>
+     </div>
+  </a>
+  <!-- 
+  <mat-card-actions class="text-center">
+    <button style="width: 100%; color: white;  background-color: rgb(67,81,175);" mat-button (click)="details()">Ver
+      Detalles</button>
+  </mat-card-actions>-->
+</div>

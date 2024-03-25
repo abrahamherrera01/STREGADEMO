@@ -1,0 +1,42 @@
+.bgg{
+    background-color: rgb(216, 216, 216);
+ 
+}
+.form{
+    background: #15344A;
+    color: white;
+    height: 80%;
+    padding-left: 20px !important;
+    border-radius: 25px;
+    z-index: -1;
+}
+
+.resultados-container {
+    max-height: 630px; /* Ajusta este valor según sea necesario */
+    overflow-y: auto;
+    background-color: rgb(236, 236, 236);
+    border-radius: 20px;
+  }
+  
+  .mg{
+    margin-top: -100px;
+  }
+
+  .form-control{
+    border-radius: 20px;
+}
+
+::placeholder {
+  color: rgb(175,175,175);
+  opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: rgb(175,175,175);
+}
+
+.btn{
+  background-color: rgb(38,55,222);
+  color: white;
+  width: 40%;
+}
