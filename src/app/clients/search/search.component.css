@@ -1,0 +1,16 @@
+.bgg{
+    background-color: rgb(216, 216, 216);
+}
+.form{
+     background-color: #15344A;
+    color: white;
+    height: 80%;
+    padding-left: 20px !important;
+    border-radius: 15px;
+}
+
+.resultados-container {
+    max-height: 600px; /* Ajusta este valor según sea necesario */
+    overflow-y: auto;
+  }
+  

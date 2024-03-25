@@ -36,3 +36,8 @@
         display: none;
     }
 }
+
+.nv{
+    background-color: rgb(29,51,72) ;
+    color: white !important;
+}

@@ -1,15 +1,22 @@
-<div class="card pt-2" style="width: 100%;">
-    <a class="btn" (click)="getProfile(id, picture, full_name)">
-      <img src="{{picture}}" (error)="handleImageError()" class="card-img-top fade-in-image card-image" >
-    </a>
-    <div class="card-body" style="font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-      <span class="card-text">Nombre Cliente: {{full_name}} </span><br>
-      <span class="card-text">RFC: {{rfc}}</span>
-      <p class="card-text">id: {{id}}</p>
+<div class="card">
+  <a class="btn" (click)="getProfile(id, picture, full_name)">
+    <div class="row">
+      <div class="col-5">
+        <div class="img-container" >
+          <img id="avatarImage" src="{{picture}}" (error)="handleImageError()" alt="avatar"
+            class="animate__animated animate__fadeIn">
+        </div>
+      </div>
+      <div class="col-7">
+        <p>Nombre Cliente: {{full_name}} </p><br>
+        <span>RFC: {{rfc}}</span>
+        <p> id: {{id}}</p>
+      </div>
     </div>
-    <mat-card-actions class="text-center">
-      <button style="width: 100%; color: white;  background-color: rgb(67,81,175);"   mat-button (click)="details()">Ver
-        Detalles</button>
-    </mat-card-actions>
-  </div>
-  
+  </a>
+  <!-- 
+  <mat-card-actions class="text-center">
+    <button style="width: 100%; color: white;  background-color: rgb(67,81,175);" mat-button (click)="details()">Ver
+      Detalles</button>
+  </mat-card-actions>-->
+</div>

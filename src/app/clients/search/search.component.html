@@ -1,61 +1,79 @@
- <app-nav></app-nav>
- <div class="container-fluid p-4 pt-0 ">
+<div class="bgg">
+  <app-nav></app-nav>
+  <div class="container-fluid ">
+    <div class="row">
+      <div class="col-5 p-4 pt-0 pb-0">
+        <h2 class="text-center">BUSCA  A TU CLIENTE</h2>
+      </div>
+    </div>
+    <div class="row buscador ">
+       <div class="col-5  p-4 pt-0 pb-0">
+        <div class="p-3 pt-0 form">
+          <div class="col-12 ">
+            <mat-form-field class="chip-list " appearance="outline">
+              <mat-label>Buscar por nombre, email o teléfono</mat-label>
+              <input matInput [(ngModel)]="palabra_busqueda"
+                (keyup.enter)="search(palabra_busqueda, displayName = 'name')" [disabled]="isName">
+              <mat-icon matSuffix (click)="search(palabra_busqueda)">search</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="col-12">
+            <mat-form-field class="chip-list" appearance="outline">
+              <mat-label>Buscar por vin</mat-label>
+              <input matInput [(ngModel)]="palabra_vin" (keyup.enter)="search(palabra_vin, displayVin = 'vin')"
+                [disabled]="isVin">
+              <mat-icon matSuffix>
+                directions_car
+              </mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
 
-   <div class="row">
-     <div class="col-12 col-xl-6 col-md-6 col-sm-12">
-       <mat-form-field class="chip-list" appearance="outline">
-         <mat-label>Buscar por nombre, email o teléfono</mat-label>
-         <input matInput [(ngModel)]="palabra_busqueda" (keyup.enter)="search(palabra_busqueda, displayName = 'name')"
-           [disabled]="isName">
-         <mat-icon matSuffix (click)="search(palabra_busqueda)">search</mat-icon>
-       </mat-form-field>
-     </div>
-     <div class="col-12 col-xl-6 col-md-6 col-sm-12">
-       <mat-form-field class="chip-list" appearance="outline">
-         <mat-label>Buscar por vin</mat-label>
-         <input matInput [(ngModel)]="palabra_vin" (keyup.enter)="search(palabra_vin, displayVin = 'vin')"
-           [disabled]="isVin">
-         <mat-icon matSuffix>
-           directions_car
-         </mat-icon>
-       </mat-form-field>
-     </div>
-   </div>
+      <div class="col-7 resultados-container">
+        <div *ngIf="show" class="row ">
+          <app-cards class="col-12 pb-3" *ngFor="let customer of customers; index as i;"
+            [full_name]="customer.full_name" [rfc]="customer.rfc" [id]="customer.id"
+            [sum_orders]="customer.sum_orders[0].total_total_price" [id_client_bp]="customer.id_client_bp"
+            [gender]="customer.gender" [phone_1]="customer.phone_1" [phone_2]="customer.phone_2"
+            [cellphone]="customer.cellphone" [email_1]="customer.email_1" [city]="customer.city"
+            [delegacy]="customer.delegacy" [colony]="customer.colony" [address]="customer.address"
+            [zip_code]="customer.zip_code" [picture]="baseUrl + (customer.picture ? customer.picture : 'strega')">
+          </app-cards>
+        </div>
 
-   <div *ngIf="show" class="row">
-     <app-cards class="col-12 col-xl-4 col-lg-4 col-md-4 col-sm-12 ml-2 mt-3"
-       *ngFor="let customer of customers; index as i;" [full_name]="customer.full_name" [rfc]="customer.rfc"
-       [id]="customer.id" [sum_orders]="customer.sum_orders[0].total_total_price" [id_client_bp]="customer.id_client_bp"
-       [gender]="customer.gender" [phone_1]="customer.phone_1" [phone_2]="customer.phone_2"
-       [cellphone]="customer.cellphone" [email_1]="customer.email_1" [city]="customer.city"
-       [delegacy]="customer.delegacy" [colony]="customer.colony" [address]="customer.address"
-       [zip_code]="customer.zip_code" [picture]="baseUrl + (customer.picture ? customer.picture : 'strega')">
-     </app-cards>
-   </div>
+        <div *ngIf="messageNotFound">
+          <ul>
+            <li class="page-item">
+              La búsqueda realizada no se encuentra.
+            </li>
+          </ul>
+        </div>
 
-   <div *ngIf="messageNotFound">
-     <ul>
-       <li class="page-item">
-         La búsqueda realizada no se encuentra.
-       </li>
-     </ul>
-   </div>
- </div>
+      </div>
+
+    </div>
 
 
- <div *ngIf="show" class="row container-fluid">
-   <nav aria-label="Page navigation example">
-     <ul class="pagination justify-content-end">
-       <li class="page-item " style="margin-right: 30px;">
-         {{page}} de {{totalPages}}
-       </li>
-       <li class="page-item  ">
-         <button class="page-link " [ngClass]="{'previousbutton': previousbutton, 'disabled': !previousbutton}"
-           tabindex="-1" (click)="previous()">Previous</button>
-       </li>
-       <li class="page-item">
-         <button class="page-link" (click)="next()">Next</button>
-       </li>
-     </ul>
-   </nav>
- </div>
+
+
+  </div>
+
+
+  <div *ngIf="show" class="row container-fluid">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class="page-item " style="margin-right: 30px;">
+          {{page}} de {{totalPages}}
+        </li>
+        <li class="page-item  ">
+          <button class="page-link " [ngClass]="{'previousbutton': previousbutton, 'disabled': !previousbutton}"
+            tabindex="-1" (click)="previous()">Previous</button>
+        </li>
+        <li class="page-item">
+          <button class="page-link" (click)="next()">Next</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
