@@ -45,6 +45,8 @@ export class ManageManagersComponent {
   ) { }
 
   addManagerOrUpdate( manager_id:number|null = null ) {
+    let title:string = 'Dar de alta a gestor';
+    let text_button:string = 'Guardar';
     if( manager_id === null ){
       // animación al dar click 
       const button = this.elementRef.nativeElement.querySelector('.add_manager');
@@ -52,10 +54,16 @@ export class ManageManagersComponent {
       void button.offsetWidth;
       button.classList.add('animate__rubberBand');
       // fin animación al dar click    
-    }    
+    }else{
+      title = 'Actualizar datos del gestor';
+      text_button = 'Actualizar';
+    }
 
     const dialogRef = this.dialog.open(AddManagerComponent, {
-      data: { manager_id:manager_id }
+      data: { manager_id:manager_id,
+        title,
+        text_button
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

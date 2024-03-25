@@ -2,6 +2,12 @@ import { Component, ElementRef, Inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
+export interface Data {    
+  title: string;
+  text_button:string;
+  manager_id: number;  
+}
+
 @Component({
   selector: 'app-add-manager',
   templateUrl: './add-manager.component.html',
@@ -10,22 +16,14 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class AddManagerComponent {
   form: FormGroup;
   passwordCorrect:boolean = false;
-  loading: boolean = false;
-
-  title = 'Dar de alta a gestor';
-  text_button = 'Agregar';
+  loading: boolean = false;  
 
   constructor(
     private formBuilder: FormBuilder,
     private elementRef: ElementRef,
     private dialogRef: MatDialogRef<AddManagerComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    //this.title = data.title;
-    if( data.manager_id != null ){
-      this.title = 'Actualizar gestor';
-      this.text_button = 'Actualizar';
-    }
+    @Inject(MAT_DIALOG_DATA) public data: Data
+  ) {    
     this.form = new FormGroup({
       name: new FormControl('', Validators.required),
       surname: new FormControl('', Validators.required),
