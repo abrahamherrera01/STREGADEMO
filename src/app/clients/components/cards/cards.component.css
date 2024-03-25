@@ -1,8 +1,8 @@
 .img-container {
     background-color: #15344A;
-    width: 70%; 
+    width: 50%; 
     position: relative;
-    padding-top: 70%; 
+    padding-top: 50%; 
     border-radius: 10px; 
      
   }
@@ -36,9 +36,20 @@
     z-index: 0; 
   }
 
+.text{
+  font-size: 15px;
+}
 
+.txt{
+  color: #15344A !important;
+  font-weight: bold;
+}
 
-   
-   
-   
+.btns
+{
+  margin-top: 100%;
+  background-color: rgb(31,69,181);
+  color: white;
+}
+ 
   

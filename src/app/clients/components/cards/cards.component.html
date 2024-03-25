@@ -2,17 +2,26 @@
   <a class="btn" (click)="getProfile(id, picture, full_name)">
     <div class="row">
       <div class="col-5">
-        <div class="img-container" >
-          <img id="avatarImage" src="{{picture}}" (error)="handleImageError()" alt="avatar"
-            class="animate__animated animate__fadeIn">
+        <div class="margen">
+          <div class="img-container" >
+            <img id="avatarImage" src="{{picture}}" (error)="handleImageError()" alt="avatar"
+              class="animate__animated animate__fadeIn">
+          </div>
         </div>
       </div>
-      <div class="col-7">
-        <p>Nombre Cliente: {{full_name}} </p><br>
-        <span>RFC: {{rfc}}</span>
-        <p> id: {{id}}</p>
+      <div class="col-4 text" >
+        <div class="text-start">
+          <p>
+            <span class="txt">Nombre Cliente:</span>  {{full_name}} <br>
+            <span class="txt">RFC:</span>  {{rfc}} <br>
+            <span class="txt">ID:</span>  {{id}} <br>
+          </p>
+        </div>
       </div>
-    </div>
+      <div class="col-2">
+        <button class="btns">DETALLES</button>
+      </div>
+     </div>
   </a>
   <!-- 
   <mat-card-actions class="text-center">
