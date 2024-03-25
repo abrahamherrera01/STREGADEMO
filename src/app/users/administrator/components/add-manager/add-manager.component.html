@@ -1,6 +1,6 @@
 <mat-card class="animate__animated animate__fadeIn">
     <mat-card-header>        
-        <mat-card-title>{{ title }}</mat-card-title>
+        <mat-card-title>{{ data.title }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="addManager()" class="p-3">
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="row">
-                <button mat-raised-button color="primary" class="animate__animated appear-animation" [disabled]="form.invalid">{{ text_button }}</button>                
+                <button mat-raised-button color="primary" class="animate__animated appear-animation" [disabled]="form.invalid">{{ data.text_button }}</button>                
             </div>
         </form>        
         <mat-divider></mat-divider>
