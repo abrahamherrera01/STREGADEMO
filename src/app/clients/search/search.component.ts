@@ -37,6 +37,7 @@ export class SearchComponent  implements OnInit{
 
   onSubmit(form: NgForm){
         this.form=form;
+        this.page = 1;
         this.CustomerserviceServices.getCustomers(this.page,form.value).subscribe(
           (data) => { 
             console.log(data.data.data);
@@ -61,7 +62,8 @@ export class SearchComponent  implements OnInit{
 
   next() {
     this.previousbutton = true;
-    if (this.page == this.totalPages) {
+    if (this.page == this.totalPages ) {
+     
       this.nextbutton = false;
       return;
     }
