@@ -35,24 +35,27 @@ export class SearchComponent  implements OnInit{
   constructor(private CustomerserviceServices: CustomerserviceService) { }
 
 
-  onSubmit(form: NgForm){
-        this.form=form;
-        this.page = 1;
-        this.CustomerserviceServices.getCustomers(this.page,form.value).subscribe(
-          (data) => { 
-            console.log(data.data.data);
-            this.customers = data.data.data; 
-            this.totalPages = data.data.last_page;
-           }              
-        );     
-        if(this.customers.length ==0 ){
-          this.messageNotFound =true;
-        }
-        else{
-          this.messageNotFound =false;
+  onSubmit(form: NgForm) {
+    this.form = form;
+    this.page = 1;
+    this.CustomerserviceServices.getCustomers(this.page, form.value).subscribe(
+      (data) => { 
+        console.log(data.data.data);
+        this.customers = data.data.data; 
+        this.totalPages = data.data.last_page;
+  
+        if (this.customers.length == 0) {
+          this.messageNotFound = true;
+        } else {
+          this.messageNotFound = false;
           this.show = true;
         }
-   }
+      },
+      (error) => {
+       }
+    );     
+  }
+  
 
 
   ngOnInit(): void {
