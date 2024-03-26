@@ -39,12 +39,18 @@ export class SearchComponent  implements OnInit{
         this.form=form;
         this.CustomerserviceServices.getCustomers(this.page,form.value).subscribe(
           (data) => { 
-            console.log(data);
+            console.log(data.data.data);
             this.customers = data.data.data; 
             this.totalPages = data.data.last_page;
            }              
         );     
-        this.show = true;
+        if(this.customers.length ==0 ){
+          this.messageNotFound =true;
+        }
+        else{
+          this.messageNotFound =false;
+          this.show = true;
+        }
    }
 
 
