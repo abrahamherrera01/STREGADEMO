@@ -55,27 +55,4 @@ export class CardsComponent {
     });
   }
 
-  details() {
-    const dialogRef = this.dialog.open(DatosComponent, {
-      width: '100%', 
-      data: { 
-        full_name: this.full_name,
-        id: this.id,
-        sum_orders: this.sum_orders,
-        id_client_bp: this.id_client_bp,
-        rfc: this.rfc,
-        gender: this.gender,
-        phone_1: this.phone_1,
-        phone_2: this.phone_2,
-        cellphone: this.cellphone,
-        email_1: this.email_1,
-        city: this.city,
-        delegacy: this.delegacy,
-        colony: this.colony,
-        address: this.address,
-        zip_code: this.zip_code
-      }
-    });
-  }
-
 }
