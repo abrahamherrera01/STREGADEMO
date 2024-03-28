@@ -58,3 +58,28 @@
 }
  
   
+.btn_hide
+{
+  display: none;
+  margin-top: 5%;
+  background-color: rgb(31,69,181);
+  color: white;
+}
+
+@media (max-width: 900px) {
+  .btn_hide
+{
+  display: block;
+  margin-top: 5%;
+  background-color: rgb(31,69,181);
+  color: white;
+}
+
+.btns
+{
+  display: none;
+  margin-top: 120%;
+  background-color: rgb(31,69,181);
+  color: white;
+}
+}

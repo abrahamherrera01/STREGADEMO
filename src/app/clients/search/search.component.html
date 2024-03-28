@@ -3,13 +3,13 @@
   <div class="container-fluid mg ">
     <div class="row">
       <div class="col-1"></div>
-      <div class="col-4 p-4 pt-0 pb-0">
+      <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 p-4 pt-0 pb-0">
         <h2 class="text-center">BUSCA A TU CLIENTE</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-1"></div>
-      <div class="col-4  p-4 pt-0 pb-0">
+      <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4   p-4 pt-0 pb-0">
         <div class="p-3 pt-0 form">
           <div class="p-3">
             <div class="mt-5">
@@ -40,7 +40,7 @@
         </div>
       </div>
 
-      <div class="col-6 resultados-container">
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6  resultados-container">
         <div *ngIf="show" class="row p-2">
           <app-cards class="col-12 pb-3" *ngFor="let customer of customers; index as i;"
             [full_name]="customer.full_name" [rfc]="customer.rfc" [id]="customer.id"
