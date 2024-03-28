@@ -3,6 +3,7 @@ import { Customer, CustomerInterface } from 'src/interfaces/customer-interface';
 import { environment } from 'src/environments/environment';
 import { forkJoin } from 'rxjs';
 import { CustomerserviceService } from 'src/app/services/customerservice.service';
+import { NgForm, UntypedFormGroup } from '@angular/forms';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { CustomerserviceService } from 'src/app/services/customerservice.service
 export class SearchComponent  implements OnInit{
 
   title = 'StregaDemo';
-  customers: Customer[] = [];
+  customers: any[] = [];
   totalPages!: number;
   previousbutton = false;
   nextbutton = false;
@@ -30,75 +31,48 @@ export class SearchComponent  implements OnInit{
   baseUrl = environment.baseUrl+'/api/getImage/';
   lastSearch: string = ''; 
   
+  public form!:NgForm;
   constructor(private CustomerserviceServices: CustomerserviceService) { }
 
+
+  onSubmit(form: NgForm) {
+    this.form = form;
+    this.page = 1;
+    this.CustomerserviceServices.getCustomers(this.page, form.value).subscribe(
+      (data) => { 
+        console.log(data.data.data);
+        this.customers = data.data.data; 
+        this.totalPages = data.data.last_page;
+  
+        if (this.customers.length == 0) {
+          this.messageNotFound = true;
+        } else {
+          this.messageNotFound = false;
+          this.show = true;
+        }
+      },
+      (error) => {
+       }
+    );     
+  }
+  
+
+
   ngOnInit(): void {
-    const last = localStorage.getItem('last_search');
-    console.log(last);
-    if (last) {
-      this.lastSearch = last;
  
-      this.search(last);
-    }
   }
 
-  search(palabra: string, search = '') {
-    if (palabra !== '') {
-      localStorage.setItem('last_search', palabra);
-      this.lastSearch = palabra;
-    }
-
-    if (palabra !== '' && search === 'name') {
-      this.isVin = true;
-      this.isName = false;
-    } else {
-      if (palabra !== '' && search === 'vin') {
-        this.isName = true;
-      } else {
-        this.isVin = false;
-        this.isName = false;
-      }
-    }
-
-    if (palabra == '') {
-      this.show = false;
-      this.messageNotFound = false;
-    } else {
-      const apiCall = [
-        this.CustomerserviceServices.getCustomers(this.firstPage, palabra)
-      ];
-      
- 
-      forkJoin(apiCall).subscribe(
-        {
-          next: ([data]) => {
-            this.customers = data.data.data; 
-            this.totalPages = data.data.last_page;
-            this.page = this.firstPage;
-            if (this.customers.length !== 0) {
-              this.messageNotFound = false;
-            } else {
-              this.messageNotFound = true;
-            }
-            this.show = true;
-          },
-          error: (error) => {
-            console.log(error);
-          }
-        }        
-      );
-    }
-  }
 
   next() {
     this.previousbutton = true;
-    if (this.page == this.totalPages) {
+    if (this.page == this.totalPages ) {
+     
       this.nextbutton = false;
       return;
     }
     this.page = this.page + 1;
     const apiCall = [
-      this.CustomerserviceServices.getCustomers(this.page, this.palabra_busqueda)
+      this.CustomerserviceServices.getCustomers(this.page,this.form.value)
     ];
     forkJoin(apiCall).subscribe(
       {
@@ -119,6 +93,9 @@ export class SearchComponent  implements OnInit{
     );
   }
 
+
+
+  
   previous() {
     if (this.page == 1) {
       this.previousbutton = false;
@@ -126,7 +103,7 @@ export class SearchComponent  implements OnInit{
     }
     this.page = this.page - 1;
     const apiCall = [
-      this.CustomerserviceServices.getCustomers(this.page, this.palabra_busqueda)
+      this.CustomerserviceServices.getCustomers(this.page,this.form.value)
     ];
     forkJoin(apiCall).subscribe(
       {

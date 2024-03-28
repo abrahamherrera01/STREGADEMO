@@ -1,15 +1,15 @@
 <div class="card">
   <a class="btn" (click)="getProfile(id, picture, full_name)">
-    <div class="row">
+    <div class="row justify-content-center"> <!-- Agregando la clase justify-content-center para centrar horizontalmente -->
       <div class="col-5">
         <div class="margen">
-          <div class="img-container" >
+          <div class="img-container">
             <img id="avatarImage" src="{{picture}}" (error)="handleImageError()" alt="avatar"
               class="animate__animated animate__fadeIn">
           </div>
         </div>
       </div>
-      <div class="col-4 text" >
+      <div class="col-6 text">
         <div class="text-start">
           <p>
             <span class="txt">Nombre Cliente:</span>  {{full_name}} <br>
@@ -18,14 +18,9 @@
           </p>
         </div>
       </div>
-      <div class="col-2">
+      <div class="col-1">
         <button class="btns">DETALLES</button>
       </div>
-     </div>
+    </div>
   </a>
-  <!-- 
-  <mat-card-actions class="text-center">
-    <button style="width: 100%; color: white;  background-color: rgb(67,81,175);" mat-button (click)="details()">Ver
-      Detalles</button>
-  </mat-card-actions>-->
 </div>

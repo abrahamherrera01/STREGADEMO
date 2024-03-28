@@ -16,10 +16,12 @@
     overflow-y: auto;
     background-color: rgb(236, 236, 236);
     border-radius: 20px;
+    height: 630px; /* Ajusta este valor según sea necesario */
+    margin-bottom: 30px;
   }
   
   .mg{
-    margin-top: -100px;
+    margin-top: -70px;
   }
 
   .form-control{
