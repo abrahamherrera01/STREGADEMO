@@ -122,7 +122,7 @@
                       {{ order.id_order_bp}}
                     </div>
                     <div class="col">
-                      {{ order.service_date }}
+                      {{ order.sale_billing_date }}
                     </div>
                     <div class="col">
                       ${{ order.total_price | number:'.2-2' }}
@@ -137,6 +137,9 @@
                     <mat-divider></mat-divider>
                     <div class="col-12">
                       <span>Satisfacción: {{ order.survey?.satisfaction }}</span> 
+                    </div>
+                    <div class="col-12">
+                      <span>Comentarios: {{ order.survey?.comments }}</span> 
                     </div>
                   </div> 
                 </div>                               
@@ -198,7 +201,10 @@
                     <mat-divider></mat-divider>
                     <div class="col-12">
                       <span>Satisfacción: {{ order.survey?.satisfaction }}</span> 
-                    </div>       
+                    </div>  
+                    <div class="col-12">
+                      <span>Comentarios: {{ order.survey?.comments }}</span> 
+                    </div>     
                     <mat-divider></mat-divider>             
                   </div> 
                 </div>                               
