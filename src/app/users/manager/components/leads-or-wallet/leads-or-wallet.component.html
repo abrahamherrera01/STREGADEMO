@@ -1,0 +1,47 @@
+<div class="container animate__animated animate__fadeIn animate__slow">    
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Email</th>
+          <th scope="col">Teléfono 1</th>
+          <th scope="col">Teléfono 2</th>
+          <th scope="col">Intentos</th>
+          <th scope="col">Gestionar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of paginatedData">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.phone1 }}</td>
+          <td>{{ item.phone2 }}</td>
+          <td>{{ item.attempts }}</td>
+          <td>            
+            <button mat-raised-button color="primary" [routerLink]="'prospect-information/' + item.id">Comenzar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <nav>
+      <ul class="pagination justify-content-center">
+        <li class="page-item" (click)="goToPreviousPage()">
+          <a class="page-link" href="javascript:void(0)" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">
+          <a class="page-link" href="javascript:void(0)" (click)="setCurrentPage(page)">{{ page }}</a>
+        </li>
+        <li class="page-item" (click)="goToNextPage()">
+          <a class="page-link" href="javascript:void(0)" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  
