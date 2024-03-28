@@ -10,11 +10,11 @@ export class DashboardComponent {
   navItems:NavItem[] = [
     {
       name: "Mis leads",
-      path: ""
+      path: "my-leads"
     },
     {
       name: "Mi cartera",
-      path: ""
+      path: "my-wallet"
     },
     {
       name: "Cartera asignada a vendedor",

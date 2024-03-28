@@ -1,0 +1,134 @@
+<mat-card class="animate__animated animate__fadeIn">
+    <mat-card-header>        
+        <mat-card-title>Actualizar información del lead</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="updateLead()" class="p-3">
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    Sucursal:
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="w-100 my-form-field">
+                        <input matInput placeholder="Sucursal" required formControlName="branch">
+                        <mat-error *ngIf="form.get('branch')?.invalid && (form.get('branch')?.dirty || form.get('branch')?.touched)">
+                            La sucursal es obligatoria.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    Nombre completo:
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="w-100 my-form-field">
+                        <input matInput placeholder="Nombre(s)" required formControlName="name">
+                        <mat-error *ngIf="form.get('name')?.invalid && (form.get('name')?.dirty || form.get('name')?.touched)">
+                            Nombre(s) es obligatorio.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    Via preferente de contacto:
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="w-100 my-form-field">
+                        <input matInput placeholder="Contacto preferente" required formControlName="contact">
+                        <mat-error *ngIf="form.get('contact')?.invalid && (form.get('contact')?.dirty || form.get('contact')?.touched)">
+                            Via preferente de contacto.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    Auto de interes:
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="w-100 my-form-field">
+                        <input matInput placeholder="auto de interes" required formControlName="vehicleOfInterest">
+                        <mat-error *ngIf="form.get('vehicleOfInterest')?.invalid && (form.get('vehicleOfInterest')?.dirty || form.get('vehicleOfInterest')?.touched)">
+                            Auto de interes es obligatorio.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    Marca:
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="w-100 my-form-field">
+                        <input matInput placeholder="Marca" required formControlName="brand">
+                        <mat-error *ngIf="form.get('brand')?.invalid && (form.get('brand')?.dirty || form.get('brand')?.touched)">
+                            La marca es obligatoria.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>            
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    Comentario:
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="w-100 my-form-field">
+                        <input matInput placeholder="Comentario" required formControlName="comment">
+                        <mat-error *ngIf="form.get('comment')?.invalid && (form.get('comment')?.dirty || form.get('comment')?.touched)">
+                            El comentario es obligatorio.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    Email:
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="w-100">
+                        <input matInput type="email" placeholder="Email" required formControlName="email">
+                        <mat-error *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
+                            Agrega un email valido 
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    Teléfono 1:
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="w-100">
+                        <input matInput type="tel" placeholder="Teléfono" required formControlName="phone1">
+                        <mat-error *ngIf="form.get('phone1')?.invalid && (form.get('phone1')?.dirty || form.get('phone1')?.touched)">
+                            Agrega un telefono valido 
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 align-self-center">
+                    Teléfono 2:
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="w-100">
+                        <input matInput type="tel" placeholder="Teléfono" required formControlName="phone2">
+                        <mat-error *ngIf="form.get('phone2')?.invalid && (form.get('phone2')?.dirty || form.get('phone2')?.touched)">
+                            Agrega un telefono valido 
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <button mat-raised-button color="primary" class="animate__animated appear-animation" [disabled]="form.invalid">Actualizar</button>                
+            </div>
+        </form>        
+        <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-footer>
+        <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+  

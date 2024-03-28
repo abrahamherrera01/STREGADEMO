@@ -1,5 +1,5 @@
 import { Component, ElementRef, Inject } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 export interface Data {    
@@ -18,8 +18,7 @@ export class AddManagerComponent {
   passwordCorrect:boolean = false;
   loading: boolean = false;  
 
-  constructor(
-    private formBuilder: FormBuilder,
+  constructor(    
     private elementRef: ElementRef,
     private dialogRef: MatDialogRef<AddManagerComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Data
