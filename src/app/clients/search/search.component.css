@@ -42,3 +42,16 @@
   color: white;
   width: 40%;
 }
+
+
+@media (max-width: 900px) {
+ 
+  .form{
+    background: #15344A;
+    color: white;
+    height: 100%;
+    padding-left: 20px !important;
+    border-radius: 25px;
+    z-index: -1;
+}
+}
