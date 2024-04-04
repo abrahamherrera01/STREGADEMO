@@ -90,7 +90,7 @@
             <mat-progress-bar mode="indeterminate" *ngIf="order_loading" class="pt-3"></mat-progress-bar>           
             <mat-accordion>
               <mat-expansion-panel *ngFor="let saleVehicle of saleVehicles; index as i">
-                <mat-expansion-panel-header>
+                <mat-expansion-panel-header [class.custom-title]="true">
                   <mat-panel-title>
                     {{ i + 1 }} {{ saleVehicle.name }} Vin: {{ saleVehicle.vin }}
                   </mat-panel-title>
@@ -154,7 +154,7 @@
             <mat-progress-bar mode="indeterminate" *ngIf="order_loading" class="pt-3"></mat-progress-bar>                      
             <mat-accordion>
               <mat-expansion-panel *ngFor="let aftersaleVehicle of aftersaleVehicles; index as i">
-                <mat-expansion-panel-header>
+                <mat-expansion-panel-header [class.custom-title]="true">
                   <mat-panel-title>
                     {{ i + 1 }} {{ aftersaleVehicle.name }} Vin: {{ aftersaleVehicle.vin }}
                   </mat-panel-title>
