@@ -116,3 +116,9 @@ section {
   background-color: #15344A;
   color: white;
 }
+
+.custom-title {
+  height: auto;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
