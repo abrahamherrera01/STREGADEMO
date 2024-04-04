@@ -5,6 +5,7 @@ import { DoughnutComponent } from './doughnut/doughnut.component';
 import { StackedLineComponent } from './stacked-line/stacked-line.component';
 import { DatasetBarComponent } from './dataset-bar/dataset-bar.component';
 import { HorizontalBarComponent } from './horizontal-bar/horizontal-bar.component';
+import { StackedHorizontalBarComponent } from './stacked-horizontal-bar/stacked-horizontal-bar.component';
 
 
 
@@ -14,7 +15,8 @@ import { HorizontalBarComponent } from './horizontal-bar/horizontal-bar.componen
     DoughnutComponent,
     StackedLineComponent,
     DatasetBarComponent,
-    HorizontalBarComponent
+    HorizontalBarComponent,
+    StackedHorizontalBarComponent
   ],
   imports: [
     AngularMaterialModule
@@ -24,7 +26,8 @@ import { HorizontalBarComponent } from './horizontal-bar/horizontal-bar.componen
     DoughnutComponent,
     StackedLineComponent,
     DatasetBarComponent,
-    HorizontalBarComponent
+    HorizontalBarComponent,
+    StackedHorizontalBarComponent
   ]
 })
 export class GraphicsModule { }

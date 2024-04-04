@@ -1,0 +1,157 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6 col-md-2 mb-1">
+            <div class="box incoming-leads">
+                <span class="t-title">Leads entrantes</span>
+                <table>           
+                    <tbody>
+                        <tr *ngFor="let data of incomingLeadsData">
+                            <td class="right-left">{{ data.category }}</td>
+                            <td>{{ data.value }}</td>
+                        </tr>
+                    </tbody>                    
+                    <tfoot>
+                        <tr>
+                          <td>Total</td>
+                          <td>11747</td>
+                        </tr>
+                    </tfoot>
+                </table>                
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 mb-1">
+            <div class="box incoming-leads">
+                <div class="row">
+                    <div class="col">
+                        <span class="t-title">Leads Asignados: </span>
+                        <table>                          
+                            <tbody>
+                                <tr *ngFor="let data of assignedLeadsData">
+                                    <td class="right-left">{{ data.category }}</td>
+                                    <td>{{ data.value }}</td>
+                                    <td>{{ data.percentage }}</td>
+                                </tr>
+                            </tbody> 
+                            <tfoot>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>6125</td>
+                                    <td>52%</td>
+                                </tr>
+                            </tfoot>
+                        </table> 
+                    </div>
+                    <div class="col">
+                        <span class="t-title">Leads Encuestados: </span>
+                        <table>                 
+                            <tbody>
+                                <tr *ngFor="let data of surveyedLeads">
+                                    <td class="right-left">{{ data.category }}</td>
+                                    <td>{{ data.value }}</td>
+                                    <td>{{ data.percentage }}</td>
+                                </tr>
+                            </tbody>   
+                            <tfoot>                                
+                                <tr>
+                                    <td>Total</td>
+                                    <td class="right-align">5111</td>
+                                    <td class="right-align">83%</td>
+                                </tr>
+                            </tfoot>
+                        </table> 
+                    </div>
+                    <div class="col">
+                        <span class="t-title small d-flex align-items-center">Leads Completamente Satisfechos con la atención brindada:  </span>
+                        <table>                
+                            <tbody>
+                                <tr *ngFor="let data of LeadsCompletelySatisfied">
+                                    <td class="right-left">{{ data.category }}</td>
+                                    <td>{{ data.value }}</td>
+                                    <td>{{ data.percentage }}</td>
+                                </tr>
+                            </tbody> 
+                            <tfoot>                                
+                                <tr>
+                                    <td>Total</td>
+                                    <td>3803</td>
+                                    <td>74%</td>
+                                </tr>
+                            </tfoot>
+                        </table>                          
+                    </div>
+                </div>                                                                
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4 mb-1 box">
+            <app-stacked-horizontal-bar [data]="leadIncidents"></app-stacked-horizontal-bar>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-6 col-md-2">
+            <div class="box incoming-leads">
+                <span class="t-title">Cartera entrante</span>
+                <table>           
+                    <tbody>
+                        <tr *ngFor="let data of incomingWallet">
+                            <td class="right-left">{{ data.category }}</td>
+                            <td>{{ data.value }}</td>                            
+                        </tr>
+                    </tbody> 
+                    <tfoot>
+                      <tr>
+                        <td>Total</td>
+                        <td>1711</td>
+                      </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-5">
+            <div class="box incoming-leads">
+                <div class="row">
+                    <div class="col">
+                        <span class="t-title">Cartera encuestados: </span>
+                        <table>                          
+                            <tbody>
+                                <tr *ngFor="let data of surveyedWallet">
+                                    <td class="right-left">{{ data.category }}</td>
+                                    <td>{{ data.value }}</td>   
+                                    <td>{{ data.percentage }}</td>                            
+                                </tr>
+                            </tbody> 
+                            <tfoot>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>1365</td>
+                                    <td>80%</td>
+                                </tr>
+                            </tfoot>
+                        </table> 
+                    </div>                  
+                    <div class="col">
+                        <span class="t-title small d-flex align-items-center">Prospectos Completamente Satisfechos con la atención brindada:</span>
+                        <table>                
+                            <tbody>
+                                <tr *ngFor="let data of prospectsCompletelySatisfied">
+                                    <td class="right-left">{{ data.category }}</td>
+                                    <td>{{ data.value }}</td>   
+                                    <td>{{ data.percentage }}</td>                            
+                                </tr>
+                            </tbody> 
+                            <tfoot>                                
+                                <tr>
+                                    <td>Total</td>
+                                    <td>3803</td>
+                                    <td>74%</td>
+                                </tr>
+                            </tfoot>
+                          </table>                          
+                    </div>
+                </div>                                                                
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-5 mb-1 box">
+            <app-stacked-horizontal-bar [data]="walletIncidents"></app-stacked-horizontal-bar>
+        </div>
+    </div>
+</div>

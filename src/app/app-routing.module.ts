@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'manager', loadChildren: () => import('./users/manager/manager.module').then(m => m.ManagerModule), canActivate: [managerGuard] },
   { path: 'administrator', loadChildren: () => import('./users/administrator/administrator.module').then(m => m.AdministratorModule), canActivate: [administratorGuard] },
   { path: 'clients', loadChildren: () => import('./clients/clients.module').then(m => m.ClientsModule) },
+  { path: 'general-report', loadChildren: () => import('./general-report/general-report.module').then(m => m.GeneralReportModule) },
   { path: '**', redirectTo: 'auth' }
 ];
 
