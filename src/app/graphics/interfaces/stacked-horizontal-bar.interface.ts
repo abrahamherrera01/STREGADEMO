@@ -1,6 +1,8 @@
 export interface StackedHorizontalBarData {    
     title: string;
     width: string;
+    height:string;
+    text_color:string;
     graphic: Graphic;    
 }
 export interface Graphic {        

@@ -29,6 +29,8 @@ export class LeadAndPortfolioManagementComponent {
     this.leadIncidents = {    
       title: 'Incidencias leads: 1368',
       width: '90%',
+      height: '240px',
+      text_color: '#fff',
       graphic: {
         categories: [
           'Inconsistencia CRM',
@@ -106,6 +108,8 @@ export class LeadAndPortfolioManagementComponent {
     this.walletIncidents = {    
       title: 'Incidencias cartera: 226',
       width: '90%',
+      height: '240px',
+      text_color: '#fff',
       graphic: {
         categories: [
           'Inconsistencia CRM',

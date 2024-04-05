@@ -29,7 +29,7 @@ export class StackedHorizontalBarComponent implements AfterViewInit {
         },
         legend: {
           textStyle: {
-            color: '#fff' // Color del texto de la leyenda (nombre de la serie)
+            color: this.data.text_color
           },
           bottom: '0%' 
         },
@@ -47,7 +47,7 @@ export class StackedHorizontalBarComponent implements AfterViewInit {
           type: 'category',
           data: this.data.graphic.categories,
           axisLabel: { // Configurar el estilo del texto para el eje Y
-            color: '#fff' // Establecer el color de la letra en blanco
+            color: this.data.text_color
           }
         },
         series: this.data.graphic.series,                
