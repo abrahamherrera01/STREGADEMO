@@ -9,12 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { LeadAndPortfolioManagementComponent } from './lead-and-portfolio-management/lead-and-portfolio-management.component';
 import { GraphicsModule } from '../graphics/graphics.module';
+import { LeadsBySourceAndBrandComponent } from './leads-by-source-and-brand/leads-by-source-and-brand.component';
 
 
 @NgModule({
   declarations: [
     PrincipalComponent,
-    LeadAndPortfolioManagementComponent
+    LeadAndPortfolioManagementComponent,
+    LeadsBySourceAndBrandComponent
   ],
   imports: [
     CommonModule,
