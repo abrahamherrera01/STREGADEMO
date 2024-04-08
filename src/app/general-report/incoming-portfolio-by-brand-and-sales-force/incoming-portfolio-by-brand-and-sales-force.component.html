@@ -1,0 +1,25 @@
+<div class="container-fluid animate__animated animate__fadeIn">
+    <div class="row mb-5">
+        <div class="col mb-1 box">
+            <app-stacked-horizontal-bar [data]="leadIncidents"></app-stacked-horizontal-bar>
+        </div>
+    </div>  
+    <div class="row mb-5">
+        <div class="col-12">
+            <table class="data-table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th *ngFor="let categorie of leadIncidents.graphic.categories; index as i;">{{ categorie }}</th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let serie of leadIncidents.graphic.series.reverse();">
+                    <td>{{ serie.name }}</td>
+                    <td *ngFor="let item of serie.data; index as i;">{{ serie.data[i] }}</td>                   
+                  </tr>                  
+                </tbody>
+            </table>          
+        </div>        
+    </div>  
+</div>
