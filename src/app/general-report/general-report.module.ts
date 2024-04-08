@@ -10,13 +10,15 @@ import { SharedModule } from '../shared/shared.module';
 import { LeadAndPortfolioManagementComponent } from './lead-and-portfolio-management/lead-and-portfolio-management.component';
 import { GraphicsModule } from '../graphics/graphics.module';
 import { LeadsBySourceAndBrandComponent } from './leads-by-source-and-brand/leads-by-source-and-brand.component';
+import { LeadsAssignedByExecutiveAndBrandComponent } from './leads-assigned-by-executive-and-brand/leads-assigned-by-executive-and-brand.component';
 
 
 @NgModule({
   declarations: [
     PrincipalComponent,
     LeadAndPortfolioManagementComponent,
-    LeadsBySourceAndBrandComponent
+    LeadsBySourceAndBrandComponent,
+    LeadsAssignedByExecutiveAndBrandComponent
   ],
   imports: [
     CommonModule,
