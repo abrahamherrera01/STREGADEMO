@@ -9,7 +9,7 @@ import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-ho
 export class LeadsBySourceAndBrandComponent {
   percentagesLeadIncidents:string[] =[];
   leadIncidents!:StackedHorizontalBarData;
-  constructor(){
+  constructor(){    
     this.percentagesLeadIncidents = ['1998, 17%', '9725, 83%'];
     
     this.leadIncidents = {    

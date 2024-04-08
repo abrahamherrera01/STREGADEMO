@@ -1,13 +1,34 @@
-<div id="section1" #section1 class="m-3">
-    <div *ngIf="sections[0]">      
-        <h4 class="mx-3">Resumen: Gestión de leads y cartera e incidencias de encuesta.</h4>       
-        <app-lead-and-portfolio-management></app-lead-and-portfolio-management>        
-    </div>   
+<div class="contenedor">
+    <div class="options animate__animated animate__fadeIn" *ngIf="show">
+      <ul>
+        <li (click)="selectIndex(0)">Resumen: Gestión de leads y cartera e incidencias de encuesta.</li>
+        <li (click)="selectIndex(1)">Leads entrantes por fuente y marca.</li>
+        <li (click)="selectIndex(2)">Leads asignados por ejecutivo y marca.</li>
+      </ul>
+    </div>
+  
+    <div class="component" *ngIf="selectedIndex !== null">
+        <div *ngIf="selectedIndex === 0">
+            <div class="component-content">
+                <span class="mx-3 subtitle">Resumen: Gestión de leads y cartera e incidencias de encuesta.</span>       
+                <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+            </div>  
+            <app-lead-and-portfolio-management></app-lead-and-portfolio-management>                  
+        </div>
+        <div *ngIf="selectedIndex === 1">
+            <div class="component-content">
+                <span class="mx-3 subtitle">Leads entrantes por fuente y marca.</span>       
+                <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+            </div>              
+            <app-leads-by-source-and-brand></app-leads-by-source-and-brand>
+        </div>
+        <div *ngIf="selectedIndex === 2">
+            <div class="component-content">
+                <span class="mx-3 subtitle">Leads asignados por ejecutivo y marca.</span>       
+                <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+            </div>              
+            <app-leads-assigned-by-executive-and-brand></app-leads-assigned-by-executive-and-brand>
+        </div>
+    </div>
 </div>
-
-<div id="section2" #section2 class="m-3">
-    <div *ngIf="sections[1] === true">
-        <h4 class="mx-3">Leads entrantes por fuente y marca.</h4>       
-        <app-leads-by-source-and-brand></app-leads-by-source-and-brand>
-    </div>    
-</div>
+  
