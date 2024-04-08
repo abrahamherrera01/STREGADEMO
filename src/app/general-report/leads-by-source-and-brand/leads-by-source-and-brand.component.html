@@ -6,42 +6,20 @@
     </div>  
     <div class="row mb-5">
         <div class="col-12">
-            <table class="data-table">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Z-ONLINE LEADS</th>
-                    <th>INHOUSE LEADS</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>BMW</td>
-                    <td>747</td>
-                    <td>695</td>
-                    <td>1442, 12%</td>
-                  </tr>
-                  <tr>
-                    <td>MINI</td>
-                    <td>658</td>
-                    <td>554</td>
-                    <td>1212, 10%</td>
-                  </tr>
-                  <tr>
-                    <td>MOTO</td>
-                    <td>593</td>
-                    <td>2727</td>
-                    <td>3320, 28%</td>
-                  </tr>
-                  <tr>
-                    <td>SEMINUEVO</td>
-                    <td>0.000001</td>
-                    <td>5749</td>
-                    <td>5749, 49%</td>
-                  </tr>
-                </tbody>
-            </table>          
+          <table class="data-table">            
+            <thead>
+              <tr>
+                <th></th>
+                <th *ngFor="let categorie of leadIncidents.graphic.categories; index as i;">{{ categorie }}</th>                    
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let serie of leadIncidents.graphic.series;">
+                <td>{{ serie.name }}</td>
+                <td *ngFor="let item of serie.data; index as i;">{{ serie.data[i] }}</td>                   
+              </tr>                  
+            </tbody>
+          </table>          
         </div>        
     </div>  
 </div>
