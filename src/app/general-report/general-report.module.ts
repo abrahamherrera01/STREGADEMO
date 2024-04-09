@@ -13,7 +13,8 @@ import { LeadsBySourceAndBrandComponent } from './leads-by-source-and-brand/lead
 import { LeadsAssignedByExecutiveAndBrandComponent } from './leads-assigned-by-executive-and-brand/leads-assigned-by-executive-and-brand.component';
 import { IncomingPortfolioByBrandAndSalesForceComponent } from './incoming-portfolio-by-brand-and-sales-force/incoming-portfolio-by-brand-and-sales-force.component';
 import { ProspectsInPortfolioBySourceAndExecutiveComponent } from './prospects-in-portfolio-by-source-and-executive/prospects-in-portfolio-by-source-and-executive.component';
-
+import { CrmRespondentsAndInconsistenciesComponent } from './crm-respondents-and-inconsistencies/crm-respondents-and-inconsistencies.component';
+import { SurveyedAndUnlocatableByBrandComponent } from './surveyed-and-unlocatable-by-brand/surveyed-and-unlocatable-by-brand.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { ProspectsInPortfolioBySourceAndExecutiveComponent } from './prospects-i
     LeadsBySourceAndBrandComponent,
     LeadsAssignedByExecutiveAndBrandComponent,
     IncomingPortfolioByBrandAndSalesForceComponent,
-    ProspectsInPortfolioBySourceAndExecutiveComponent
+    ProspectsInPortfolioBySourceAndExecutiveComponent,
+    CrmRespondentsAndInconsistenciesComponent,
+    SurveyedAndUnlocatableByBrandComponent
   ],
   imports: [
     CommonModule,
