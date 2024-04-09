@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { GraphicData } from 'src/app/graphics/interfaces/multiple-vertical-bars.interface';
 @Component({
   selector: 'app-surveyed-and-unlocatable-by-brand',
   templateUrl: './surveyed-and-unlocatable-by-brand.component.html',
@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class SurveyedAndUnlocatableByBrandComponent {
   percentages:string[] =[];
-  data!:any;
+  data!:GraphicData;
 
   constructor(){    
     this.percentages = ['1998, 17%', '9725, 83%'];
@@ -18,13 +18,47 @@ export class SurveyedAndUnlocatableByBrandComponent {
       height: '600px',
       text_color: '#000',
       graphic: {
-        source: [
-          ['product', '2015', '2016', '2017'],
-          ['Matcha Latte', 43.3, 85.8, 93.7],
-          ['Milk Tea', 83.1, 73.4, 55.1],
-          ['Cheese Cocoa', 86.4, 65.2, 82.5],
-          ['Walnut Brownie', 72.4, 53.9, 39.1]
-        ]
+        source: [          
+          ['product', 'Entrantes', 'Encuestados', 'Ilocalizables'],
+          ['Administrativo', 33 ,23 ,2],
+          ['Foraneos digital', 150, 112, 1],          
+          ['Matriz Piso', 221, 184, 6],
+          ['Seminuevo', 83, 64, 0],
+          ['Piso Zacatelco', 48, 37, 3],         
+          ['Fuerza Movil' , 32 , 20 , 2]
+        ],
+        series: [
+          { 
+            type: 'bar',
+            label: {
+              show: true,
+              position: 'top',
+              formatter: function(params: any) {
+                return params.value[1] + '%'; 
+              }
+            }
+          }, 
+          { 
+            type: 'bar',
+            label: {
+              show: true,
+              position: 'top',
+              formatter: function(params: any) {
+                return params.value[2] + '%'; 
+              }
+            }
+          }, 
+          { 
+            type: 'bar',
+            label: {
+              show: true,
+              position: 'top',
+              formatter: function(params: any) {                
+                return params.value[3] + '%'; 
+              }
+            }
+          }
+        ]  
       }
     }        
   }

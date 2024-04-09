@@ -1,5 +1,6 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
 import * as echarts from 'echarts';
+import { GraphicData } from '../interfaces/multiple-vertical-bars.interface';
 
 @Component({
   selector: 'app-multiple-vertical-bars',
@@ -7,7 +8,7 @@ import * as echarts from 'echarts';
   styleUrls: ['./multiple-vertical-bars.component.css']
 })
 export class MultipleVerticalBarsComponent implements AfterViewInit {
-  @Input() data!: any;
+  @Input() data!: GraphicData;
   echartsInstance?: echarts.ECharts;
   domId:string = Math.floor(Math.random() * 1000000).toString().padStart(6, '0') + String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 
@@ -26,48 +27,11 @@ export class MultipleVerticalBarsComponent implements AfterViewInit {
         },
         tooltip: {},
         dataset: {
-          source: [
-            ['product', '2015', '2016', '2017'],
-            ['Matcha Latte', 43.3, 85.8, 93.7],
-            ['Milk Tea', 83.1, 73.4, 55.1],
-            ['Cheese Cocoa', 86.4, 65.2, 82.5],
-            ['Walnut Brownie', 72.4, 53.9, 39.1]
-          ]//this.data.graphic.source
+          source: this.data.graphic.source
         },
         xAxis: { type: 'category' },
         yAxis: {},        
-        series: [
-          { 
-            type: 'bar',
-            label: {
-              show: true,
-              position: 'top',
-              formatter: function(params: any) {
-                return params.value[1] + '%'; 
-              }
-            }
-          }, 
-          { 
-            type: 'bar',
-            label: {
-              show: true,
-              position: 'top',
-              formatter: function(params: any) {
-                return params.value[2] + '%'; 
-              }
-            }
-          }, 
-          { 
-            type: 'bar',
-            label: {
-              show: true,
-              position: 'top',
-              formatter: function(params: any) {                
-                return params.value[3] + '%'; 
-              }
-            }
-          }
-        ]             
+        series: this.data.graphic.series           
     });
   }
 
