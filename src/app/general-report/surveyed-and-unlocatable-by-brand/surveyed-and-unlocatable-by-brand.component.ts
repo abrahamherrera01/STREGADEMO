@@ -5,13 +5,10 @@ import { GraphicData } from 'src/app/graphics/interfaces/multiple-vertical-bars.
   templateUrl: './surveyed-and-unlocatable-by-brand.component.html',
   styleUrls: ['./surveyed-and-unlocatable-by-brand.component.css']
 })
-export class SurveyedAndUnlocatableByBrandComponent {
-  percentages:string[] =[];
+export class SurveyedAndUnlocatableByBrandComponent {  
   data!:GraphicData;
 
-  constructor(){    
-    this.percentages = ['1998, 17%', '9725, 83%'];
-    
+  constructor(){        
     this.data = {    
       title: '',
       width: '90%',
