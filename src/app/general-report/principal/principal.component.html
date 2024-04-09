@@ -8,7 +8,8 @@
         <li (click)="selectIndex(4)">Prospectos en cartera por fuente y ejecutivo.</li>        
         <li (click)="selectIndex(5)">Validez de datos en cartera: Encuestados e Ilocalizables por marca.</li>        
         <li (click)="selectIndex(6)">Validez de datos en cartera: Detalle de localizables por marca.</li>        
-        <li (click)="selectIndex(7)">Correcto uso del CRM: Inconsistencias CRM por ejecutivo (Leads y cartera).</li>        
+        <li (click)="selectIndex(7)">Correcto uso del CRM: Encuestados e Inconsistencias CRM (Leads y cartera).</li>        
+        <li (click)="selectIndex(8)">Correcto uso del CRM: Inconsistencias CRM por ejecutivo (Leads y cartera).</li>        
       </ul>
     </div>
   
@@ -64,6 +65,13 @@
             <app-detail-of-unlocatables-by-brand></app-detail-of-unlocatables-by-brand>
         </div>
         <div *ngIf="selectedIndex === 7">
+            <div class="component-content">
+                <span class="mx-3 subtitle">Validez de datos en cartera: Encuestados e Ilocalizables por marca.</span>       
+                <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+            </div>              
+            <app-crm-respondents-and-inconsistencies></app-crm-respondents-and-inconsistencies>
+        </div> 
+        <div *ngIf="selectedIndex === 8">
             <div class="component-content">
                 <span class="mx-3 subtitle">Correcto uso del CRM: Inconsistencias CRM por ejecutivo (Leads y cartera).</span>       
                 <button (click)="toggleShow()" class="btn-index">Ver indice</button>
