@@ -5,6 +5,7 @@
         <li (click)="selectIndex(1)">Leads entrantes por fuente y marca.</li>
         <li (click)="selectIndex(2)">Leads asignados por ejecutivo y marca.</li>
         <li (click)="selectIndex(3)">Cartera entrante por marca y fuerza de ventas.</li>
+        <li (click)="selectIndex(4)">Prospectos en cartera por fuente y ejecutivo.</li>        
       </ul>
     </div>
   
@@ -36,6 +37,13 @@
                 <button (click)="toggleShow()" class="btn-index">Ver indice</button>
             </div>              
             <app-incoming-portfolio-by-brand-and-sales-force></app-incoming-portfolio-by-brand-and-sales-force>
+        </div>
+        <div *ngIf="selectedIndex === 4">
+            <div class="component-content">
+                <span class="mx-3 subtitle">Prospectos en cartera por fuente y ejecutivo.</span>       
+                <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+            </div>              
+            <app-prospects-in-portfolio-by-source-and-executive></app-prospects-in-portfolio-by-source-and-executive>
         </div>
     </div>
 </div>

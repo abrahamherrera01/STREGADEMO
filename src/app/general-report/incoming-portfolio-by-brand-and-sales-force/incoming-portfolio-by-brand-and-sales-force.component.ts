@@ -32,7 +32,16 @@ export class IncomingPortfolioByBrandAndSalesForceComponent {
             type: 'bar',
             stack: 'total',
             label: {
-              show: false              
+              show: true,               
+              position: 'right',
+              formatter: (params: any) => {
+                if (this.percentagesLeadIncidents !== undefined) {
+                  return `${this.percentagesLeadIncidents[params.dataIndex]}%`;
+                } else {
+                  return 'el moro se la come cruda';
+                } 
+              }, 
+              color: '#000'            
             },
             emphasis: {
               focus: 'series'
@@ -80,16 +89,7 @@ export class IncomingPortfolioByBrandAndSalesForceComponent {
             type: 'bar',
             stack: 'total',
             label: {
-              show: true,               
-              position: 'right',
-              formatter: (params: any) => {
-                if (this.percentagesLeadIncidents !== undefined) {
-                  return `${this.percentagesLeadIncidents[params.dataIndex]}%`;
-                } else {
-                  return 'el moro se la come cruda';
-                } 
-              }, 
-              color: '#000'
+              show:false
             },
             emphasis: {
               focus: 'series'
