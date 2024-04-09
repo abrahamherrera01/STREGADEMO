@@ -12,6 +12,7 @@ import { GraphicsModule } from '../graphics/graphics.module';
 import { LeadsBySourceAndBrandComponent } from './leads-by-source-and-brand/leads-by-source-and-brand.component';
 import { LeadsAssignedByExecutiveAndBrandComponent } from './leads-assigned-by-executive-and-brand/leads-assigned-by-executive-and-brand.component';
 import { IncomingPortfolioByBrandAndSalesForceComponent } from './incoming-portfolio-by-brand-and-sales-force/incoming-portfolio-by-brand-and-sales-force.component';
+import { ProspectsInPortfolioBySourceAndExecutiveComponent } from './prospects-in-portfolio-by-source-and-executive/prospects-in-portfolio-by-source-and-executive.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { IncomingPortfolioByBrandAndSalesForceComponent } from './incoming-portf
     LeadAndPortfolioManagementComponent,
     LeadsBySourceAndBrandComponent,
     LeadsAssignedByExecutiveAndBrandComponent,
-    IncomingPortfolioByBrandAndSalesForceComponent
+    IncomingPortfolioByBrandAndSalesForceComponent,
+    ProspectsInPortfolioBySourceAndExecutiveComponent
   ],
   imports: [
     CommonModule,
