@@ -6,6 +6,7 @@ import { StackedLineComponent } from './stacked-line/stacked-line.component';
 import { DatasetBarComponent } from './dataset-bar/dataset-bar.component';
 import { HorizontalBarComponent } from './horizontal-bar/horizontal-bar.component';
 import { StackedHorizontalBarComponent } from './stacked-horizontal-bar/stacked-horizontal-bar.component';
+import { MultipleVerticalBarsComponent } from './multiple-vertical-bars/multiple-vertical-bars.component';
 
 
 
@@ -16,7 +17,8 @@ import { StackedHorizontalBarComponent } from './stacked-horizontal-bar/stacked-
     StackedLineComponent,
     DatasetBarComponent,
     HorizontalBarComponent,
-    StackedHorizontalBarComponent
+    StackedHorizontalBarComponent,
+    MultipleVerticalBarsComponent
   ],
   imports: [
     AngularMaterialModule
@@ -27,7 +29,8 @@ import { StackedHorizontalBarComponent } from './stacked-horizontal-bar/stacked-
     StackedLineComponent,
     DatasetBarComponent,
     HorizontalBarComponent,
-    StackedHorizontalBarComponent
+    StackedHorizontalBarComponent,
+    MultipleVerticalBarsComponent
   ]
 })
 export class GraphicsModule { }

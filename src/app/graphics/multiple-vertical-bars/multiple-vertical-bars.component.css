@@ -1,0 +1,10 @@
+.graph {    
+    overflow:scroll;
+}
+
+mat-card-content{
+    padding: 10px;
+}
+.t-title {
+    font-size: 17px;
+}
