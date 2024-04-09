@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-horizontal-bar.interface';
 
 @Component({
-  selector: 'app-incoming-portfolio-by-brand-and-sales-force',
-  templateUrl: './incoming-portfolio-by-brand-and-sales-force.component.html',
-  styleUrls: ['./incoming-portfolio-by-brand-and-sales-force.component.css']
+  selector: 'app-crm-inconsistencies-by-executive',
+  templateUrl: './crm-inconsistencies-by-executive.component.html',
+  styleUrls: ['./crm-inconsistencies-by-executive.component.css']
 })
-export class IncomingPortfolioByBrandAndSalesForceComponent {
+export class CrmInconsistenciesByExecutiveComponent {
+
   percentagesLeadIncidents:string[] =[];
   leadIncidents!:StackedHorizontalBarData;
   constructor(){    
@@ -14,90 +15,88 @@ export class IncomingPortfolioByBrandAndSalesForceComponent {
     
     this.leadIncidents = {    
       title: '',
-      width: '90%',
-      height: '240px',
+      width: '100%',
+      height: '540px',
       text_color: '#000',
       graphic: {
-        categories: [ 
-          'FUERZA MOVIL',
-          'PISO ZACATELCO',
-          'SEMINUEVO',
-          'MATRIZ PISO',         
-          'FORANEOS DIGITAL',
-          'ADMINISTRATIVO'
-        ],      
+        categories: [
+          'RAMIREZ RAMIREZ SALVADOR',
+          'FLORES CUATEPITZI JOSE',
+          'CHACON OROZCO GABRIEL',
+          'ROMERO CERON MARCOS',
+          'LUNA AGUILAR HUGO EMILIO',
+          'FLORES QUIROZ VIRIDIANA ITZEL',
+          'CAZARES CRUZ AURORA'
+        ].reverse(),      
         series: [
           {
-            name: 'Be-back',
+            name: 'Actividad pendiente en CRM',
             type: 'bar',
             stack: 'total',
             label: {
-              show: true,               
-              position: 'right',
-              formatter: (params: any) => {
-                if (this.percentagesLeadIncidents !== undefined) {
-                  return `${this.percentagesLeadIncidents[params.dataIndex]}%`;
-                } else {
-                  return '';
-                } 
-              }, 
-              color: '#000'            
+              show: true,   
+              color: '#8896ae'            
             },
             emphasis: {
               focus: 'series'
             },
-            data: [0, 0, 1, 0, 0, 0]
+            data: [0,0,0,0,0,0,0].reverse()
           },
           {
-            name: 'Llamada a recepción',
+            name: 'Datos erroneos',
             type: 'bar',
             stack: 'total',
             label: {
-              show: false,
+              show: true,   
+              color: '#8896ae'            
             },
             emphasis: {
               focus: 'series'
             },
-            data: [0, 17, 5, 4, 3, 0]
+            data: [0,2,1,1,1,0,1].reverse()
           },
           {
-            name: 'Internet',
+            name: 'No solicito informes',
             type: 'bar',
             stack: 'total',
             label: {
-              show: false,
+              show: true,   
+              color: '#8896ae'            
             },
             emphasis: {
               focus: 'series'
             },
-            data: [0, 30, 3, 5, 0, 0]
+            data: [4,0,0,0,0,1,0].reverse()
           },
           {
-            name: 'Visita a piso',
+            name: 'Sin actividad a futuro en CRM',
             type: 'bar',
             stack: 'total',
             label: {
-              show: false,
+              show: true,   
+              color: '#8896ae'            
             },
             emphasis: {
               focus: 'series'
             },
-            data: [0, 8, 135, 38, 28, 0]
+            data: [0,0,0,0,0,0,0].reverse()
           },
           {
-            name: 'Base de datos',
+            name: 'Sin comentarios en CRM',
             type: 'bar',
             stack: 'total',
             label: {
-              show:false
+              show: true,   
+              color: '#8896ae'            
             },
             emphasis: {
               focus: 'series'
             },
-            data: [33, 95, 77, 36, 17, 32],            
-          }  
+            data: [0,0,0,0,0,0,0].reverse()
+          },
         ]        
       }
     }        
   }
+
 }
