@@ -6,6 +6,7 @@
         <li (click)="selectIndex(2)">Leads asignados por ejecutivo y marca.</li>
         <li (click)="selectIndex(3)">Cartera entrante por marca y fuerza de ventas.</li>
         <li (click)="selectIndex(4)">Prospectos en cartera por fuente y ejecutivo.</li>        
+        <li (click)="selectIndex(5)">Validez de datos en cartera: Encuestados e Ilocalizables por marca.</li>        
       </ul>
     </div>
   
@@ -45,6 +46,14 @@
             </div>              
             <app-prospects-in-portfolio-by-source-and-executive></app-prospects-in-portfolio-by-source-and-executive>
         </div>
+
+        <div *ngIf="selectedIndex === 5">
+            <div class="component-content">
+                <span class="mx-3 subtitle">Validez de datos en cartera: Encuestados e Ilocalizables por marca.</span>       
+                <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+            </div>              
+            <app-surveyed-and-unlocatable-by-brand></app-surveyed-and-unlocatable-by-brand>
+        </div>        
     </div>
 </div>
   
