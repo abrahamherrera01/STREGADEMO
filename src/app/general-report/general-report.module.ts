@@ -15,6 +15,9 @@ import { IncomingPortfolioByBrandAndSalesForceComponent } from './incoming-portf
 import { ProspectsInPortfolioBySourceAndExecutiveComponent } from './prospects-in-portfolio-by-source-and-executive/prospects-in-portfolio-by-source-and-executive.component';
 import { CrmRespondentsAndInconsistenciesComponent } from './crm-respondents-and-inconsistencies/crm-respondents-and-inconsistencies.component';
 import { SurveyedAndUnlocatableByBrandComponent } from './surveyed-and-unlocatable-by-brand/surveyed-and-unlocatable-by-brand.component';
+import { DetailOfUnlocatablesByBrandComponent } from './detail-of-unlocatables-by-brand/detail-of-unlocatables-by-brand.component';
+import { CrmInconsistenciesByExecutiveComponent } from './crm-inconsistencies-by-executive/crm-inconsistencies-by-executive.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { SurveyedAndUnlocatableByBrandComponent } from './surveyed-and-unlocatab
     IncomingPortfolioByBrandAndSalesForceComponent,
     ProspectsInPortfolioBySourceAndExecutiveComponent,
     CrmRespondentsAndInconsistenciesComponent,
-    SurveyedAndUnlocatableByBrandComponent
+    SurveyedAndUnlocatableByBrandComponent,
+    DetailOfUnlocatablesByBrandComponent,
+    CrmInconsistenciesByExecutiveComponent
   ],
   imports: [
     CommonModule,
