@@ -17,6 +17,8 @@ import { CrmRespondentsAndInconsistenciesComponent } from './crm-respondents-and
 import { SurveyedAndUnlocatableByBrandComponent } from './surveyed-and-unlocatable-by-brand/surveyed-and-unlocatable-by-brand.component';
 import { DetailOfUnlocatablesByBrandComponent } from './detail-of-unlocatables-by-brand/detail-of-unlocatables-by-brand.component';
 import { CrmInconsistenciesByExecutiveComponent } from './crm-inconsistencies-by-executive/crm-inconsistencies-by-executive.component';
+import { ComplaintsAboutTheCareProcessByTypeAndAreaComponent } from './complaints-about-the-care-process-by-type-and-area/complaints-about-the-care-process-by-type-and-area.component';
+import { ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent } from './complaints-about-the-service-process-by-type-and-executive/complaints-about-the-service-process-by-type-and-executive.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { CrmInconsistenciesByExecutiveComponent } from './crm-inconsistencies-by
     CrmRespondentsAndInconsistenciesComponent,
     SurveyedAndUnlocatableByBrandComponent,
     DetailOfUnlocatablesByBrandComponent,
-    CrmInconsistenciesByExecutiveComponent
+    CrmInconsistenciesByExecutiveComponent,
+    ComplaintsAboutTheCareProcessByTypeAndAreaComponent,
+    ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent
   ],
   imports: [
     CommonModule,
