@@ -89,7 +89,7 @@ export class LeadAndPortfolioManagementComponent {
                 if (this.percentagesLeadIncidents !== undefined) {
                   return `${this.percentagesLeadIncidents[params.dataIndex]}%`;
                 } else {
-                  return 'el moro se la come cruda';
+                  return ' ';
                 } 
               }, 
               color: '#fff'
@@ -168,7 +168,7 @@ export class LeadAndPortfolioManagementComponent {
                 if (this.percentagesLeadIncidents !== undefined) {
                   return `${this.percentagesLeadIncidents[params.dataIndex]}%`;
                 } else {
-                  return 'el moro se la come cruda';
+                  return ' ';
                 } 
               }, 
               color: '#fff'
