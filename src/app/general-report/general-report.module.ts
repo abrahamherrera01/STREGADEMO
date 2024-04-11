@@ -19,6 +19,7 @@ import { DetailOfUnlocatablesByBrandComponent } from './detail-of-unlocatables-b
 import { CrmInconsistenciesByExecutiveComponent } from './crm-inconsistencies-by-executive/crm-inconsistencies-by-executive.component';
 import { ComplaintsAboutTheCareProcessByTypeAndAreaComponent } from './complaints-about-the-care-process-by-type-and-area/complaints-about-the-care-process-by-type-and-area.component';
 import { ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent } from './complaints-about-the-service-process-by-type-and-executive/complaints-about-the-service-process-by-type-and-executive.component';
+import { UploadDataComponent } from './upload-data/upload-data.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent } from './c
     DetailOfUnlocatablesByBrandComponent,
     CrmInconsistenciesByExecutiveComponent,
     ComplaintsAboutTheCareProcessByTypeAndAreaComponent,
-    ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent
+    ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent,
+    UploadDataComponent
   ],
   imports: [
     CommonModule,

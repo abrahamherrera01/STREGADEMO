@@ -1,0 +1,40 @@
+.upload-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    background-color: #273746;
+    border: 2px solid #273746;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.upload-label {
+    display: block;
+    width: 100%;
+    border: 2px dashed #ccc;
+    padding: 40px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.upload-input {
+    display: none;
+}
+
+.upload-button {
+    background-color: #3f51b5;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.upload-button:hover {
+    background-color: #4A57B2;
+}
