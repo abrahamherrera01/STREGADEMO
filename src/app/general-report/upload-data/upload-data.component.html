@@ -1,0 +1,10 @@
+<div class="upload-container">
+    <div class="upload-wrapper">
+        <h4 class="mb-4" #h4Element>Subir datos</h4>
+        <label for="fileInput" class="upload-label">Selecciona un archivo</label>
+        <input type="file" id="fileInput" accept=".csv" #fileInput class="upload-input" (change)="changeLabel($event)">        
+        <button mat-raised-button color="primary" (click)="uploadFile(fileInput)"  [disabled]="show == false" class="upload-button">Subir</button>
+        <mat-progress-bar mode="indeterminate" class="mt-2" *ngIf="loading"></mat-progress-bar>
+    </div>
+</div>
+
