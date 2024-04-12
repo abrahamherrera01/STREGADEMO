@@ -3,6 +3,12 @@ import Swal from 'sweetalert2';
 import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-horizontal-bar.interface';
 import { GeneralReportService } from '../../../services/general-report.service';
 
+export interface LeadData {
+  category: string;
+  value:    number;
+  percentage?: string | number;
+}
+
 
 @Component({
   selector: 'app-lead-and-portfolio-management',
@@ -11,13 +17,18 @@ import { GeneralReportService } from '../../../services/general-report.service';
 })
 export class LeadAndPortfolioManagementComponent {
   // Incidencias leads
-  percentagesLeadIncidents:number[] =[];
+  percentagesLeadIncidents:number[] = [];  
   leadIncidents!:StackedHorizontalBarData;
   showLeadIncidents:boolean = false;
 
   // Incidencias cartera
   percentagesWalletIncidents:number[] =[];
   walletIncidents!:StackedHorizontalBarData;
+
+  incomingLeadsData?:LeadData[];
+  assignedLeadsData?:LeadData[];
+  surveyedLeads?:LeadData[];
+  LeadsCompletelySatisfied?:LeadData[];
 
   constructor(private generalReportService:GeneralReportService){            
     this.incidentsLeads();
@@ -140,7 +151,7 @@ export class LeadAndPortfolioManagementComponent {
             // Fin transformar data        
             
             this.leadIncidents = {    
-              title: 'Incidencias leads: 1368',
+              title: 'Incidencias leads: ' + data.totalGlobalLeads,
               width: '90%',
               height: '350px',
               text_color: '#fff',
@@ -150,6 +161,12 @@ export class LeadAndPortfolioManagementComponent {
               }
             }
             this.showLeadIncidents = true;
+
+            // Fin grafica
+            this.incomingLeadsData = data.totalLeadsByDepartment;
+            this.assignedLeadsData = data.totalLeadsAssignedByDepartment;
+            this.surveyedLeads = data.totalLeadsContactedByDepartment;
+            this.LeadsCompletelySatisfied = data.totalLeadsSatisfiedByDepartment;
           }
         },
 
@@ -159,34 +176,7 @@ export class LeadAndPortfolioManagementComponent {
       }        
     );
   }
-
-  incomingLeadsData = [
-    { category: 'BMW', value: 1442 },
-    { category: 'MINI', value: 1212 },
-    { category: 'MOTO', value: 3324 },
-    { category: 'SEMI', value: 5749 }
-  ];
-
-  assignedLeadsData = [
-    { category: 'BMW', value: 701, percentage: '49%' },
-    { category: 'MINI', value: 589, percentage: '49%' },
-    { category: 'MOTO', value: 1789, percentage: '54%' },
-    { category: 'SEMI', value: 3049, percentage: '53%' }
-  ]; 
-
-  surveyedLeads = [
-    { category: 'BMW', value: 576, percentage: '82%' },
-    { category: 'MINI', value: 474, percentage: '80%' },
-    { category: 'MOTO', value: 1446, percentage: '81%' },
-    { category: 'SEMI', value: 2615, percentage: '86%' }
-  ];
-
-  LeadsCompletelySatisfied = [
-    { category: 'BMW', value: 467, percentage: '81%' },
-    { category: 'MINI', value: 392, percentage: '83%' },
-    { category: 'MOTO', value: 1018, percentage: '70%' },
-    { category: 'SEMI', value: 1926, percentage: '74%' }
-  ];
+    
 
   incomingWallet = [
     { category: 'BMW', value: 621 },

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { GeneralReportService } from '../../../services/general-report.service';
 import Swal from 'sweetalert2';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-upload-data',
@@ -8,9 +9,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./upload-data.component.css']
 })
 export class UploadDataComponent {
+  @ViewChild('select') select?: MatSelect;
+
   file?: File | null;
   show:boolean = false;
   loading:boolean = false;
+  
   constructor(private generalReportService:GeneralReportService) {}
 
   uploadFile(input: HTMLInputElement) {
@@ -18,7 +22,7 @@ export class UploadDataComponent {
     this.loading = true;
     this.file = input.files ? input.files[0] : null;
     if (this.file) {
-      this.generalReportService.uploadFile(this.file).subscribe(
+      this.generalReportService.uploadFile(this.file, this.select?.value).subscribe(
         {
           next: ({ code, status, respuesta}) => {
             if (code === 200 && status === 'success') {
@@ -69,6 +73,10 @@ export class UploadDataComponent {
         label.textContent = "Selecciona un archivo";
       }         
     }
+  }
+
+  optionSelected() {
+    console.log("dato:" + this.select?.value);
   }
   
 }

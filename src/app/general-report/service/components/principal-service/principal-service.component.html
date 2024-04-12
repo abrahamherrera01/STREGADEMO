@@ -2,7 +2,7 @@
     <div class="options animate__animated animate__fadeIn" *ngIf="show">
       <ul>
         <li (click)="selectIndex(0)">Resumen CSI & NPS e Incidencias.</li>
-        
+        <li (click)="selectIndex(3)">Cliente con quejas por tipo y área.</li>
       </ul>
     </div>
   
@@ -13,7 +13,16 @@
                 <button (click)="toggleShow()" class="btn-index">Ver indice</button>
             </div>  
             <app-csi-and-nps-summary-and-incidents></app-csi-and-nps-summary-and-incidents>
-        </div>        
+        </div>   
+        <!-- Indice 3 -->
+        <div *ngIf="selectedIndex === 3">
+            <div class="component-content">
+                <span class="mx-3 subtitle">Cliente con quejas por tipo y área.</span>       
+                <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+            </div>  
+            <app-customer-with-complaints-by-type-and-area></app-customer-with-complaints-by-type-and-area>
+        </div>  
+        <!-- Fin indice 3 --> 
     </div>
 </div>
   

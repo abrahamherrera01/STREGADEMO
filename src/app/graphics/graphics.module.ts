@@ -7,6 +7,7 @@ import { DatasetBarComponent } from './dataset-bar/dataset-bar.component';
 import { HorizontalBarComponent } from './horizontal-bar/horizontal-bar.component';
 import { StackedHorizontalBarComponent } from './stacked-horizontal-bar/stacked-horizontal-bar.component';
 import { MultipleVerticalBarsComponent } from './multiple-vertical-bars/multiple-vertical-bars.component';
+import { BasicTreemapComponent } from './basic-treemap/basic-treemap.component';
 
 
 
@@ -18,7 +19,8 @@ import { MultipleVerticalBarsComponent } from './multiple-vertical-bars/multiple
     DatasetBarComponent,
     HorizontalBarComponent,
     StackedHorizontalBarComponent,
-    MultipleVerticalBarsComponent
+    MultipleVerticalBarsComponent,
+    BasicTreemapComponent
   ],
   imports: [
     AngularMaterialModule
@@ -30,7 +32,8 @@ import { MultipleVerticalBarsComponent } from './multiple-vertical-bars/multiple
     DatasetBarComponent,
     HorizontalBarComponent,
     StackedHorizontalBarComponent,
-    MultipleVerticalBarsComponent
+    MultipleVerticalBarsComponent,
+    BasicTreemapComponent
   ]
 })
 export class GraphicsModule { }

@@ -3,7 +3,14 @@
         <h4 class="mb-4" #h4Element>Subir datos</h4>
         <label for="fileInput" class="upload-label">Selecciona un archivo</label>
         <input type="file" id="fileInput" accept=".csv" #fileInput class="upload-input" (change)="changeLabel($event)">        
-        <button mat-raised-button color="primary" (click)="uploadFile(fileInput)"  [disabled]="show == false" class="upload-button">Subir</button>
+        <mat-form-field class="options">
+            <mat-label>Selecciona una opción</mat-label>
+            <mat-select #select (selectionChange)="optionSelected()">
+              <mat-option value="leads">Leads</mat-option>
+              <mat-option value="wallet">Cartera</mat-option>              
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="uploadFile(fileInput)"  [disabled]="show == false || select.value == undefined" class="upload-button">Subir</button>
         <mat-progress-bar mode="indeterminate" class="mt-2" *ngIf="loading"></mat-progress-bar>
     </div>
 </div>

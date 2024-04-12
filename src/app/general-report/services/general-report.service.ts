@@ -13,13 +13,22 @@ export class GeneralReportService {
 
   constructor(private http: HttpClient) { }
 
-  uploadFile(file: File):Observable<StoreLeadsTemp>{
+  uploadFile(file: File, type:string ):Observable<StoreLeadsTemp>{
     const formData = new FormData();
-    formData.append('file', file);
-    return this.http.post<StoreLeadsTemp>(`${this.baseUrl}/api/storeLeadsTemp`, formData);
+    formData.append('file', file);   
+    let url = ''; 
+    switch (type) {
+      case 'leads':
+          url = `${this.baseUrl}/api/storeLeadsTemp`;
+        break;      
+      case 'wallet':
+          url = `${this.baseUrl}/api/storeCarteraTemp`;
+        break;      
+    }   
+    return this.http.post<StoreLeadsTemp>(url, formData); 
   }
 
   getCalculatedMetrics():Observable<GetCalculatedMetrics>{
-    return this.http.get<GetCalculatedMetrics>(`${this.baseUrl}/api/getCalculatedMetrics`);
+    return this.http.get<GetCalculatedMetrics>(`${this.baseUrl}/api/getLeadsIncidencesMetrics`);
   }
 }
