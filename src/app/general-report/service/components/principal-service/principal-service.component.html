@@ -1,0 +1,19 @@
+<div class="contenedor">
+    <div class="options animate__animated animate__fadeIn" *ngIf="show">
+      <ul>
+        <li (click)="selectIndex(0)">Resumen CSI & NPS e Incidencias.</li>
+        
+      </ul>
+    </div>
+  
+    <div class="component" *ngIf="selectedIndex !== null">
+        <div *ngIf="selectedIndex === 0">
+            <div class="component-content">
+                <span class="mx-3 subtitle">Resumen CSI & NPS e Incidencias.</span>       
+                <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+            </div>  
+            <app-csi-and-nps-summary-and-incidents></app-csi-and-nps-summary-and-incidents>
+        </div>        
+    </div>
+</div>
+  

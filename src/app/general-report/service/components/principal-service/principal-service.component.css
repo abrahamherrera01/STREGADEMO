@@ -1,0 +1,67 @@
+.contenedor {
+    text-align: center; /* Centrado horizontal */
+    height: 100vh;
+    position: relative;
+}
+
+.options {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+.subtitle {
+    font-weight: bold;
+    font-size: 23px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;        
+}
+
+li {    
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;    
+}
+
+li:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-index {
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;    
+    border: none;
+}
+.btn-index:hover {
+    background-color: #e0e0e0;
+}
+
+.component {
+    width: 100%;
+}
+
+.component-content {
+    text-align: center; /* Centrado horizontal */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.component-content > div {
+    display: inline-block; /* Mostrar elementos en línea */
+    vertical-align: middle; /* Alinear verticalmente */
+}
