@@ -12,6 +12,7 @@
         <li (click)="selectIndex(8)">Correcto uso del CRM: Inconsistencias CRM por ejecutivo (Leads y cartera).</li>        
         <li (click)="selectIndex(9)">Quejas del proceso de atención por tipo y área (Leads y cartera).</li>        
         <li (click)="selectIndex(10)">Quejas del proceso de atención por tipo y ejecutivo (Leads y cartera).</li>        
+        <li (click)="selectIndex(11)">Performance y principales incidencias por asesor.</li>        
       </ul>
     </div>
   
@@ -94,6 +95,16 @@
             </div>              
             <app-complaints-about-the-service-process-by-type-and-executive></app-complaints-about-the-service-process-by-type-and-executive>
         </div>
+        <div *ngIf="selectedIndex === 11">
+            <div class="component-content">
+                <span class="mx-3 subtitle">Performance y principales incidencias por asesor.</span>       
+                <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+            </div>   
+            <div class="container">
+                <app-performance-and-main-incidents-by-advisor></app-performance-and-main-incidents-by-advisor>
+
+            </div>
+         </div>
     </div>
 </div>
   
