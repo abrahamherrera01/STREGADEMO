@@ -1,0 +1,110 @@
+<div class="row">
+  <div class="col-5   animate__animated animate__fadeIn" >
+     <ul class="list-group">
+      <li *ngFor="let adviser of advisersData" class="list-group-item text-start" (click)="selectAdviser(adviser)"> {{adviser.name}}</li>
+    </ul>
+  </div>
+  <div class="col-7 animate__animated animate__fadeIn">
+    <div class="row animate__animated animate__fadeIn" >
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 animate__animated animate__fadeIn" *ngIf="selectedAdviser" >
+        <div class="row animate__animated animate__fadeIn">
+          <div class="card-container ">
+            <img class="round" src="../../../assets/logo/ICON.svg" alt="user" />
+            <h2 class="mt-2">{{selectedAdviser.name}}</h2>
+    
+            <div class="row">
+              <div class="col-6 ">
+                <button class="btn btn-outline-primary btn-sm"  [class.active]="selectedAdviser.activeTab === 'leads'" (click)="show(selectedAdviser, 'leads')"> Leads</button>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-outline-primary btn-sm" [class.active]="selectedAdviser.activeTab === 'wallet'"  (click)="show(selectedAdviser, 'wallet')"> Cartera</button>
+              </div>
+            </div>
+            <hr>
+            <div class="leads animate__animated animate__fadeIn" *ngIf="selectedAdviser.leads">
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
+                  <p>Leads Asignados</p>
+                  <h3>{{selectedAdviser.leadsAssigned}}</h3>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
+                  <p>Leads Encuestados</p>
+                  <h3>{{selectedAdviser.leadsSurveyed}}</h3>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
+                  <p>% Encuestados</p>
+                  <h3>{{selectedAdviser.percentageSurveyed}}%</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
+                  <p>Incons CRM</p>
+                  <h3>{{selectedAdviser.leadsInconsCRM}}</h3>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
+                  <p>leads quejas</p>
+                  <h3>{{selectedAdviser.leadsComplaints}}</h3>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
+                  <p>Leads solicitudes</p>
+                  <h3>{{selectedAdviser.leadsRequests}}%</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <p>CSI leads</p>
+                  <h3>{{selectedAdviser.csiLeads}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="cartera animate__animated animate__fadeIn"  *ngIf="selectedAdviser.wallet">
+              <div class="row">
+                <div class="col-4">
+                  <p>cartera entrante</p>
+                  <h3>{{selectedAdviser.walletIncoming}}</h3>
+                </div>
+                <div class="col-4">
+                  <p>cartera encuestada</p>
+                  <h3>{{selectedAdviser.walletSurveyed}}</h3>
+                </div>
+                <div class="col-4">
+                  <p>validez de cartera</p>
+                  <h3>{{selectedAdviser.walletValidity}}%</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <p>Csi Cartera</p>
+                  <h3>{{selectedAdviser.csiWallet}}%</h3>
+                </div>
+                <div class="col-4">
+                  <p>Incons</p>
+                  <h3>{{selectedAdviser.walletIncons}}</h3>
+                </div>
+                <div class="col-4">
+                  <p>localizabes</p>
+                  <h3>{{selectedAdviser.localizables}}</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <p>cartera quejas </p>
+                  <h3>{{selectedAdviser.walletComplaints}}</h3>
+                </div>
+                <div class="col-6">
+                  <p>cartera solicitudes</p>
+                  <h3>{{selectedAdviser.walletRequests}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+
+</div>
+
+
+

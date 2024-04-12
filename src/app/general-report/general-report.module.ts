@@ -20,6 +20,7 @@ import { CrmInconsistenciesByExecutiveComponent } from './crm-inconsistencies-by
 import { ComplaintsAboutTheCareProcessByTypeAndAreaComponent } from './complaints-about-the-care-process-by-type-and-area/complaints-about-the-care-process-by-type-and-area.component';
 import { ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent } from './complaints-about-the-service-process-by-type-and-executive/complaints-about-the-service-process-by-type-and-executive.component';
 import { UploadDataComponent } from './upload-data/upload-data.component';
+import { PerformanceAndMainIncidentsByAdvisorComponent } from './performance-and-main-incidents-by-advisor/performance-and-main-incidents-by-advisor.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { UploadDataComponent } from './upload-data/upload-data.component';
     CrmInconsistenciesByExecutiveComponent,
     ComplaintsAboutTheCareProcessByTypeAndAreaComponent,
     ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent,
-    UploadDataComponent
+    UploadDataComponent,
+    PerformanceAndMainIncidentsByAdvisorComponent
   ],
   imports: [
     CommonModule,
