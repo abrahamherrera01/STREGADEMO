@@ -25,6 +25,7 @@ import { UploadDataComponent } from './leads-and-wallet/components/upload-data/u
 import { PerformanceAndMainIncidentsByAdvisorComponent } from './leads-and-wallet/components/performance-and-main-incidents-by-advisor/performance-and-main-incidents-by-advisor.component';
 import { PrincipalServiceComponent } from './service/components/principal-service/principal-service.component';
 import { CsiAndNpsSummaryAndIncidentsComponent } from './service/components/csi-and-nps-summary-and-incidents/csi-and-nps-summary-and-incidents.component';
+import { CustomerWithComplaintsByTypeAndAreaComponent } from './service/components/customer-with-complaints-by-type-and-area/customer-with-complaints-by-type-and-area.component';
 
 
 
@@ -45,7 +46,8 @@ import { CsiAndNpsSummaryAndIncidentsComponent } from './service/components/csi-
     UploadDataComponent,
     PerformanceAndMainIncidentsByAdvisorComponent,
     PrincipalServiceComponent,
-    CsiAndNpsSummaryAndIncidentsComponent
+    CsiAndNpsSummaryAndIncidentsComponent,
+    CustomerWithComplaintsByTypeAndAreaComponent    
   ],
   imports: [
     CommonModule,

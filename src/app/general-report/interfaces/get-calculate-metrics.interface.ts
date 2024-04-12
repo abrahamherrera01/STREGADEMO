@@ -5,13 +5,29 @@ export interface GetCalculatedMetrics {
 }
 
 export interface Data {
-    totalIncidences:       number;
-    departmentPercentages: number[];
-    categories:            string[];
-    series:                Series[];
+    totalGlobalLeads:                number;
+    totalIncidences:                 number;
+    departmentPercentages:           number[];
+    categories:                      string[];
+    series:                          Series[];
+    totalLeadsByDepartment:          TotalLeadsByDepartment[];
+    totalLeadsAssignedByDepartment:  TotalLeadsByDepartment[];
+    totalLeadsContactedByDepartment: TotalLeadsEdByDepartment[];
+    totalLeadsSatisfiedByDepartment: TotalLeadsEdByDepartment[];
 }
 
 export interface Series {
     name: string;
     data: number[];
+}
+
+export interface TotalLeadsByDepartment {
+    category: string;
+    value:    number;
+}
+
+export interface TotalLeadsEdByDepartment {
+    category:   string;
+    value:      number;
+    percentage: number;
 }

@@ -38,3 +38,7 @@
 .upload-button:hover {
     background-color: #4A57B2;
 }
+
+.options {
+    width: 100%;
+}
