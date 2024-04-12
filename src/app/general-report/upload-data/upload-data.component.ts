@@ -11,9 +11,7 @@ export class UploadDataComponent {
   file?: File | null;
   show:boolean = false;
   loading:boolean = false;
-  constructor(private generalReportService:GeneralReportService) { 
-    console.log( this.file );
-  }
+  constructor(private generalReportService:GeneralReportService) {}
 
   uploadFile(input: HTMLInputElement) {
     this.show = false;

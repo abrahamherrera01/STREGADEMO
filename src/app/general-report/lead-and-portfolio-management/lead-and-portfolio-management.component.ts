@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2';
 import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-horizontal-bar.interface';
-interface LeadData {
-  category: string;
-  value: number;
-}
-
-interface LeadDataWithPercentage extends LeadData {
-  percentage: string;
-}
+import { GeneralReportService } from '../services/general-report.service';
 
 @Component({
   selector: 'app-lead-and-portfolio-management',
@@ -18,91 +12,14 @@ export class LeadAndPortfolioManagementComponent {
   // Incidencias leads
   percentagesLeadIncidents:number[] =[];
   leadIncidents!:StackedHorizontalBarData;
+  showLeadIncidents:boolean = false;
 
   // Incidencias cartera
   percentagesWalletIncidents:number[] =[];
   walletIncidents!:StackedHorizontalBarData;
 
-  constructor(){
-    this.percentagesLeadIncidents = [199, 200, 201, 202, 203, 204, 295];
-    
-    this.leadIncidents = {    
-      title: 'Incidencias leads: 1368',
-      width: '90%',
-      height: '225px',
-      text_color: '#fff',
-      graphic: {
-        categories: [
-          'Inconsistencia CRM',
-          'Leads con Queja',
-          'Solicitud de info/contacto',
-          'Baja calificación',
-          'Oportunidad perdida',
-          'Negociación diferida',
-          'No desea ser encuestado'
-        ],      
-        series: [
-          {
-            name: 'BMW',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: false,               
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [320, 302, 301, 334, 390, 330, 320],            
-          },
-          {
-            name: 'MINI',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: false,
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [120, 132, 101, 134, 90, 230, 210]
-          },
-          {
-            name: 'MOTO',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: false,
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [220, 182, 191, 234, 290, 330, 310]
-          },
-          {
-            name: 'SEMINUEVO',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,
-              position: 'right',                            
-              formatter: (params: any) => {
-                if (this.percentagesLeadIncidents !== undefined) {
-                  return `${this.percentagesLeadIncidents[params.dataIndex]}%`;
-                } else {
-                  return ' ';
-                } 
-              }, 
-              color: '#fff'
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [150, 212, 201, 154, 190, 330, 410]
-          },        
-        ]
-      }
-    }
-    
+  constructor(private generalReportService:GeneralReportService){            
+    this.incidentsLeads();
     this.percentagesWalletIncidents = [199, 200, 201, 202, 203, 204, 295];
 
     this.walletIncidents = {    
@@ -165,8 +82,8 @@ export class LeadAndPortfolioManagementComponent {
               show: true,
               position: 'right',                            
               formatter: (params: any) => {
-                if (this.percentagesLeadIncidents !== undefined) {
-                  return `${this.percentagesLeadIncidents[params.dataIndex]}%`;
+                if (this.percentagesWalletIncidents !== undefined) {
+                  return `${this.percentagesWalletIncidents[params.dataIndex]}%`;
                 } else {
                   return ' ';
                 } 
@@ -181,6 +98,65 @@ export class LeadAndPortfolioManagementComponent {
         ]
       }
     }
+  }
+
+  incidentsLeads(){
+    this.generalReportService.getCalculatedMetrics().subscribe(
+      {
+        next: ({ code, status, data}) => {
+          if (code === 200 && status === 'success') {
+            this.percentagesLeadIncidents = data.departmentPercentages;
+            // Transformar data
+            const transformedData = data.series.map((item, index) => {
+              const additionalConfig = index === this.percentagesLeadIncidents.length - 1 ? {
+                label: {
+                  show: true,
+                  position: 'right',
+                  formatter: (params: any) => {
+                    if (this.percentagesLeadIncidents !== undefined) {
+                      return `${this.percentagesLeadIncidents[params.dataIndex]}%`;
+                    } else {
+                      return ' ';
+                    } 
+                  }
+                }
+              } : {};
+
+              return {
+                name: item.name,
+                type: 'bar',
+                stack: 'total',
+                label: {
+                  show: false
+                },
+                emphasis: {
+                  focus: 'series'
+                },
+                data: item.data,
+                ...additionalConfig
+              };
+            });    
+            // Fin transformar data        
+            
+            this.leadIncidents = {    
+              title: 'Incidencias leads: 1368',
+              width: '90%',
+              height: '350px',
+              text_color: '#fff',
+              graphic: {
+                categories: data.categories,      
+                series: transformedData
+              }
+            }
+            this.showLeadIncidents = true;
+          }
+        },
+
+        error: (error) => {
+          console.error('Error:' + error);               
+        }
+      }        
+    );
   }
 
   incomingLeadsData = [
