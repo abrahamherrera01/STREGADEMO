@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-horizontal-bar.interface';
-import { GeneralReportService } from '../services/general-report.service';
+import { GeneralReportService } from '../../services/general-report.service';
+
 
 @Component({
   selector: 'app-lead-and-portfolio-management',
