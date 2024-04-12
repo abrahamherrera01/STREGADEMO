@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GeneralReportService } from '../services/general-report.service';
+import { GeneralReportService } from '../../services/general-report.service';
 import Swal from 'sweetalert2';
 
 @Component({
