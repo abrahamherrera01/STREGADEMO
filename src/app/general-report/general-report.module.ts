@@ -23,6 +23,8 @@ import { ComplaintsAboutTheCareProcessByTypeAndAreaComponent } from './leads-and
 import { ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent } from './leads-and-wallet/components/complaints-about-the-service-process-by-type-and-executive/complaints-about-the-service-process-by-type-and-executive.component';
 import { UploadDataComponent } from './leads-and-wallet/components/upload-data/upload-data.component';
 import { PerformanceAndMainIncidentsByAdvisorComponent } from './leads-and-wallet/components/performance-and-main-incidents-by-advisor/performance-and-main-incidents-by-advisor.component';
+import { PrincipalServiceComponent } from './service/components/principal-service/principal-service.component';
+import { CsiAndNpsSummaryAndIncidentsComponent } from './service/components/csi-and-nps-summary-and-incidents/csi-and-nps-summary-and-incidents.component';
 
 
 
@@ -41,7 +43,9 @@ import { PerformanceAndMainIncidentsByAdvisorComponent } from './leads-and-walle
     ComplaintsAboutTheCareProcessByTypeAndAreaComponent,
     ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent,
     UploadDataComponent,
-    PerformanceAndMainIncidentsByAdvisorComponent
+    PerformanceAndMainIncidentsByAdvisorComponent,
+    PrincipalServiceComponent,
+    CsiAndNpsSummaryAndIncidentsComponent
   ],
   imports: [
     CommonModule,

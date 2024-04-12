@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { StoreLeadsTemp } from '../../interfaces/store-leads-temp.interface';
+import { StoreLeadsTemp } from '../interfaces/store-leads-temp.interface';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { GetCalculatedMetrics } from '../../interfaces/get-calculate-metrics.interface';
+import { GetCalculatedMetrics } from '../interfaces/get-calculate-metrics.interface';
 
 @Injectable({
   providedIn: 'root'
