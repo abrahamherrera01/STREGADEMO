@@ -83,7 +83,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-4 mb-1 box">
-            <app-stacked-horizontal-bar [data]="leadIncidents"></app-stacked-horizontal-bar>
+            <app-stacked-horizontal-bar [data]="leadIncidents" *ngIf="showLeadIncidents"></app-stacked-horizontal-bar>
         </div>
     </div>
     <div class="row mt-3">
