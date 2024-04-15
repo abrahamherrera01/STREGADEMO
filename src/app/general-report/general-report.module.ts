@@ -26,6 +26,8 @@ import { PerformanceAndMainIncidentsByAdvisorComponent } from './leads-and-walle
 import { PrincipalServiceComponent } from './service/components/principal-service/principal-service.component';
 import { CsiAndNpsSummaryAndIncidentsComponent } from './service/components/csi-and-nps-summary-and-incidents/csi-and-nps-summary-and-incidents.component';
 import { CustomerWithComplaintsByTypeAndAreaComponent } from './service/components/customer-with-complaints-by-type-and-area/customer-with-complaints-by-type-and-area.component';
+import { QuarterlyComparisonsComponent } from './service/components/quarterly-comparisons/quarterly-comparisons.component';
+import { UntraceableByTypeAndExecutiveComponent } from './service/components/untraceable-by-type-and-executive/untraceable-by-type-and-executive.component';
 
 
 
@@ -47,7 +49,9 @@ import { CustomerWithComplaintsByTypeAndAreaComponent } from './service/componen
     PerformanceAndMainIncidentsByAdvisorComponent,
     PrincipalServiceComponent,
     CsiAndNpsSummaryAndIncidentsComponent,
-    CustomerWithComplaintsByTypeAndAreaComponent    
+    CustomerWithComplaintsByTypeAndAreaComponent,    
+    QuarterlyComparisonsComponent,
+    UntraceableByTypeAndExecutiveComponent
   ],
   imports: [
     CommonModule,
