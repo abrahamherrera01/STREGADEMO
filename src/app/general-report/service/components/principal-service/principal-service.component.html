@@ -5,6 +5,11 @@
       <li (click)="selectIndex(1)">Comparativas Trimestrales</li>
       <li (click)="selectIndex(2)">Ilocalizables Por tipo y Ejecutivo, Marzo.</li>
       <li (click)="selectIndex(3)">Cliente con quejas por tipo y área.</li>
+      <li (click)="selectIndex(4)"> Seguimiento a Quejas de Taller.</li>
+      <li (click)="selectIndex(5)">Quejas de Asesores.</li>
+      <li (click)="selectIndex(6)">Garantías.</li>
+      <li (click)="selectIndex(7)">Quejas por asesor y punto de contacto.</li>
+      <li (click)="selectIndex(8)">Performance e incidencias por asesor.</li>
     </ul>
   </div>
 
@@ -38,9 +43,45 @@
   </div>
   <div *ngIf="selectedIndex === 3">
     <div class="component-content">
-        <span class="mx-3 subtitle">Cliente con quejas por tipo y área.</span>       
-        <button (click)="toggleShow()" class="btn-index">Ver indice</button>
-    </div>  
+      <span class="mx-3 subtitle">Cliente con quejas por tipo y área.</span>
+      <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+    </div>
     <app-customer-with-complaints-by-type-and-area></app-customer-with-complaints-by-type-and-area>
-</div>  
+  </div>
+  <div *ngIf="selectedIndex === 4">
+    <div class="component-content">
+      <span class="mx-3 subtitle">Seguimiento a quejas de taller.</span>
+      <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+    </div>
+    <app-follow-up-on-workshop-complaints></app-follow-up-on-workshop-complaints>
+  </div>
+  <div *ngIf="selectedIndex === 5">
+    <div class="component-content">
+      <span class="mx-3 subtitle">Quejas de Asesores</span>
+      <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+    </div>
+    <app-advisor-complaints></app-advisor-complaints>
+  </div>
+  <div *ngIf="selectedIndex === 6">
+    <div class="component-content">
+      <span class="mx-3 subtitle">Garantías</span>
+      <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+    </div>
+    <app-guarantees></app-guarantees>
+  </div>
+  <div *ngIf="selectedIndex === 7">
+    <div class="component-content">
+      <span class="mx-3 subtitle">Quejas por asesor y punto de contacto</span>
+      <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+    </div>
+    <app-complaints-by-advisor-and-point-of-contact></app-complaints-by-advisor-and-point-of-contact>
+  </div>
+  <div *ngIf="selectedIndex === 8">
+    <div class="component-content">
+      <span class="mx-3 subtitle">Performance e incidencias por asesor.</span>
+      <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+    </div>
+    <app-performance-and-incidents-per-advisor></app-performance-and-incidents-per-advisor>
+  </div>
+
 </div>
