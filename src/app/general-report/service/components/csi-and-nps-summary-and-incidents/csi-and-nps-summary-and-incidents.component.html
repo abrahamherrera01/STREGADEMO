@@ -1,1 +1,146 @@
-<p>csi-and-nps-summary-and-incidents works!</p>
+<div class="container-fluid animate__animated animate__fadeIn">
+  <div class="row">
+    <div class="col-sm-6 col-md-2 mb-1">
+      <div class="box incoming-leads">
+        <span class="t-title">Órdenes</span>
+        <table>
+          <tbody>
+            <tr *ngFor="let data of OrdersData">
+              <td class="right-left">{{ data.category }}</td>
+              <td>{{ data.value }}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Total</td>
+              <td>598</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-10 mb-1">
+      <div class="box incoming-leads">
+        <div class="row">
+          <div class="col">
+            <span class="t-title">Encuestados: </span>
+            <table>
+              <tbody>
+                <tr *ngFor="let data of surveyedData">
+                  <td class="right-left">{{ data.category }}</td>
+                  <td>{{ data.value }}</td>
+                  <td>{{ data.percentage }}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>Total</td>
+                  <td>513</td>
+                  <td>86%</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="col promoter">
+            <span class="t-title ">Promotores: </span>
+            <table>
+              <tbody>
+                <tr *ngFor="let data of promoterData">
+                  <td class="right-left">{{ data.category }}</td>
+                  <td>{{ data.value }}</td>
+                  <td>{{ data.percentage }}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>Total</td>
+                  <td class="right-align">420</td>
+                  <td class="right-align">82%</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="col neutro">
+            <span class="t-title   align-items-center">Neutros: </span>
+            <table>
+              <tbody>
+                <tr *ngFor="let data of neutroData">
+                  <td class="right-left">{{ data.category }}</td>
+                  <td>{{ data.value }}</td>
+                  <td>{{ data.percentage }}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>Total</td>
+                  <td>68</td>
+                  <td>13%</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="col detractor">
+            <span class="t-title ">Detractores: </span>
+            <table>
+              <tbody>
+                <tr *ngFor="let data of detractorData">
+                  <td class="right-left">{{ data.category }}</td>
+                  <td>{{ data.value }}</td>
+                  <td>{{ data.percentage }}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>Total</td>
+                  <td>20</td>
+                  <td>4%</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="col nps">
+            <span class="t-title">NPS:</span>
+            <table>
+              <tbody>
+                <tr *ngFor="let data of neutroData">
+                  <td class="right-left">{{ data.category }}</td>
+                  <td class="npsc">{{ data.value }}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>Total</td>
+                  <td class="npsc">78</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row p-3">
+    <div class="col-sm-12 col-md-6 mb-1 box">
+      <app-stacked-vertical-bar [data]="Incidents"></app-stacked-vertical-bar>
+    </div>
+    <div class="col"></div>
+
+    <div class="col-sm-12 col-md-5 mb-1 ">
+      <div class="row">
+        <div class="col-12 mb-1 box">
+          <app-stacked-horizontal-bar [data]="not_contactedData"></app-stacked-horizontal-bar>
+        </div>
+
+
+      </div>
+      <div class="row">
+        <div class="col-12 mb-1 box">
+          <app-stacked-horizontal-bar [data]="contactedData"></app-stacked-horizontal-bar>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
