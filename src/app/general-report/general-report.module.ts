@@ -28,6 +28,11 @@ import { CsiAndNpsSummaryAndIncidentsComponent } from './service/components/csi-
 import { CustomerWithComplaintsByTypeAndAreaComponent } from './service/components/customer-with-complaints-by-type-and-area/customer-with-complaints-by-type-and-area.component';
 import { QuarterlyComparisonsComponent } from './service/components/quarterly-comparisons/quarterly-comparisons.component';
 import { UntraceableByTypeAndExecutiveComponent } from './service/components/untraceable-by-type-and-executive/untraceable-by-type-and-executive.component';
+import { FollowUpOnWorkshopComplaintsComponent } from './service/components/follow-up-on-workshop-complaints/follow-up-on-workshop-complaints.component';
+import { AdvisorComplaintsComponent } from './service/components/advisor-complaints/advisor-complaints.component';
+import { GuaranteesComponent } from './service/components/guarantees/guarantees.component';
+import { ComplaintsByAdvisorAndPointOfContactComponent } from './service/components/complaints-by-advisor-and-point-of-contact/complaints-by-advisor-and-point-of-contact.component';
+import { PerformanceAndIncidentsPerAdvisorComponent } from './service/components/performance-and-incidents-per-advisor/performance-and-incidents-per-advisor.component';
 
 
 
@@ -51,7 +56,12 @@ import { UntraceableByTypeAndExecutiveComponent } from './service/components/unt
     CsiAndNpsSummaryAndIncidentsComponent,
     CustomerWithComplaintsByTypeAndAreaComponent,    
     QuarterlyComparisonsComponent,
-    UntraceableByTypeAndExecutiveComponent
+    UntraceableByTypeAndExecutiveComponent,
+    FollowUpOnWorkshopComplaintsComponent,
+    AdvisorComplaintsComponent,
+    GuaranteesComponent,
+    ComplaintsByAdvisorAndPointOfContactComponent,
+    PerformanceAndIncidentsPerAdvisorComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,59 @@
+h2{
+	font-size: 14px !important;
+}
+
+h3 {
+	font-size: 15px !important;
+}
+
+h6 {
+	margin: 5px 0;
+	text-transform: uppercase;
+}
+
+p {
+	font-size: 15px;
+ }
+
+ .list-group{
+	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+ }
+
+.card-container {
+	background-color: #ffffff;
+	border-radius: 5px;
+	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+	color: #000000;
+	padding-top: 30px;
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+	text-align: center;
+ }
+
+ 
+
+.card-container .round {
+	border: 1px solid ;
+	border-color:  #0882EA;  
+	border-radius: 50%;
+	padding: 7px;
+	
+}
+img{
+	width: 20%;
+}
+ 
+.btn{
+	width: 100%;
+}
+
+ .bg-1{
+	background-color: rgb(106,153,208); 
+	color: white;
+  }
+
+  .bg-2{
+	background-color: rgb(230,237,248); 
+	color: black;
+  }
