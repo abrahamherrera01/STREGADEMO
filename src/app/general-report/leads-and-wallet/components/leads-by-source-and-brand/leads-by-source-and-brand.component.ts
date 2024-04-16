@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { InboundLeadsBySourceAndBrandService } from 'src/app/general-report/services/inbound-leads-by-source-and-brand.service.service';
 import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-horizontal-bar.interface';
 
 @Component({
@@ -7,81 +8,97 @@ import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-ho
   styleUrls: ['./leads-by-source-and-brand.component.css']
 })
 export class LeadsBySourceAndBrandComponent {
-  percentagesLeadIncidents:string[] =[];
+
+  show:boolean=false;
+  percentagesLeadIncidents:number[] =[];
   leadIncidents!:StackedHorizontalBarData;
-  constructor(){    
-    this.percentagesLeadIncidents = ['1998, 17%', '9725, 83%'];
-    
-    this.leadIncidents = {    
-      title: '',
-      width: '90%',
-      height: '240px',
-      text_color: '#000',
-      graphic: {
-        categories: [          
-          'Z-ONLINE LEADS',
-          'INHOUSE LEADS'
-        ],      
-        series: [
-          {
-            name: 'BMW',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: false,               
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [747, 695],            
-          },
-          {
-            name: 'MINI',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: false,
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [658, 554]
-          },
-          {
-            name: 'MOTO',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: false,
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [593, 2727]
-          },
-          {
-            name: 'SEMINUEVO',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,
-              position: 'right',                            
-              formatter: (params: any) => {
-                if (this.percentagesLeadIncidents !== undefined) {
-                  return `${this.percentagesLeadIncidents[params.dataIndex]}%`;
-                } else {
-                  return '  ';
-                } 
-              }, 
-              color: '#000'
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0.000001, 5749]
-          },        
-        ]
-      }
-    }        
+  seriesseminuevo:any;
+  seriesnuevo:any
+
+   
+  constructor(private ReportService:InboundLeadsBySourceAndBrandService){    
+     this.incidentsLeads();
+ 
+  }
+
+  incidentsLeads(){
+    this.ReportService.getleadsincoming().subscribe(
+      {
+        next: ({ code, status, data}) => {
+
+          if (code === 200 && status === 'success') {
+            this.percentagesLeadIncidents = data.percentages;
+
+
+            this.seriesseminuevo={
+              name: 'Seminuevo',
+              type: 'bar',
+              stack: 'total',
+              label: {
+                show: true,               
+                position: 'right',
+                formatter: (params: any) => {
+                  if (this.percentagesLeadIncidents !== undefined) {
+                    return `${this.percentagesLeadIncidents[params.dataIndex]}%`;
+                  } else {
+                    return '';
+                  } 
+                }, 
+                color: '#0000'            
+              },
+              emphasis: {
+                focus: 'series'
+              },
+              data: data.series.SEMINUEVO
+            }
+
+            
+            this.seriesnuevo={
+              name: 'Nuevo',
+              type: 'bar',
+              stack: 'total',
+              label: {
+                show: true,               
+                position: 'right',
+                formatter: (params: any) => {
+                  if (this.percentagesLeadIncidents !== undefined) {
+                    return `${this.percentagesLeadIncidents[params.dataIndex]}%`;
+                  } else {
+                    return '';
+                  } 
+                }, 
+                color: '#000'            
+              },
+              emphasis: {
+                focus: 'series'
+              },
+              data: data.series.NUEVO
+            }
+             
+            // Fin transformar data        
+            
+            this.leadIncidents = {    
+              title: 'Incidencias leads:'+ data.total ,
+              width: '90%',
+              height: '350px',
+              text_color: '#000',
+              graphic: {
+                categories: data.categories,      
+                series: [
+                  this.seriesseminuevo,
+                  this.seriesnuevo,              
+                ]
+              }
+            }
+            this.show = true;
+
+          }
+        },
+
+        error: (error) => {
+          console.error('Error:' + error);               
+        }
+      }        
+    );
   }
 }
