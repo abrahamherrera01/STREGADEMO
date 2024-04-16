@@ -13,7 +13,7 @@
                     <tfoot>
                         <tr>
                           <td>Total</td>
-                          <td>11747</td>
+                          <td>{{totalincomingLeadsData}}</td>
                         </tr>
                     </tfoot>
                 </table>                
@@ -35,8 +35,7 @@
                             <tfoot>
                                 <tr>
                                     <td>Total</td>
-                                    <td>6125</td>
-                                    <td>52%</td>
+                                    <td>{{totalassignedLeads}}</td>
                                 </tr>
                             </tfoot>
                         </table> 
@@ -54,7 +53,7 @@
                             <tfoot>                                
                                 <tr>
                                     <td>Total</td>
-                                    <td class="right-align">5111</td>
+                                    <td class="right-align">{{totalsurveyedLeads}}</td>
                                     <td class="right-align">83%</td>
                                 </tr>
                             </tfoot>
@@ -73,7 +72,7 @@
                             <tfoot>                                
                                 <tr>
                                     <td>Total</td>
-                                    <td>3803</td>
+                                    <td>{{totalLeadsCompletelySatisfied}}</td>
                                     <td>74%</td>
                                 </tr>
                             </tfoot>
@@ -100,7 +99,7 @@
                     <tfoot>
                       <tr>
                         <td>Total</td>
-                        <td>1711</td>
+                        <td>{{totalsumincomingWallet}}</td>
                       </tr>
                     </tfoot>
                 </table>
@@ -116,13 +115,13 @@
                                 <tr *ngFor="let data of surveyedWallet">
                                     <td class="right-left">{{ data.category }}</td>
                                     <td>{{ data.value }}</td>   
-                                    <td>{{ data.percentage }}</td>                            
+                                    <td>{{ data.percentage }}%</td>                            
                                 </tr>
                             </tbody> 
                             <tfoot>
                                 <tr>
                                     <td>Total</td>
-                                    <td>1365</td>
+                                    <td>{{totalsurveyedWallet}}</td>
                                     <td>80%</td>
                                 </tr>
                             </tfoot>
@@ -135,13 +134,13 @@
                                 <tr *ngFor="let data of prospectsCompletelySatisfied">
                                     <td class="right-left">{{ data.category }}</td>
                                     <td>{{ data.value }}</td>   
-                                    <td>{{ data.percentage }}</td>                            
+                                    <td>{{ data.percentage }}%</td>                            
                                 </tr>
                             </tbody> 
                             <tfoot>                                
                                 <tr>
                                     <td>Total</td>
-                                    <td>3803</td>
+                                    <td>{{totalprospectsCompletelySatisfied}}</td>
                                     <td>74%</td>
                                 </tr>
                             </tfoot>
@@ -151,7 +150,7 @@
             </div>
         </div>
         <div class="col-sm-12 col-md-5 mb-1 box">
-            <app-stacked-horizontal-bar [data]="walletIncidents"></app-stacked-horizontal-bar>
+            <app-stacked-horizontal-bar [data]="walletIncidents" *ngIf="showWalletIncidents"></app-stacked-horizontal-bar>
         </div>
     </div>
 </div>
