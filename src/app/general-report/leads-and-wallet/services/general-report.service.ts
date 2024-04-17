@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { GetCalculatedMetrics } from '../../interfaces/get-calculate-metrics.interface';
 import { GetAssignedCarteraBySourceAndExecutive } from '../../interfaces/get-assigned-cartera-by-source-and-executive.interface';
 import { GetIncommingCarteraSurveyedUntraceableByDepartment } from '../../interfaces/get-incomming-cartera-surveyedUntraceable-by-department.interface';
+import { GetInconsistenciesByDepartment } from '../../interfaces/get-inconsistencies-by-department.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,9 @@ export class GeneralReportService {
 
   getIncommingCarteraSurveyedUntraceableByDepartment():Observable<GetIncommingCarteraSurveyedUntraceableByDepartment>{
     return this.http.get<GetIncommingCarteraSurveyedUntraceableByDepartment>(`${this.baseUrl}/api/getIncommingCarteraSurveyedUntraceableByDepartment`);
+  }
+
+  getInconsistenciesByDepartment():Observable<GetInconsistenciesByDepartment>{
+    return this.http.get<GetInconsistenciesByDepartment>(`${this.baseUrl}/api/getInconsistenciesByDepartment`);
   }
 }
