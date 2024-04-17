@@ -1,4 +1,15 @@
-export interface AdviserInterface {
+export interface DetailsExecutiveDataInterface {
+    code:   number;
+    status: string;
+    data:   Data;
+}
+
+export interface Data {
+    categories:        string[];
+    detailsExecutives: DetailsExecutive[];
+}
+
+export interface DetailsExecutive {
     name:                     string;
     leadsAssigned:            number;
     leadsSurveyed:            number;
@@ -17,10 +28,4 @@ export interface AdviserInterface {
     untraceables:             number;
     walletComplaints:         number;
     walletRequests:           number;
-    leads:                    boolean;
-    wallet:                   boolean;
-    activeTab:                ActiveTab;
-}
-export enum ActiveTab {
-    Leads = "leads",
 }

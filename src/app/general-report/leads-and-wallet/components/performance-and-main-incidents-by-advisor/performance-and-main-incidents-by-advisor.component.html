@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-5   animate__animated animate__fadeIn" >
-     <ul class="list-group">
+  <div class="col-5 animate__animated animate__fadeIn">
+    <ul class="list-group" #listContainer>
       <li *ngFor="let adviser of advisersData" class="list-group-item text-start" (click)="selectAdviser(adviser)"> {{adviser.name}}</li>
     </ul>
   </div>
@@ -14,10 +14,10 @@
     
             <div class="row">
               <div class="col-6 ">
-                <button class="btn btn-outline-primary btn-sm"  [class.active]="selectedAdviser.activeTab === 'leads'" (click)="show(selectedAdviser, 'leads')"> Leads</button>
+                <button class="btn btn-outline-primary btn-sm"  [class.active]="leads==true"   (click)="show(selectedAdviser, 'leads')"> Leads</button>
               </div>
               <div class="col-6">
-                <button class="btn btn-outline-primary btn-sm" [class.active]="selectedAdviser.activeTab === 'wallet'"  (click)="show(selectedAdviser, 'wallet')"> Cartera</button>
+                <button class="btn btn-outline-primary btn-sm" [class.active]="wallet ==true"  (click)="show(selectedAdviser, 'wallet')"> Cartera</button>
               </div>
             </div>
             <hr>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
                   <p>% Encuestados</p>
-                  <h3>{{selectedAdviser.percentageSurveyed}}%</h3>
+                  <h3>{{selectedAdviser.leadsSurveyedPercentage}}%</h3>
                 </div>
               </div>
               <div class="row">
@@ -53,7 +53,7 @@
               <div class="row">
                 <div class="col-12">
                   <p>CSI leads</p>
-                  <h3>{{selectedAdviser.csiLeads}}</h3>
+                <h3>{{selectedAdviser.percentageSatisfied}}</h3> 
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="col-4">
                   <p>validez de cartera</p>
-                  <h3>{{selectedAdviser.walletValidity}}%</h3>
+                  <h3>{{selectedAdviser.walletSatisfied}}%</h3>
                 </div>
               </div>
               <div class="row">
@@ -82,8 +82,8 @@
                   <h3>{{selectedAdviser.walletIncons}}</h3>
                 </div>
                 <div class="col-4">
-                  <p>localizabes</p>
-                  <h3>{{selectedAdviser.localizables}}</h3>
+                  <p>ilocalizabes</p>
+                  <h3>{{selectedAdviser.untraceables}}</h3>
                 </div>
               </div>
               <div class="row">
