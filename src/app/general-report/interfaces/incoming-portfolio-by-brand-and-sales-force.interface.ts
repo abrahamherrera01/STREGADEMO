@@ -6,7 +6,7 @@ export interface IncomingPortfolioByBrandAndSalesForceInterface {
 
 export interface Data {
     categories:  string[];
-    series:      any;
+    series:      any; 
     totales:     number[];
     percentages: number[];
     total:       number;
