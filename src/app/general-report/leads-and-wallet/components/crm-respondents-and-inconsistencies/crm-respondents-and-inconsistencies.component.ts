@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GraphicData } from 'src/app/graphics/interfaces/multiple-vertical-bars.interface';
+import { GeneralReportService } from '../../services/general-report.service';
 
 @Component({
   selector: 'app-crm-respondents-and-inconsistencies',
@@ -8,56 +9,63 @@ import { GraphicData } from 'src/app/graphics/interfaces/multiple-vertical-bars.
 })
 export class CrmRespondentsAndInconsistenciesComponent {
   data!:GraphicData;
+  show:boolean = false;
 
-  constructor(){        
-    this.data = {    
-      title: '',
-      width: '90%',
-      height: '600px',
-      text_color: '#000',
-      graphic: {
-        source: [          
-          ['product', 'Entrantes', 'Encuestados', 'Inconsistencias CRM'],
-          ['Administrativo', 40 ,24 ,1],
-          ['Foraneos digital', 424, 290, 4],          
-          ['Matriz Piso', 242, 184, 2],
-          ['Seminuevo', 205, 155, 1],
-          ['Piso Zacatelco', 107, 72, 3],         
-          ['Fuerza Movil' , 32 , 20 , 0]
-        ],
-        series: [
-          { 
-            type: 'bar',
-            label: {
-              show: true,
-              position: 'top',
-              formatter: function(params: any) {
-                return params.value[1] + '%'; 
-              }
+  constructor(
+    private generalReportService:GeneralReportService
+  ){        
+    this.getInconsistenciesByDepartment();    
+  }
+
+  getInconsistenciesByDepartment(){
+    this.generalReportService.getInconsistenciesByDepartment().subscribe({
+      next:({ status, code, data }) => {
+        if( status === 'success' && code == 200 ){
+          data.completo.unshift( data.categories );
+          this.data = {    
+            title: '',
+            width: '90%',
+            height: '600px',
+            text_color: '#000',
+            graphic: {
+              source: data.completo,
+              series: [
+                { 
+                  type: 'bar',
+                  label: {
+                    show: true,
+                    position: 'top',
+                    formatter: function(params: any) {
+                      return params.value[1] + '%'; 
+                    }
+                  }
+                }, 
+                { 
+                  type: 'bar',
+                  label: {
+                    show: true,
+                    position: 'top',
+                    formatter: function(params: any) {
+                      return params.value[2] + '%'; 
+                    }
+                  }
+                }, 
+                { 
+                  type: 'bar',
+                  label: {
+                    show: true,
+                    position: 'top',
+                    formatter: function(params: any) {                
+                      return params.value[3] + '%'; 
+                    }
+                  }
+                }
+              ]  
             }
-          }, 
-          { 
-            type: 'bar',
-            label: {
-              show: true,
-              position: 'top',
-              formatter: function(params: any) {
-                return params.value[2] + '%'; 
-              }
-            }
-          }, 
-          { 
-            type: 'bar',
-            label: {
-              show: true,
-              position: 'top',
-              formatter: function(params: any) {                
-                return params.value[3] + '%'; 
-              }
-            }
-          }
-        ]  
+          } 
+          this.show = true;
+        }
       }
-    }        
+    })    
   }
 }
