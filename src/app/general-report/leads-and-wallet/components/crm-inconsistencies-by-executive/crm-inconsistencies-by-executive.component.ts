@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-horizontal-bar.interface';
+import { GeneralReportService } from '../../services/general-report.service';
 
 @Component({
   selector: 'app-crm-inconsistencies-by-executive',
@@ -8,95 +9,129 @@ import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-ho
 })
 export class CrmInconsistenciesByExecutiveComponent {
 
-  percentagesLeadIncidents:string[] =[];
-  leadIncidents!:StackedHorizontalBarData;
-  constructor(){    
-    this.percentagesLeadIncidents = ['20%','329, 15%','1491, 66%','435, 19%','329, 15%','1491, 66%'];
+  public leadIncidents!:StackedHorizontalBarData;
+  public show:boolean =false;
+
+    constructor(private getCrmInconsistenciesByExecutive:GeneralReportService ){   
+      this.incidentsLeads();
+    }
+  
+    incidentsLeads(){
+      this.getCrmInconsistenciesByExecutive.getCrmInconsistenciesByExecutive().subscribe(
+        {
+          next: ({ code, status, data}) => {
     
-    this.leadIncidents = {    
-      title: '',
-      width: '100%',
-      height: '540px',
-      text_color: '#000',
-      graphic: {
-        categories: [
-          'RAMIREZ RAMIREZ SALVADOR',
-          'FLORES CUATEPITZI JOSE',
-          'CHACON OROZCO GABRIEL',
-          'ROMERO CERON MARCOS',
-          'LUNA AGUILAR HUGO EMILIO',
-          'FLORES QUIROZ VIRIDIANA ITZEL',
-          'CAZARES CRUZ AURORA'
-        ].reverse(),      
-        series: [
-          {
-            name: 'Actividad pendiente en CRM',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#8896ae'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,0,0,0,0,0,0].reverse()
+            if (code === 200 && status === 'success') {
+  
+    
+              const series = data.executivesIncidences
+
+              console.log(series)
+            
+    
+              // Fin transformar data        
+              
+              this.leadIncidents = {    
+                title: '',
+                width: '100%',
+                height: '650px',
+                text_color: '#000',
+                graphic: {
+                  categories: data.categories,      
+                  series: [
+                    {
+                      name: 'Incidencias',
+                      type: 'bar',
+                      stack: 'total',
+                      label: {
+                        show: true,   
+                        color: '#8896ae'            
+                      },
+                      emphasis: {
+                        focus: 'series'
+                      },
+                      data: data.executivesIncidences.reverse()
+                    },
+                    {
+                      name: 'datos erroneos',
+                      type: 'bar',
+                      stack: 'total',
+                      label: {
+                        show: true,   
+                        color: '#8896ae'            
+                      },
+                      emphasis: {
+                        focus: 'series'
+                      },
+                      data: data.executivesWrongData.reverse()
+                    },
+                    {
+                      name: 'No solicito informes',
+                      type: 'bar',
+                      stack: 'total',
+                      label: {
+                        show: true,   
+                        color: '#8896ae'            
+                      },
+                      emphasis: {
+                        focus: 'series'
+                      },
+                      data: data.executivesNotRequestReports.reverse()
+                    },
+                    {
+                      name: 'sin actividad en CRM',
+                      type: 'bar',
+                      stack: 'total',
+                      label: {
+                        show: true,   
+                        color: '#8896ae'            
+                      },
+                      emphasis: {
+                        focus: 'series'
+                      },
+                      data: data.executivesNoActivityCRM.reverse()
+                    },
+                    {
+                      name: 'sin comentarios en CRM',
+                      type: 'bar',
+                      stack: 'total',
+                      label: {
+                        show: true,   
+                        color: '#8896ae'            
+                      },
+                      emphasis: {
+                        focus: 'series'
+                      },
+                      data: data.executivesNoComentaryCRM.reverse()
+                    },
+                  ] 
+                }
+              }
+
+              this.show =true;
+            }
           },
-          {
-            name: 'Datos erroneos',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#8896ae'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,2,1,1,1,0,1].reverse()
-          },
-          {
-            name: 'No solicito informes',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#8896ae'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [4,0,0,0,0,1,0].reverse()
-          },
-          {
-            name: 'Sin actividad a futuro en CRM',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#8896ae'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,0,0,0,0,0,0].reverse()
-          },
-          {
-            name: 'Sin comentarios en CRM',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#8896ae'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,0,0,0,0,0,0].reverse()
-          },
-        ]        
-      }
-    }        
-  }
+    
+          error: (error) => {
+            console.error('Error:' + error);               
+          }
+        }        
+      );
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+     
+      
+  
 
 }
