@@ -7,6 +7,11 @@ import { GetCalculatedMetrics } from '../../interfaces/get-calculate-metrics.int
 import { GetComplaintProcessByTypeAndExecutive } from '../../interfaces/get-compliant-type-executive.interface';
 import { GetComplainsByDepartment } from '../../interfaces/get-complians-by-department.interface';
 import { GetCarteraUntraceableByExecutive } from '../../interfaces/get-cartera-untraceable-executive.interface';
+import { GetAssignedCarteraBySourceAndExecutive } from '../../interfaces/get-assigned-cartera-by-source-and-executive.interface';
+import { GetIncommingCarteraSurveyedUntraceableByDepartment } from '../../interfaces/get-incomming-cartera-surveyedUntraceable-by-department.interface';
+import { GetInconsistenciesByDepartment } from '../../interfaces/get-inconsistencies-by-department.interface';
+import { CRMInconsistenciesByExecutiveInterface } from '../interfaces/crm-inconsistencies-by-executive.interface';
+import { DetailsExecutiveDataInterface } from '../../interfaces/details-executive-data.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +41,26 @@ export class GeneralReportService {
 
   getCarteraUntraceableByExecutive():Observable<GetCarteraUntraceableByExecutive>{
     return this.http.get<GetCarteraUntraceableByExecutive>(`${this.baseUrl}/api/getCarteraUntraceableByExecutive`);
+  }
+  getAssignedCarteraBySourceAndExecutive():Observable<GetAssignedCarteraBySourceAndExecutive>{
+    return this.http.get<GetAssignedCarteraBySourceAndExecutive>(`${this.baseUrl}/api/getAssignedCarteraBySourceAndExecutive`);
+  }
+
+  getIncommingCarteraSurveyedUntraceableByDepartment():Observable<GetIncommingCarteraSurveyedUntraceableByDepartment>{
+    return this.http.get<GetIncommingCarteraSurveyedUntraceableByDepartment>(`${this.baseUrl}/api/getIncommingCarteraSurveyedUntraceableByDepartment`);
+  }
+
+
+  getInconsistenciesByDepartment():Observable<GetInconsistenciesByDepartment>{
+    return this.http.get<GetInconsistenciesByDepartment>(`${this.baseUrl}/api/getInconsistenciesByDepartment`);
+  }
+
+  getCrmInconsistenciesByExecutive():Observable<CRMInconsistenciesByExecutiveInterface>{
+  return this.http.get<CRMInconsistenciesByExecutiveInterface>(`${this.baseUrl}/api/getInconsistenciesByExecutive`);
+
+  }
+
+  getDetailByExecutive():Observable<DetailsExecutiveDataInterface>{
+    return this.http.get<DetailsExecutiveDataInterface>(`${this.baseUrl}/api/getDetailByExecutive`);
   }
 }
