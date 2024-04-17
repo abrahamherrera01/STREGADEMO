@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GetCalculatedMetrics } from '../../interfaces/get-calculate-metrics.interface';
 import { GetAssignedCarteraBySourceAndExecutive } from '../../interfaces/get-assigned-cartera-by-source-and-executive.interface';
+import { GetIncommingCarteraSurveyedUntraceableByDepartment } from '../../interfaces/get-incomming-cartera-surveyedUntraceable-by-department.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,9 @@ export class GeneralReportService {
 
   getAssignedCarteraBySourceAndExecutive():Observable<GetAssignedCarteraBySourceAndExecutive>{
     return this.http.get<GetAssignedCarteraBySourceAndExecutive>(`${this.baseUrl}/api/getAssignedCarteraBySourceAndExecutive`);
+  }
+
+  getIncommingCarteraSurveyedUntraceableByDepartment():Observable<GetIncommingCarteraSurveyedUntraceableByDepartment>{
+    return this.http.get<GetIncommingCarteraSurveyedUntraceableByDepartment>(`${this.baseUrl}/api/getIncommingCarteraSurveyedUntraceableByDepartment`);
   }
 }

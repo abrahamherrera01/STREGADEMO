@@ -10,6 +10,7 @@ import { GeneralReportService } from '../../services/general-report.service';
 export class ProspectsInPortfolioBySourceAndExecutiveComponent {
   percentages:number[] =[];
   data!:StackedHorizontalBarData;
+  show:boolean = false;
   constructor(
     private generalReportService:GeneralReportService
   ){      
@@ -58,6 +59,7 @@ export class ProspectsInPortfolioBySourceAndExecutiveComponent {
                 ]
               }
             } 
+            this.show = true;
           }
         },
         error: (error) => {

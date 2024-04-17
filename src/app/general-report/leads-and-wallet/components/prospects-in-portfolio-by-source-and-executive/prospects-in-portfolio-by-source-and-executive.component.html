@@ -1,7 +1,7 @@
 <div class="container-fluid animate__animated animate__fadeIn">
     <div class="row mb-5">
         <div class="col-12 mb-1 box">
-            <app-stacked-horizontal-bar [data]="data"></app-stacked-horizontal-bar>
+            <app-stacked-horizontal-bar [data]="data" *ngIf="show"></app-stacked-horizontal-bar>
         </div>
     </div>  
 </div>
