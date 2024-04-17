@@ -49,3 +49,8 @@ img{
 }
 
  
+.list-group {
+	max-height: 500px; /* Establece la altura máxima de la lista */
+	overflow-y: auto; /* Agrega desplazamiento vertical cuando se excede la altura máxima */
+  }
+  

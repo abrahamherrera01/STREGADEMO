@@ -8,6 +8,7 @@ import { GetAssignedCarteraBySourceAndExecutive } from '../../interfaces/get-ass
 import { GetIncommingCarteraSurveyedUntraceableByDepartment } from '../../interfaces/get-incomming-cartera-surveyedUntraceable-by-department.interface';
 import { GetInconsistenciesByDepartment } from '../../interfaces/get-inconsistencies-by-department.interface';
 import { CRMInconsistenciesByExecutiveInterface } from '../interfaces/crm-inconsistencies-by-executive.interface';
+import { DetailsExecutiveDataInterface } from '../../interfaces/details-executive-data.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,9 @@ export class GeneralReportService {
   getCrmInconsistenciesByExecutive():Observable<CRMInconsistenciesByExecutiveInterface>{
   return this.http.get<CRMInconsistenciesByExecutiveInterface>(`${this.baseUrl}/api/getInconsistenciesByExecutive`);
 
+  }
+
+  getDetailByExecutive():Observable<DetailsExecutiveDataInterface>{
+    return this.http.get<DetailsExecutiveDataInterface>(`${this.baseUrl}/api/getDetailByExecutive`);
   }
 }
