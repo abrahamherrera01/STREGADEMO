@@ -4,6 +4,9 @@ import { StoreLeadsTemp } from '../../interfaces/store-leads-temp.interface';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GetCalculatedMetrics } from '../../interfaces/get-calculate-metrics.interface';
+import { GetComplaintProcessByTypeAndExecutive } from '../../interfaces/get-compliant-type-executive.interface';
+import { GetComplainsByDepartment } from '../../interfaces/get-complians-by-department.interface';
+import { GetCarteraUntraceableByExecutive } from '../../interfaces/get-cartera-untraceable-executive.interface';
 import { GetAssignedCarteraBySourceAndExecutive } from '../../interfaces/get-assigned-cartera-by-source-and-executive.interface';
 import { GetIncommingCarteraSurveyedUntraceableByDepartment } from '../../interfaces/get-incomming-cartera-surveyedUntraceable-by-department.interface';
 import { GetInconsistenciesByDepartment } from '../../interfaces/get-inconsistencies-by-department.interface';
@@ -28,6 +31,17 @@ export class GeneralReportService {
     return this.http.get<GetCalculatedMetrics>(`${this.baseUrl}/api/getCalculatedMetrics`);
   }
 
+  getComplainsByExecutive():Observable<GetComplaintProcessByTypeAndExecutive>{
+    return this.http.get<GetComplaintProcessByTypeAndExecutive>(`${this.baseUrl}/api/getComplainsByExecutive`);
+  }
+
+  getComplainsByDepartment():Observable<GetComplainsByDepartment>{
+    return this.http.get<GetComplainsByDepartment>(`${this.baseUrl}/api/getComplainsByDepartment`);
+  }
+
+  getCarteraUntraceableByExecutive():Observable<GetCarteraUntraceableByExecutive>{
+    return this.http.get<GetCarteraUntraceableByExecutive>(`${this.baseUrl}/api/getCarteraUntraceableByExecutive`);
+  }
   getAssignedCarteraBySourceAndExecutive():Observable<GetAssignedCarteraBySourceAndExecutive>{
     return this.http.get<GetAssignedCarteraBySourceAndExecutive>(`${this.baseUrl}/api/getAssignedCarteraBySourceAndExecutive`);
   }
