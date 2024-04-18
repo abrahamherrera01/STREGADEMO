@@ -36,7 +36,7 @@ export class CrmRespondentsAndInconsistenciesComponent {
                     show: true,
                     position: 'top',
                     formatter: function(params: any) {
-                      return params.value[1] + '%'; 
+                      return params.value[1] + ''; 
                     }
                   }
                 }, 
@@ -46,7 +46,7 @@ export class CrmRespondentsAndInconsistenciesComponent {
                     show: true,
                     position: 'top',
                     formatter: function(params: any) {
-                      return params.value[2] + '%'; 
+                      return params.value[2] + ''; 
                     }
                   }
                 }, 
@@ -56,7 +56,7 @@ export class CrmRespondentsAndInconsistenciesComponent {
                     show: true,
                     position: 'top',
                     formatter: function(params: any) {                
-                      return params.value[3] + '%'; 
+                      return params.value[3] + ''; 
                     }
                   }
                 }
