@@ -22,7 +22,7 @@ export class SurveyedAndUnlocatableByBrandComponent {
         data.completo.unshift( data.categories );        
         this.data = {    
           title: '',
-          width: '90%',
+          width: '100%',
           height: '600px',
           text_color: '#000',
           graphic: {
@@ -34,7 +34,7 @@ export class SurveyedAndUnlocatableByBrandComponent {
                   show: true,
                   position: 'top',
                   formatter: function(params: any) {
-                    return params.value[1] + '%'; 
+                    return params.value[1] + ''; 
                   }
                 }
               }, 
@@ -44,7 +44,7 @@ export class SurveyedAndUnlocatableByBrandComponent {
                   show: true,
                   position: 'top',
                   formatter: function(params: any) {
-                    return params.value[2] + '%'; 
+                    return params.value[2] + ''; 
                   }
                 }
               }, 
@@ -54,7 +54,7 @@ export class SurveyedAndUnlocatableByBrandComponent {
                   show: true,
                   position: 'top',
                   formatter: function(params: any) {                
-                    return params.value[3] + '%'; 
+                    return params.value[3] + ''; 
                   }
                 }
               }
