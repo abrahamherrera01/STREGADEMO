@@ -8,7 +8,7 @@ import { GeneralReportService } from '../../services/general-report.service';
   styleUrls: ['./detail-of-unlocatables-by-brand.component.css']
 })
 export class DetailOfUnlocatablesByBrandComponent {
-
+  public show:boolean = false;
   percentagesLeadIncidents:string[] =[];
   leadIncidents!:StackedHorizontalBarData;
   constructor(
@@ -23,7 +23,6 @@ export class DetailOfUnlocatablesByBrandComponent {
       .subscribe(
         {
           next: ({code, status, data}) => {
-            console.log(data);
             if (code === 200 && status === 'success') {
               this.leadIncidents = {
                 title: '',
@@ -85,6 +84,7 @@ export class DetailOfUnlocatablesByBrandComponent {
                     ]
                 }
               }
+              this.show = true;
             }
             
           }
