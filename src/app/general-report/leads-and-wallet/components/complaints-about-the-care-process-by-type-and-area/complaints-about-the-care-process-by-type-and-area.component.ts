@@ -8,7 +8,7 @@ import { GeneralReportService } from '../../services/general-report.service';
   styleUrls: ['./complaints-about-the-care-process-by-type-and-area.component.css']
 })
 export class ComplaintsAboutTheCareProcessByTypeAndAreaComponent {
-
+  public show:boolean = false;
   percentagesLeadIncidents:string[] =[];
   leadIncidents!:StackedHorizontalBarData;
   constructor(
@@ -23,7 +23,6 @@ export class ComplaintsAboutTheCareProcessByTypeAndAreaComponent {
       .subscribe(
         {
           next: ({ code, status, data}) => {
-            console.log(data);
             if (code === 200 && status === 'success') {
               this.leadIncidents = {
                 title: '',
@@ -101,6 +100,7 @@ export class ComplaintsAboutTheCareProcessByTypeAndAreaComponent {
                   ]
                 }
               }
+              this.show = true;
             }
           }
         }

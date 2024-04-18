@@ -8,7 +8,7 @@ import { GeneralReportService } from '../../services/general-report.service';
   styleUrls: ['./complaints-about-the-service-process-by-type-and-executive.component.css']
 })
 export class ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent {
-
+  public show:boolean = false;
   leadIncidents!:StackedHorizontalBarData;
   constructor(
     private _generalReportService: GeneralReportService
@@ -99,6 +99,7 @@ export class ComplaintsAboutTheServiceProcessByTypeAndExecutiveComponent {
                   ]
                 }
               }
+              this.show = true;
             }
           }
         }
