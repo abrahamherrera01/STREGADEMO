@@ -10,6 +10,7 @@ import { GeneralReportService } from '../../services/general-report.service';
 export class CrmRespondentsAndInconsistenciesComponent {
   data!:GraphicData;
   show:boolean = false;
+  public i=0;
 
   constructor(
     private generalReportService:GeneralReportService
@@ -21,14 +22,49 @@ export class CrmRespondentsAndInconsistenciesComponent {
     this.generalReportService.getInconsistenciesByDepartment().subscribe({
       next:({ status, code, data }) => {
         if( status === 'success' && code == 200 ){
-          data.completo.unshift( data.categories );
+
+          console.log(data.completo)
+
+  
+
+
+
+
+
+
+          const newseries=Array();
+
+          const names= data.completo.forEach(dat => {
+       
+            newseries.push(
+              [dat[0],dat[1] ,dat[2], dat[3],data.percentagesSurveyed[this.i],
+              ,data.percentagesInconsistency[this.i]
+  
+            ]); 
+   
+             this.i=this.i+1;
+  
+            });
+  
+  
+  
+            newseries.unshift(data.categories)
+
+
+
+
+
+
+
+
+
           this.data = {    
             title: '',
             width: '90%',
             height: '600px',
             text_color: '#000',
             graphic: {
-              source: data.completo,
+              source: newseries,
               series: [
                 { 
                   type: 'bar',
@@ -36,7 +72,7 @@ export class CrmRespondentsAndInconsistenciesComponent {
                     show: true,
                     position: 'top',
                     formatter: function(params: any) {
-                      return params.value[1] + ''; 
+                      return  ''; 
                     }
                   }
                 }, 
@@ -46,7 +82,7 @@ export class CrmRespondentsAndInconsistenciesComponent {
                     show: true,
                     position: 'top',
                     formatter: function(params: any) {
-                      return params.value[2] + ''; 
+                      return params.value[4] + '%'; 
                     }
                   }
                 }, 
@@ -56,7 +92,7 @@ export class CrmRespondentsAndInconsistenciesComponent {
                     show: true,
                     position: 'top',
                     formatter: function(params: any) {                
-                      return params.value[3] + ''; 
+                      return params.value[6] + '%'; 
                     }
                   }
                 }
