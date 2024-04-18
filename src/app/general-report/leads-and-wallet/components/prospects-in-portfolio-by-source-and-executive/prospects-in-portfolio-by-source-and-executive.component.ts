@@ -22,6 +22,37 @@ export class ProspectsInPortfolioBySourceAndExecutiveComponent {
     this.generalReportService.getAssignedCarteraBySourceAndExecutive().subscribe(
       {
         next:({ code, status, data}) => {
+          console.log(data.series);
+
+
+          const series = data.series;
+          const seriesActualizado = [];
+
+          for (const categoria in series) {
+            if (series.hasOwnProperty(categoria)) {
+                const valores = series[categoria];
+                const serieActualizada = {
+                    name: categoria,
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: false
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: valores
+                };
+                seriesActualizado.push(serieActualizada);
+            }
+          }
+
+          console.log(seriesActualizado);
+
+
+
+
+
           if (code === 200 && status === 'success') {
             this.percentages = data.percentages;
             this.data = {    
@@ -31,32 +62,7 @@ export class ProspectsInPortfolioBySourceAndExecutiveComponent {
               text_color: '#000',
               graphic: {
                 categories: data.categories,  
-                series: [
-                  {
-                    name: 'No',
-                    type: 'bar',
-                    stack: 'total',
-                    label: {
-                      show: true,               
-                    },
-                    emphasis: {
-                      focus: 'series'
-                    },
-                    data: data.series.NO
-                  },
-                  {
-                    name: 'Si',
-                    type: 'bar',
-                    stack: 'total',
-                    label: {
-                      show: true,
-                    },
-                    emphasis: {
-                      focus: 'series'
-                    },
-                    data: data.series.SI
-                  }     
-                ]
+                series: seriesActualizado 
               }
             } 
             this.show = true;

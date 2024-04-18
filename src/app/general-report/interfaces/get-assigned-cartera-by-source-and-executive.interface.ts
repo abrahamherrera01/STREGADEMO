@@ -6,13 +6,17 @@ export interface GetAssignedCarteraBySourceAndExecutive {
 
 export interface Data {
     categories:  string[];
-    series:      Series;
+    series:      any;
     totales:     number[];
     percentages: number[];
     total:       number;
 }
 
 export interface Series {
-    NO: number[];
-    SI: number[];
+    Internet:              number[];
+    "Base de Datos":       number[];
+    "Visita a piso":       number[];
+    "Llamada a recepción": number[];
+    "Be-Back":             number[];
 }
+
