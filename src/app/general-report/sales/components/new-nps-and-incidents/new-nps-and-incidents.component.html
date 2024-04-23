@@ -234,3 +234,26 @@
     </div>
    
 </div>
+
+
+<div class="row container-fluid ">
+    <div class="col-6">
+        <div class="container-fluid animate__animated animate__fadeIn">
+            <div class="row p-2">
+                <div class="col-12 mb-1 box">
+                    <app-stacked-vertical-bar [data]="Incidents"></app-stacked-vertical-bar>
+                </div>
+            </div>  
+        </div> 
+    </div>
+
+    <div class="col-6">
+        <div class="col-12 mb-1 box">
+            <app-stacked-horizontal-bar [data]="not_contactedData"></app-stacked-horizontal-bar>
+        </div>
+        <div class="col-12 mb-1 box">
+            <app-stacked-horizontal-bar [data]="ilocalizables"></app-stacked-horizontal-bar>
+        </div>
+    </div>
+</div>
+
