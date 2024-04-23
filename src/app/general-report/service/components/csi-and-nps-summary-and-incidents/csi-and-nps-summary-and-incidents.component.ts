@@ -6,11 +6,15 @@ import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-ho
   templateUrl: './csi-and-nps-summary-and-incidents.component.html',
   styleUrls: ['./csi-and-nps-summary-and-incidents.component.css']
 })
-export class CsiAndNpsSummaryAndIncidentsComponent 
-
-
-  {
-
+export class CsiAndNpsSummaryAndIncidentsComponent {
+    colors:string[] = [
+      '#586E9F',
+      '#EBEEF1',
+      '#6A7C9A',
+      '#9CA8BC',
+      '#68B0E0',
+      '#8A8C8F',      
+    ];
     Incidents!:StackedHorizontalBarData;
     not_contactedData!:StackedHorizontalBarData;
     contactedData!:StackedHorizontalBarData;
@@ -39,7 +43,10 @@ export class CsiAndNpsSummaryAndIncidentsComponent
               emphasis: {
                 focus: 'series'
               },
-              data: [6,4,2,0].reverse()
+              data: [6,4,2,0].reverse(),
+              itemStyle: {
+                color: this.colors[0]
+              }
             },
             {
               name: 'Garantias',
@@ -52,7 +59,10 @@ export class CsiAndNpsSummaryAndIncidentsComponent
               emphasis: {
                 focus: 'series'
               },
-              data: [1,0,1,0].reverse()
+              data: [1,0,1,0].reverse(),
+              itemStyle: {
+                color: this.colors[1]
+              }
             }
           ]        
         }
@@ -81,7 +91,10 @@ export class CsiAndNpsSummaryAndIncidentsComponent
               emphasis: {
                 focus: 'series'
               },
-              data: [54,3,1].reverse()
+              data: [54,3,1].reverse(),
+              itemStyle: {
+                color: this.colors[0]
+              }
             },
             {
               name: 'Garantias',
@@ -94,7 +107,10 @@ export class CsiAndNpsSummaryAndIncidentsComponent
               emphasis: {
                 focus: 'series'
               },
-              data: [7,3,0].reverse()
+              data: [7,3,0].reverse(),
+              itemStyle: {
+                color: this.colors[1]
+              }
             }
           ]        
         }
@@ -122,12 +138,15 @@ export class CsiAndNpsSummaryAndIncidentsComponent
               stack: 'total',
               label: {
                 show: true,   
-                color: '#8896ae'            
+                color: '#fff'            
               },
               emphasis: {
                 focus: 'series'
               },
-              data: [3,1,8,3,23,18].reverse()
+              data: [3,1,8,3,23,18].reverse(),
+              itemStyle: {
+                color: this.colors[0]
+              }
             },
             {
               name: 'Garantias',
@@ -140,7 +159,10 @@ export class CsiAndNpsSummaryAndIncidentsComponent
               emphasis: {
                 focus: 'series'
               },
-              data: [0,0,3,2,7,3].reverse()
+              data: [0,0,3,2,7,3].reverse(),
+              itemStyle: {
+                color: this.colors[1]
+              }
             }
           ]        
         }

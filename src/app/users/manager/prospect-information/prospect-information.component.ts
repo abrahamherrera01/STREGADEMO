@@ -1,6 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateLeadInformationComponent } from '../components/update-lead-information/update-lead-information.component';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-prospect-information',
@@ -14,12 +15,16 @@ export class ProspectInformationComponent {
     { text: 'Información del prospecto' }
   ];
 
-  loading:boolean = false;
+  loading:boolean = false;  
+  attemptLinked: string = '';
+  linkAttemptFailed:string = ''
 
   constructor(
     private elementRef: ElementRef,
     private dialog: MatDialog
-  ) { }
+  ) { 
+    
+  }
 
   updateLead() {        
     // animación al dar click 
@@ -34,11 +39,21 @@ export class ProspectInformationComponent {
       data: { 
         prospect_id: 2        
       },
-      panelClass: ['animate__animated', 'animate__bounce']
+      panelClass: ['animate__animated', 'animate__pulse']
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('El modal ha sido cerrado');
     });
+  }
+  
+  callAttemptWasSuccessfullyLinked(event: any) {
+    console.log('Intento vinculado correctamente:', this.attemptLinked);
+    // Aquí puedes realizar acciones adicionales según la selección
+  }
+
+  reasonForNotBeingAbleToContact(event: any) {
+    console.log('Intento vinculado correctamente:', this.linkAttemptFailed);
+    // Aquí puedes realizar acciones adicionales según la selección
   }
 }

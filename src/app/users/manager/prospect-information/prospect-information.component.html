@@ -2,8 +2,8 @@
 <div class="container animate__animated animate__fadeIn animate__slow mt-4">    
     <div class="row">
         <div class="col-md-6">
-            <mat-card class="example-card">                
-                <mat-card-header class="d-flex justify-content-between align-items-center">                                        
+            <mat-card>                
+                <mat-card-header class="d-flex justify-content-between align-items-center">                                                            
                     <button mat-raised-button color="primary" class="animate__animated animate__pulse update" (click)="updateLead()">Actualizar</button>
                 </mat-card-header>
                 <mat-card-content class="mt-3">
@@ -115,11 +115,45 @@
                 <mat-card-footer *ngIf="loading">
                   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
                 </mat-card-footer>
-              </mat-card>
-              
+            </mat-card>              
         </div>
         <div class="col-md-6">
-
+            <mat-card>                
+                <mat-card-header>                                                            
+                    Nuevo intento de contactación
+                </mat-card-header>
+                <mat-card-content class="mt-3">
+                    <div>
+                        <p>
+                            número de intentos: 2
+                        </p>   
+                    </div>   
+                    <div>
+                        <mat-form-field class="field">
+                            <mat-label>¿Enlazó exitosamente el intento de llamada?</mat-label>
+                            <mat-select [(ngModel)]="attemptLinked" (selectionChange)="callAttemptWasSuccessfullyLinked($event)">
+                              <mat-option value="yes">Sí</mat-option>
+                              <mat-option value="no">No</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="field" *ngIf="attemptLinked === 'no'">
+                            <mat-label>¿Cuál fue el motivo de que no se pudiera contactar?</mat-label>
+                            <mat-select [(ngModel)]="linkAttemptFailed" (selectionChange)="reasonForNotBeingAbleToContact($event)">
+                              <mat-option value="">Numero no existe</mat-option>
+                              <mat-option value="Envia a buzon directamente">Envia a buzon directamente</mat-option>
+                              <mat-option value="Correo invalido">Correo invalido</mat-option>
+                              <mat-option value="Enlaza pero no contesta">Enlaza pero no contesta</mat-option>
+                              <mat-option value="Fuera del area de servicio">Fuera del area de servicio</mat-option>                              
+                              <mat-option value="Visto o leido">Visto o leido</mat-option>
+                              <mat-option value="Cuelga la llamada">Cuelga la llamada</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>                                                                  
+                </mat-card-content>                
+                <mat-card-footer *ngIf="loading">
+                  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                </mat-card-footer>
+            </mat-card> 
         </div>
     </div>
 </div>
