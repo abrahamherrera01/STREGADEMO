@@ -33,6 +33,8 @@ import { AdvisorComplaintsComponent } from './service/components/advisor-complai
 import { GuaranteesComponent } from './service/components/guarantees/guarantees.component';
 import { ComplaintsByAdvisorAndPointOfContactComponent } from './service/components/complaints-by-advisor-and-point-of-contact/complaints-by-advisor-and-point-of-contact.component';
 import { PerformanceAndIncidentsPerAdvisorComponent } from './service/components/performance-and-incidents-per-advisor/performance-and-incidents-per-advisor.component';
+import { PrincipalSaleComponent } from './sales/components/principal-sale/principal-sale.component';
+import { NewNpsAndIncidentsComponent } from './sales/components/new-nps-and-incidents/new-nps-and-incidents.component';
 
 
 
@@ -61,7 +63,9 @@ import { PerformanceAndIncidentsPerAdvisorComponent } from './service/components
     AdvisorComplaintsComponent,
     GuaranteesComponent,
     ComplaintsByAdvisorAndPointOfContactComponent,
-    PerformanceAndIncidentsPerAdvisorComponent
+    PerformanceAndIncidentsPerAdvisorComponent,
+    PrincipalSaleComponent,
+    NewNpsAndIncidentsComponent
   ],
   imports: [
     CommonModule,

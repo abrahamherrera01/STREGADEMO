@@ -12,7 +12,7 @@ import { MyWalletComponent } from './my-wallet/my-wallet.component';
 import { LeadsOrWalletComponent } from './components/leads-or-wallet/leads-or-wallet.component';
 import { ProspectInformationComponent } from './prospect-information/prospect-information.component';
 import { UpdateLeadInformationComponent } from './components/update-lead-information/update-lead-information.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,7 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     AngularMaterialModule,
     GraphicsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ManagerModule { }

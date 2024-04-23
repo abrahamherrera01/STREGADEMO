@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-principal-service',
-  templateUrl: './principal-service.component.html',
-  styleUrls: ['./principal-service.component.css']
+  selector: 'app-principal-sale',
+  templateUrl: './principal-sale.component.html',
+  styleUrls: ['./principal-sale.component.css']
 })
-export class PrincipalServiceComponent {
+export class PrincipalSaleComponent {
   show:boolean = false; 
   selectedIndex: number = 0;
 

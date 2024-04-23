@@ -19,6 +19,7 @@ export interface Serie {
       focus: string; // 'series'
     };
     data: number[];
+    itemStyle?: any;
 }
 
   
