@@ -2,34 +2,18 @@
     <div class="row">
         <div class="col-sm-6 col-md-2 mb-1">
             <div class="box">
-                <span class="t-title">Leads entrantes</span>
+                <span class="t-title">Entregas:</span>
                 <table>           
                     <tbody>
-                        <tr>
-                            <td class="right-left">Administrativos</td>
-                            <td>12</td>
-                        </tr>
-                        <tr>
-                            <td class="right-left">Foraneos digital</td>
-                            <td>24</td>
-                        </tr>
-                        <tr>
-                            <td class="right-left">Matriz piso</td>
-                            <td>53</td>
-                        </tr>
-                        <tr>
-                            <td class="right-left">Seminuevos</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td class="right-left">Zacatelco piso</td>
-                            <td>12</td>
+                        <tr *ngFor="let data of allVentasByDepartment">
+                            <td class="right-left">{{ data.sucursal }}</td>
+                            <td>{{ data.total_ordenes }}</td>
                         </tr>
                     </tbody>                    
                     <tfoot>
                         <tr>
                           <td>Total</td>
-                          <td>105</td>
+                          <td>{{totalsumallVentasByDepartment}}</td>
                         </tr>
                     </tfoot>
                 </table>                
@@ -42,31 +26,13 @@
                         <span class="t-title">Encuestados</span>
                         <table>           
                             <tbody>
-                                <tr>
-                                    <td class="right-left">Administrativos</td>
-                                    <td>9</td>
-                                    <td>75%</td>
+       
+                                <tr *ngFor="let data of ventasContactedByDepartment">
+                                    <td class="right-left">{{ data.sucursal }}</td>
+                                    <td>{{ data.total_contacted }}</td>
+                                    <td>{{ data.porcentaje_contactado }}%</td>
                                 </tr>
-                                <tr>
-                                    <td class="right-left">Foraneos digital</td>
-                                    <td>21</td>
-                                    <td>87%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Matriz piso</td>
-                                    <td>49</td>
-                                    <td>92%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Seminuevos</td>
-                                    <td>4</td>
-                                    <td>100%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Zacatelco piso</td>
-                                    <td>12</td>
-                                    <td>100%</td>
-                                </tr>
+
                             </tbody>                    
                             <tfoot>
                                 <tr>
@@ -81,36 +47,16 @@
                         <span class="t-title">Promotores</span>
                         <table>           
                             <tbody>
-                                <tr>
-                                    <td class="right-left">Administrativos</td>
-                                    <td>9</td>
-                                    <td>100%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Foraneos digital</td>
-                                    <td>20</td>
-                                    <td>95%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Matriz piso</td>
-                                    <td>44</td>
-                                    <td>90%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Seminuevos</td>
-                                    <td>4</td>
-                                    <td>100%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Zacatelco piso</td>
-                                    <td>10</td>
-                                    <td>83%</td>
+                                <tr *ngFor="let data of ventasPromotorsByDepartment">
+                                    <td class="right-left">{{ data.sucursal }}</td>
+                                    <td>{{ data.total_promotors }}</td>
+                                    <td>{{ data.porcentaje_promotors }}%</td>
                                 </tr>
                             </tbody>                    
                             <tfoot>
                                 <tr>
                                     <td>Total</td>
-                                    <td>87</td>
+                                    <td>{{totalventasPromotorsByDepartment}}</td>
                                     <td>91%</td>
                                 </tr>
                             </tfoot>
@@ -120,75 +66,35 @@
                         <span class="t-title">Neutros</span>
                         <table>           
                             <tbody>
-                                <tr>
-                                    <td class="right-left">Administrativos</td>
-                                    <td>0</td>
-                                    <td>0%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Foraneos digital</td>
-                                    <td>1</td>
-                                    <td>5%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Matriz piso</td>
-                                    <td>4</td>
-                                    <td>8%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Seminuevos</td>
-                                    <td>0</td>
-                                    <td>0%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Zacatelco piso</td>
-                                    <td>2</td>
-                                    <td>17%</td>
+                                <tr *ngFor="let data of ventasNeutralsByDepartment">
+                                    <td class="right-left">{{ data.sucursal }}</td>
+                                    <td>{{ data.total_neutrals }}</td>
+                                    <td>{{ data.porcentaje_neutrals }}%</td>
                                 </tr>
                             </tbody>                    
                             <tfoot>
                                 <tr>
                                     <td>Total</td>
-                                    <td>7</td>
+                                    <td>{{totalventasNeutralsByDepartment}}</td>
                                     <td>7%</td>
                                 </tr>
                             </tfoot>
                         </table> 
                     </div>
                     <div class="col">
-                        <span class="t-title">Defractores</span>
+                        <span class="t-title">Detractores</span>
                         <table>           
                             <tbody>
-                                <tr>
-                                    <td class="right-left">Administrativos</td>
-                                    <td>0</td>
-                                    <td>0%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Foraneos digital</td>
-                                    <td>0</td>
-                                    <td>0%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Matriz piso</td>
-                                    <td>1</td>
-                                    <td>2%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Seminuevos</td>
-                                    <td>0</td>
-                                    <td>0%</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Zacatelco piso</td>
-                                    <td>0</td>
-                                    <td>0%</td>
-                                </tr>
+                                <tr *ngFor="let data of ventasDetractorsByDepartment">
+                                    <td class="right-left">{{ data.sucursal }}</td>
+                                    <td>{{ data.total_detractors }}</td>
+                                    <td>{{ data.porcentaje_neutrals }}%</td>
+                                </tr> 
                             </tbody>                    
                             <tfoot>
                                 <tr>
                                     <td>Total</td>
-                                    <td>1</td>
+                                    <td>{{totalventasDetractorsByDepartment}}</td>
                                     <td>2%</td>
                                 </tr>
                             </tfoot>
@@ -198,31 +104,16 @@
                         <span class="t-title">NPS</span>
                         <table>           
                             <tbody>
-                                <tr>
-                                    <td class="right-left">Administrativos</td>
-                                    <td>100</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Foraneos digital</td>
-                                    <td>95</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Matriz piso</td>
-                                    <td>89</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Seminuevos</td>
-                                    <td>100</td>
-                                </tr>
-                                <tr>
-                                    <td class="right-left">Zacatelco piso</td>
-                                    <td>83</td>
-                                </tr>
+ 
+                                <tr *ngFor="let data of newnps">
+                                    <td class="right-left">{{ data.name }}</td>
+                                    <td>{{ data.valor }}</td>
+                                 </tr> 
                             </tbody>                    
                             <tfoot>
                                 <tr>
                                 <td>Total</td>
-                                <td>90</td>
+                                <td>{{totalnps}}</td>
                                 </tr>
                             </tfoot>
                         </table> 
