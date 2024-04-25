@@ -1,4 +1,4 @@
-<div class="container-fluid animate__animated animate__fadeIn">
+<div class="container-fluid animate__animated animate__fadeIn" *ngIf="loading">
   <div class="row">
     <div class="col-sm-6 col-md-2 mb-1">
       <div class="box incoming-leads">
@@ -6,14 +6,14 @@
         <table>
           <tbody>
             <tr *ngFor="let data of OrdersData">
-              <td class="right-left">{{ data.category }}</td>
-              <td>{{ data.value }}</td>
+              <td class="right-left">{{ data.tipo_orden }}</td>
+              <td>{{ data.count }}</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
               <td>Total</td>
-              <td>598</td>
+              <td>{{ dataVentas.totalOrderService }}</td>
             </tr>
           </tfoot>
         </table>
@@ -27,16 +27,16 @@
             <table>
               <tbody>
                 <tr *ngFor="let data of surveyedData">
-                  <td class="right-left">{{ data.category }}</td>
-                  <td>{{ data.value }}</td>
+                  <td class="right-left">{{ data.tipo_orden }}</td>
+                  <td>{{ data.count }}</td>
                   <td>{{ data.percentage }}</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <td>Total</td>
-                  <td>513</td>
-                  <td>86%</td>
+                  <td>{{ dataVentas.totalSurveyedService }}</td>
+                  <td>{{ dataVentas.totalPercentSurvey }}</td>
                 </tr>
               </tfoot>
             </table>
@@ -46,16 +46,16 @@
             <table>
               <tbody>
                 <tr *ngFor="let data of promoterData">
-                  <td class="right-left">{{ data.category }}</td>
-                  <td>{{ data.value }}</td>
+                  <td class="right-left">{{ data.tipo_orden }}</td>
+                  <td>{{ data.count }}</td>
                   <td>{{ data.percentage }}</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <td>Total</td>
-                  <td class="right-align">420</td>
-                  <td class="right-align">82%</td>
+                  <td class="right-align">{{ dataVentas.totalPromotersPublicService }}</td>
+                  <td class="right-align">{{ dataVentas.totalPercentPromoters }}</td>
                 </tr>
               </tfoot>
             </table>
@@ -65,16 +65,16 @@
             <table>
               <tbody>
                 <tr *ngFor="let data of neutroData">
-                  <td class="right-left">{{ data.category }}</td>
-                  <td>{{ data.value }}</td>
+                  <td class="right-left">{{ data.tipo_orden }}</td>
+                  <td>{{ data.count }}</td>
                   <td>{{ data.percentage }}</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <td>Total</td>
-                  <td>68</td>
-                  <td>13%</td>
+                  <td>{{ dataVentas.totalNeutralPublicGaranties }}</td>
+                  <td>{{ dataVentas.$totalPercentNeutral }}</td>
                 </tr>
               </tfoot>
             </table>
@@ -84,16 +84,16 @@
             <table>
               <tbody>
                 <tr *ngFor="let data of detractorData">
-                  <td class="right-left">{{ data.category }}</td>
-                  <td>{{ data.value }}</td>
+                  <td class="right-left">{{ data.tipo_orden }}</td>
+                  <td>{{ data.count }}</td>
                   <td>{{ data.percentage }}</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <td>Total</td>
-                  <td>20</td>
-                  <td>4%</td>
+                  <td>{{ dataVentas.totalDetractorPublicGaranties }}</td>
+                  <td>{{ dataVentas.totalPercentDetractor }}</td>
                 </tr>
               </tfoot>
             </table>
@@ -102,15 +102,15 @@
             <span class="t-title">NPS:</span>
             <table>
               <tbody>
-                <tr *ngFor="let data of neutroData">
-                  <td class="right-left">{{ data.category }}</td>
-                  <td class="npsc">{{ data.value }}</td>
+                <tr *ngFor="let data of npsData">
+                  <td class="right-left">{{ data.tipo_orden }}</td>
+                  <td class="npsc">{{ data.count }}</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
                   <td>Total</td>
-                  <td class="npsc">78</td>
+                  <td class="npsc">{{ dataVentas.totalNps }}</td>
                 </tr>
               </tfoot>
             </table>
