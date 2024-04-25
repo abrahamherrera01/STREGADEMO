@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-horizontal-bar.interface';
+import { Serie, StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-horizontal-bar.interface';
+import { ServiceService } from '../../services/service.service';
+import { Data, Service } from '../../interfaces/dashboard-ventas.interface';
 
 @Component({
   selector: 'app-csi-and-nps-summary-and-incidents',
@@ -7,6 +9,15 @@ import { StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-ho
   styleUrls: ['./csi-and-nps-summary-and-incidents.component.css']
 })
 export class CsiAndNpsSummaryAndIncidentsComponent {
+    dataVentas!:Data;
+    loading:boolean = false;
+    OrdersData:Service[] = [];    
+    surveyedData:Service[] = [];    
+    promoterData:Service[] = [];  
+    neutroData:Service[] = [];  
+    detractorData:Service[] = [];  
+    npsData:Service[] = [];  
+
     colors:string[] = [
       '#586E9F',
       '#EBEEF1',
@@ -18,217 +29,145 @@ export class CsiAndNpsSummaryAndIncidentsComponent {
     Incidents!:StackedHorizontalBarData;
     not_contactedData!:StackedHorizontalBarData;
     contactedData!:StackedHorizontalBarData;
-    constructor(){
-      this.contactedData = {    
-        title: 'Localizables:14/2%',
-        width: '100%',
-        height: '150px',
-        text_color: '#ffff',
-        graphic: {
-          categories: [ 
-            'Buzón directo',
-            'Número no disponible',
-            'Número equivocado',
-            'Número no existe'
-          ].reverse(),      
-          series: [
-            {
-              name: 'Públicas',
-              type: 'bar',
-              stack: 'total',
-              label: {
-                show: true,   
-                color: '#0000'            
-              },
-              emphasis: {
-                focus: 'series'
-              },
-              data: [6,4,2,0].reverse(),
-              itemStyle: {
-                color: this.colors[0]
-              }
-            },
-            {
-              name: 'Garantias',
-              type: 'bar',
-              stack: 'total',
-              label: {
-                show: true,   
-                color: '#8896ae'            
-              },
-              emphasis: {
-                focus: 'series'
-              },
-              data: [1,0,1,0].reverse(),
-              itemStyle: {
-                color: this.colors[1]
-              }
-            }
-          ]        
-        }
-      }    
+    constructor(
+      private _serviceService:ServiceService
+    ){
+      this.getDashboardVentas();                               
+    }
 
-      this.not_contactedData = {    
-        title: 'No contactados: 68/11%',
-        width: '100%',
-        height: '150px',
-        text_color: '#fff',
-        graphic: {
-          categories: [ 
-            'Enlaza no contesta',
-            'Cuelga llamada',
-            'No desea ser encuestado'
-          ].reverse(),      
-          series: [
-            {
-              name: 'Públicas',
-              type: 'bar',
-              stack: 'total',
-              label: {
-                show: true,   
-                color: '#8896ae'            
-              },
-              emphasis: {
-                focus: 'series'
-              },
-              data: [54,3,1].reverse(),
-              itemStyle: {
-                color: this.colors[0]
-              }
-            },
-            {
-              name: 'Garantias',
-              type: 'bar',
-              stack: 'total',
-              label: {
-                show: true,   
-                color: '#8896ae'            
-              },
-              emphasis: {
-                focus: 'series'
-              },
-              data: [7,3,0].reverse(),
-              itemStyle: {
-                color: this.colors[1]
-              }
-            }
-          ]        
+ 
+    getDashboardVentas(){
+      this._serviceService.getDashboardVentas().subscribe({
+        next: ({ data, code, status }) => {
+          if( code === 200 && status == "success" ){ 
+            this.dataVentas = data;
+            // Primer bloque           
+            this.OrdersData = data.ordersService;            
+            this.loading = true;
+
+            // Segundo bloque 
+            this.surveyedData = data.surveyedService;
+            this.surveyedData.forEach( ( element ) => {
+              if( element.tipo_orden == 'Públicas' ){
+                element['percentage'] = data.percentPublicSurvey;
+              }else if( element.tipo_orden == 'Garantias' ){
+                element['percentage'] = data.percentGarantiesSurvey;
+              }            
+            });    
+            
+            // Tercer bloque
+            this.promoterData = data.promotersPublicService;
+            this.promoterData.forEach( ( element ) => {
+              if( element.tipo_orden == 'Públicas' ){
+                element['percentage'] = data.percentPromotersPublic;
+              }else if( element.tipo_orden == 'Garantias' ){
+                element['percentage'] = data.percentPromotersGaranties;
+              }            
+            });   
+            // Cuarto bloque
+            this.neutroData = data.neutralPublicService;
+            this.neutroData.forEach( ( element ) => {
+              if( element.tipo_orden == 'Públicas' ){
+                element['percentage'] = data.$percentNeutralPublic;
+              }else if( element.tipo_orden == 'Garantias' ){
+                element['percentage'] = data.$percentNeutralGaranties;
+              }            
+            });   
+
+            // Quinto bloque 
+            this.detractorData = data.detractorPublicService;
+            this.detractorData.forEach( ( element ) => {
+              if( element.tipo_orden == 'Públicas' ){
+                element['percentage'] = data.percentDetractorPublic;
+              }else if( element.tipo_orden == 'Garantias' ){
+                element['percentage'] = data.percentDetractorGaranties;
+              }            
+            });  
+
+            // Sexto bloque
+            this.npsData.push({              
+                tipo_orden: "Públicas",
+                count: +data.npsPublic           
+            });
+            this.npsData.push({              
+              tipo_orden: "Garantias",
+              count: +data.npsGaranties           
+            });   
+            
+            this.graphics();
+          }          
+        },
+        error: ( error ) => {
+          console.log( error );
         }
-      }    
+      })
+    }                 
+    
+    graphics():void{
+      // Grafica de incidencias 
+      const formattedData = this.formatSeries(this.dataVentas.series);
       
       this.Incidents = {    
-        title: 'Incidencias: 71',
+        title: `Incidencias: ${this.dataVentas.totalIncidentsSummary}`,
         width: '100%',
         height: '340px',
         text_color: '#fff',
         graphic: {
-          categories: [ 
-            '',
-            'comentario',
-            '',
-            'Baja calificación',  
-            '',
-            'Solicitud de info/contacto',  
-          ].reverse() ,      
-          series: [
- 
-            {
-              name: 'publicas',
-              type: 'bar',
-              stack: 'total',
-              label: {
-                show: true,   
-                color: '#fff'            
-              },
-              emphasis: {
-                focus: 'series'
-              },
-              data: [3,1,8,3,23,18].reverse(),
-              itemStyle: {
-                color: this.colors[0]
-              }
-            },
-            {
-              name: 'Garantias',
-              type: 'bar',
-              stack: 'total',
-              label: {
-                show: true,   
-                color: '#8896ae'            
-              },
-              emphasis: {
-                focus: 'series'
-              },
-              data: [0,0,3,2,7,3].reverse(),
-              itemStyle: {
-                color: this.colors[1]
-              }
-            }
-          ]        
+          categories: this.dataVentas.categoryIncidents,    
+          series: formattedData 
         }
       } 
+
+      // Grafica no contactados
+
+      const seriesFormatNoContacted = this.formatSeries(this.dataVentas.seriesFormatNoContacted);
+
+      this.not_contactedData = {    
+        title: `No contactados: ${this.dataVentas.totalReasonNotContacted}/${this.dataVentas.percentNotContacted}`,
+        width: '100%',
+        height: '150px',
+        text_color: '#fff',
+        graphic: {
+          categories: this.dataVentas.reasonNoContacted,     
+          series: seriesFormatNoContacted     
+        }
+      }
+
+      // Grafica Localizables
+      const seriesFormatUntraceable = this.formatSeries(this.dataVentas.seriesFormatUntraceable);
+
+      this.contactedData = {    
+        title: `Localizables:${this.dataVentas.totalUntraceable}/${this.dataVentas.percentUntraceable}`,
+        width: '100%',
+        height: '150px',
+        text_color: '#ffff',
+        graphic: {
+          categories: this.dataVentas.sourceUntraceable,     
+          series: seriesFormatUntraceable    
+        }
+      }
     }
-
- 
-  
- 
-  
-    OrdersData = [
-      { category: 'Públicas', value: 503 },
-      { category: 'Garantías', value: 95 },
-      ];
-  
-    surveyedData = [
-      { category: 'Públicas', value: 431, percentage: '86%' },
-      { category: 'Garantías', value: 92, percentage: '86%' }, 
-    ]; 
-  
-    promoterData = [
-      { category: 'Públicas', value: 355, percentage: '82%' },
-      { category: 'Garantías', value: 65, percentage: '79%' },
-    ];
-  
-    neutroData = [
-      { category: 'Públicas', value: 58, percentage: '13%' },
-      { category: 'Garantías', value: 10, percentage: '12%' },
-    ];
-
-    detractorData = [
-      { category: 'Públicas', value: 14, percentage: '3%' },
-      { category: 'Garantías', value: 6, percentage: '7%' },
-    ];
-
-    npsData = [
-      { category: 'Públicas', value: 79},
-      { category: 'Garantías', value: 72 },
-    ];
-
-  
-    incomingWallet = [
-      { category: 'BMW', value: 621 },
-      { category: 'MINI', value: 262 },
-      { category: 'MOTO', value: 515 },
-      { category: 'SEMI', value: 313 }
-    ];
-
     
-  
-    surveyedWallet = [
-      { category: 'BMW', value: 496, percentage: '80%' },
-      { category: 'MINI', value: 212, percentage: '80%' },
-      { category: 'MOTO', value: 398, percentage: '77%' },
-      { category: 'SEMI', value: 261, percentage: '83%' }
-    ];
-    
-    prospectsCompletelySatisfied = [
-      { category: 'BMW', value: 467, percentage: '81%' },
-      { category: 'MINI', value: 392, percentage: '83%' },
-      { category: 'MOTO', value: 1018, percentage: '70%' },
-      { category: 'SEMI', value: 1926, percentage: '74%' }
-    ]  
-  
-    
-    
+    formatSeries(series: any): Serie[] {
+      return series.map((item: any, index: number) => {
+        return {
+          name: item.name.toLowerCase(),
+          type: 'bar',
+          stack: 'total',
+          label: {
+            show: true,
+            color: index === 0 ? '#fff' : '#8896ae'
+          },
+          emphasis: {
+            focus: 'series'
+          },
+          data: item.data.slice(),
+          itemStyle: {
+            color: this.colors[index]
+          }
+        };
+      });
+    }    
   }
 
 
