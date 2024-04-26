@@ -16,23 +16,39 @@ export interface Data {
     totalDetractors:              number;
     ventasDetractorsByDepartment: VentasDetractorsByDepartment[];
     NPS:                          any;
-    departments:                  any[];
-    categories_incidences:        any[];
-    series_incidences:            any[];
+    departments:                  string[];
+    categories_incidences:        string[];
+    series_incidences:            Administrativos[];
     total_incidences:             number;
-    categories_no_contacted:      any[];
-    series_no_contacted:          any[];
+    categories_no_contacted:      string[];
+    series_no_contacted:          Administrativos[];
     total_no_contacted:           number;
-    categories_untraceable:       any[];
-    seriesFormat_untraceable:     any[];
+    categories_untraceable:       string[];
+    seriesFormat_untraceable:     SeriesFormatUntraceable[];
     totalUntraceable:             number;
 }
 
- 
+export interface Nps {
+    ADMINISTRATIVOS:    number;
+    "Foráneos digital": number;
+    "Matriz Piso":      number;
+    Seminuevos:         number;
+    "Zacatelco Piso":   number;
+}
 
 export interface AllVentasByDepartment {
     sucursal:      string;
     total_ordenes: number;
+}
+
+export interface SeriesFormatUntraceable {
+    name: string;
+    data: number[];
+}
+
+export interface Administrativos {
+    name: string;
+    data: number[];
 }
 
 export interface VentasContactedByDepartment {
@@ -42,9 +58,9 @@ export interface VentasContactedByDepartment {
 }
 
 export interface VentasDetractorsByDepartment {
-    sucursal:            string;
-    total_detractors:    number;
-    porcentaje_neutrals: string;
+    sucursal:              string;
+    total_detractors:      number;
+    porcentaje_detractors: string;
 }
 
 export interface VentasNeutralsByDepartment {

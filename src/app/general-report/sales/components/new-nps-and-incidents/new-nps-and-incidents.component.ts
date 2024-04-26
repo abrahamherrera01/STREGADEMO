@@ -44,232 +44,25 @@ export class NewNpsAndIncidentsComponent {
   ilocalizables!:StackedHorizontalBarData;
 
   colors:string[] = [
+    '#576E9F',/*matriz piso*/
     '#2F3033',/*administrativo*/
     '#8A8C8F',/*foraneos digital*/
-    '#576E9F',/*matriz piso*/
     '#A4C97C',/*seminuevos*/
     '#68B0E0'/*zacatelco piso*/
   ];
 
 
+  color=0
+  color2=0
+  color3=0
 
   
 
   constructor(private generalReportService:ReportSalesServiceService){
-    this.Incidents = {    
-      title: 'Incidencias: 9',
-      width: '100%',
-      height: '340px',
-      text_color: '#fff',
-      graphic: {
-        categories: [ 
-          'Baja calificación',
-          'Comentario',
-          'Felicitación',
-          'Clientes con queja',  
-          'Solicitud de contacto / información',
-          'Sugerencia',  
-        ].reverse() ,      
-        series: [
+ 
 
-          {
-            name: 'Administrativo',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#fff'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,0,0,0,0,0].reverse(),
-            itemStyle: {
-              color: this.colors[0]
-            }
  
-          },
-          {
-            name: 'Foráneos dígital',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#fff'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,1,0,0,0,0].reverse(),
-            itemStyle: {
-              color: this.colors[1]
-            }
-          },
-          {
-            name: 'Matriz piso',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#fff'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,0,0,1,6,0].reverse(),
-            itemStyle: {
-              color: this.colors[2]
-            }
-          },
-          {
-            name: 'Seminuevos',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#fff'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,0,0,0,0,0].reverse(),
-            itemStyle: {
-              color: this.colors[3]
-            }
-          },
-          {
-            name: 'Zacatelco piso',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#fff'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,0,0,1,0,0].reverse(),
-            itemStyle: {
-              color: this.colors[4]
-            }
-          },
  
-        ]        
-      }
-    }  
-
-    this.not_contactedData = {    
-      title: 'No contactados: 2/2%',
-      width: '100%',
-      height: '150px',
-      text_color: '#fff',
-      graphic: {
-        categories: [ 
-          'Cuelga llamada',
-          'Enlaza no contesta',
-         ].reverse(),      
-        series: [
-          {
-            name: 'Administrativo',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#8896ae'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,1].reverse(),
-            itemStyle: {
-              color: this.colors[0]
-            }
- 
-          },
-          {
-            name: 'Foráneos dígital',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#8896ae'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [1,0].reverse(),
-            itemStyle: {
-              color: this.colors[1]
-            }
-          }
-        ]        
-      }
-    }   
-    this.ilocalizables = {    
-      title: 'Ilocalizables:9  8/8%',
-      width: '100%',
-      height: '150px',
-      text_color: '#fff',
-      graphic: {
-        categories: [ 
-          '# No disponible ',
-          '# Equivocado',
-          '# No existe',
-          'Buzón directo'
-          ].reverse(),      
-        series: [
-          {
-            name: 'Administrativo',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#8896ae'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,1,0,2].reverse(),
-            itemStyle: {
-              color: this.colors[0]
-            }
- 
-          },
-          {
-            name: 'Foráneos dígital',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#8896ae'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [0,1,1,0].reverse(),
-            itemStyle: {
-              color: this.colors[1]
-            }
-          },
-          {
-            name: 'Matriz piso',
-            type: 'bar',
-            stack: 'total',
-            label: {
-              show: true,   
-              color: '#8896ae'            
-            },
-            emphasis: {
-              focus: 'series'
-            },
-            data: [2,0,0,1].reverse(),
-            itemStyle: {
-              color: this.colors[2]
-            }
-          }
-        ]        
-      }
-    }   
     this.incidentssales();
   }
 
@@ -279,6 +72,113 @@ export class NewNpsAndIncidentsComponent {
       {
         next: ({ code, status, data}) => {
           if (code === 200 && status === 'success') {
+
+          const newseries = Array();
+
+          data.series_incidences.forEach(element => {
+              newseries.push({
+                  name: element.name,
+                  type: 'bar',
+                  stack: 'total',
+                  label: {
+                      show: true,
+                      color: '#fff'
+                  },
+                  emphasis: {
+                      focus: 'series'
+                  },
+                  data: element.data.reverse(),
+                  itemStyle: {
+                      color: this.colors[this.color]
+                  }
+              });
+
+              this.color++
+          });
+
+            this.Incidents = {    
+              title: 'Incidencias: '+ data.total_incidences,
+              width: '100%',
+              height: '340px',
+              text_color: '#fff',
+              graphic: {
+                categories:  data.categories_incidences
+                .reverse() ,      
+                series: newseries      
+              }
+            } 
+
+            /////////
+
+            const no_contacted = Array();
+
+            data.series_no_contacted.forEach(element => {
+              no_contacted.push({
+                    name: element.name,
+                    type: 'bar',
+                    stack: 'total',
+                    label: {
+                        show: true,
+                        color: '#fff'
+                    },
+                    emphasis: {
+                        focus: 'series'
+                    },
+                    data: element.data.reverse(),
+                    itemStyle: {
+                        color: this.colors[this.color2]
+                    }
+                });
+  
+                this.color2++
+            });
+
+            this.not_contactedData = {    
+              title: 'No contactados: '+data.total_no_contacted,
+              width: '100%',
+              height: '150px',
+              text_color: '#fff',
+              graphic: {
+                categories: data.categories_no_contacted.reverse(),      
+                series: no_contacted.reverse()    
+              }
+            }  
+
+
+            const ilocalizabes = Array();
+ 
+
+            data.seriesFormat_untraceable.forEach(element => {
+              ilocalizabes.push({
+                  name: element.name,
+                  type: 'bar',
+                  stack: 'total',
+                  label: {
+                      show: true,
+                      color: '#fff'
+                  },
+                  emphasis: {
+                      focus: 'series'
+                  },
+                  data: element.data.reverse(),
+                  itemStyle: {
+                      color: this.colors[this.color3]
+                  }
+              });
+
+              this.color3++
+          });
+
+            this.ilocalizables = {    
+              title: 'Ilocalizables:'+data.totalUntraceable,
+              width: '100%',
+              height: '150px',
+              text_color: '#fff',
+              graphic: {
+                categories:  data.categories_untraceable.reverse(),      
+                series: ilocalizabes.reverse()      
+              }
+            }  
  
             //INICIO DE DASHBOARD
             //entragas
