@@ -5,6 +5,7 @@ import { GetVentasIncidencesMetricsInterface } from '../interfaces/get-ventas-in
 import { Observable } from 'rxjs';
 import { GetComparativeNpsInterface } from '../interfaces/get-comparativeNps.interface';
 import { GetUntraceablesByExecutives } from '../interfaces/get-untraceables-by-executives.interface';
+import { GetCustomersWithComplaintsInterface } from '../interfaces/get-customers-with-complaints.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,10 @@ export class ReportSalesServiceService {
 
   getUntraceablesByExecutives():Observable<GetUntraceablesByExecutives>{
     return this.http.get<GetUntraceablesByExecutives>(`${this.baseUrl}/api/getUntraceablesByExecutives`);
+
   }
+
+  getCustomersWithComplaints():Observable<GetCustomersWithComplaintsInterface>{
+    return this.http.get<GetCustomersWithComplaintsInterface>(`${this.baseUrl}/api/getComplaintsbyCurrentQuarter`);
+  } 
 }
