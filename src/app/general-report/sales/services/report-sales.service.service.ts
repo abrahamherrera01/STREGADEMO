@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { GetVentasIncidencesMetricsInterface } from '../interfaces/get-ventas-incidences-metrics.interface';
 import { Observable } from 'rxjs';
+import { GetComparativeNpsInterface } from '../interfaces/get-comparativeNps.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,9 @@ export class ReportSalesServiceService {
 
   getVentasIncidencesMetrics():Observable<GetVentasIncidencesMetricsInterface>{
     return this.http.get<GetVentasIncidencesMetricsInterface>(`${this.baseUrl}/api/getVentasIncidencesMetrics`);
+  }
+
+  getComparativeNps():Observable<GetComparativeNpsInterface>{
+    return this.http.get<GetComparativeNpsInterface>(`${this.baseUrl}/api/getNPSbyCurrentQuarter`);
   }
 }
