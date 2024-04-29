@@ -1,37 +1,46 @@
 <div class="contenedor">
-    <div class="options animate__animated animate__fadeIn" *ngIf="show">
-      <ul>
-        <li (click)="selectIndex(0)">Resumen NPS e Incidencias Nuevos</li>        
-        <li (click)="selectIndex(1)">Comparativa: NPS</li>   
-        <li (click)="selectIndex(2)">Marzo: Ilocalizables por Ejecutivo</li>        
-      </ul>
-    </div>
-  
-    <div class="component" *ngIf="selectedIndex !== null">
-      <div *ngIf="selectedIndex === 0">
-        <div class="component-content">
-            <span class="mx-3 subtitle">Resumen NPS e Incidencias Nuevos.</span>       
-            <button (click)="toggleShow()" class="btn-index">Ver indice</button>
-        </div>  
-        <app-new-nps-and-incidents></app-new-nps-and-incidents>
-      </div>  
-    
-      <div *ngIf="selectedIndex === 1">
-        <div class="component-content">
-            <span class="mx-3 subtitle">Comparativa: NPS</span>       
-            <button (click)="toggleShow()" class="btn-index">Ver indice</button>
-        </div>  
-        <app-comparison-nps></app-comparison-nps>
-      </div>  
+  <div class="options animate__animated animate__fadeIn" *ngIf="show">
+    <ul>
+      <li (click)="selectIndex(0)">Resumen NPS e Incidencias Nuevos</li>
+      <li (click)="selectIndex(1)">Comparativa: NPS</li>
+      <li (click)="selectIndex(2)">Marzo: Ilocalizables por Ejecutivo</li>
+      <li (click)="selectIndex(3)">Comparativa: Clientes con Quejas</li>
+    </ul>
+  </div>
 
-      <div *ngIf="selectedIndex === 2">
-        <div class="component-content">
-            <span class="mx-3 subtitle">Marzo: Ilocalizables por Ejecutivo</span>       
-            <button (click)="toggleShow()" class="btn-index">Ver indice</button>
-        </div>  
-        <app-unreachable-by-executive></app-unreachable-by-executive>
-      </div>  
-
+  <div class="component" *ngIf="selectedIndex !== null">
+    <div *ngIf="selectedIndex === 0">
+      <div class="component-content">
+        <span class="mx-3 subtitle">Resumen NPS e Incidencias Nuevos.</span>
+        <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+      </div>
+      <app-new-nps-and-incidents></app-new-nps-and-incidents>
     </div>
+
+    <div *ngIf="selectedIndex === 1">
+      <div class="component-content">
+        <span class="mx-3 subtitle">Comparativa: NPS</span>
+        <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+      </div>
+      <app-comparison-nps></app-comparison-nps>
+    </div>
+
+    <div *ngIf="selectedIndex === 2">
+      <div class="component-content">
+        <span class="mx-3 subtitle">Marzo: Ilocalizables por Ejecutivo</span>
+        <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+      </div>
+      <app-unreachable-by-executive></app-unreachable-by-executive>
+    </div>
+
+   </div>
+
+
+  <div *ngIf="selectedIndex === 3">
+    <div class="component-content">
+      <span class="mx-3 subtitle">Comparativa: Clientes con Quejas</span>
+      <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+    </div>
+    <app-comparison-customers-with-complaints></app-comparison-customers-with-complaints>
+  </div>
 </div>
-  
