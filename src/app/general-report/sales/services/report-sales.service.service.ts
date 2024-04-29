@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { GetVentasIncidencesMetricsInterface } from '../interfaces/get-ventas-incidences-metrics.interface';
 import { Observable } from 'rxjs';
 import { GetComparativeNpsInterface } from '../interfaces/get-comparativeNps.interface';
+import { GetUntraceablesByExecutives } from '../interfaces/get-untraceables-by-executives.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,9 @@ export class ReportSalesServiceService {
 
   getComparativeNps():Observable<GetComparativeNpsInterface>{
     return this.http.get<GetComparativeNpsInterface>(`${this.baseUrl}/api/getNPSbyCurrentQuarter`);
+  }
+
+  getUntraceablesByExecutives():Observable<GetUntraceablesByExecutives>{
+    return this.http.get<GetUntraceablesByExecutives>(`${this.baseUrl}/api/getUntraceablesByExecutives`);
   }
 }
