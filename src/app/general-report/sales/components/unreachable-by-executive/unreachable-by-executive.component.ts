@@ -23,7 +23,7 @@ export class UnreachableByExecutiveComponent {
         this.data = {    
           title: 'Incidencias leads: ',
           width: '90%',
-          height: '350px',
+          height: '600px',
           text_color: '#000',
           graphic: {
             categories: data.categories,      
