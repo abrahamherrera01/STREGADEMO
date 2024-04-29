@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Serie, StackedHorizontalBarData } from 'src/app/graphics/interfaces/stacked-horizontal-bar.interface';
 import { ServiceService } from '../../services/service.service';
-import { Data, Service } from '../../interfaces/dashboard-ventas.interface';
+import { Data, Service, Series } from '../../interfaces/dashboard-ventas.interface';
 
 @Component({
   selector: 'app-csi-and-nps-summary-and-incidents',
@@ -148,7 +148,7 @@ export class CsiAndNpsSummaryAndIncidentsComponent {
       }
     }
     
-    formatSeries(series: any): Serie[] {
+    formatSeries(series: Series[]): Serie[] {
       return series.map((item: any, index: number) => {
         return {
           name: item.name.toLowerCase(),

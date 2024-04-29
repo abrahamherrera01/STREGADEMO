@@ -36,6 +36,7 @@ import { PerformanceAndIncidentsPerAdvisorComponent } from './service/components
 import { PrincipalSaleComponent } from './sales/components/principal-sale/principal-sale.component';
 import { NewNpsAndIncidentsComponent } from './sales/components/new-nps-and-incidents/new-nps-and-incidents.component';
 import { ComparisonNpsComponent } from './sales/components/comparison-nps/comparison-nps.component';
+import { UnreachableByExecutiveComponent } from './sales/components/unreachable-by-executive/unreachable-by-executive.component';
 
 
 
@@ -67,7 +68,8 @@ import { ComparisonNpsComponent } from './sales/components/comparison-nps/compar
     PerformanceAndIncidentsPerAdvisorComponent,
     PrincipalSaleComponent,
     NewNpsAndIncidentsComponent,
-    ComparisonNpsComponent
+    ComparisonNpsComponent,
+    UnreachableByExecutiveComponent
   ],
   imports: [
     CommonModule,
