@@ -1,78 +1,63 @@
 import { Component } from '@angular/core';
 import { GraphicData } from 'src/app/graphics/interfaces/multiple-vertical-bars.interface';
-import { GeneralReportService } from '../../services/general-report.service';
+import { ReportSalesServiceService } from '../../services/report-sales.service.service';
 
 @Component({
-  selector: 'app-crm-respondents-and-inconsistencies',
-  templateUrl: './crm-respondents-and-inconsistencies.component.html',
-  styleUrls: ['./crm-respondents-and-inconsistencies.component.css']
+  selector: 'app-comparison-nps',
+  templateUrl: './comparison-nps.component.html',
+  styleUrls: ['./comparison-nps.component.css']
 })
-export class CrmRespondentsAndInconsistenciesComponent {
+export class ComparisonNpsComponent {
+
   data!:GraphicData;
   show:boolean = false;
   public i=0;
 
   constructor(
-    private generalReportService:GeneralReportService
+    private generalReportService:ReportSalesServiceService
   ){        
     this.getInconsistenciesByDepartment();    
   }
 
   getInconsistenciesByDepartment(){
-    this.generalReportService.getInconsistenciesByDepartment().subscribe({
+    this.generalReportService.getComparativeNps().subscribe({
       next:({ status, code, data }) => {
         if( status === 'success' && code == 200 ){
 
-          console.log(data.completo)
-
-  
-
-
-
-
-
-
-          const newseries=Array();
-
-          const names= data.completo.forEach(dat => {
-       
+            
+          const newseries = Array();
+          data.seriesFormat_NPS.forEach(element => {
             newseries.push(
-              [dat[0],dat[1] ,dat[2], dat[3],data.percentagesSurveyed[this.i],
-              ,data.percentagesInconsistency[this.i]
+              element.data
+            )
+              this.i++
+          });
+
   
-            ]); 
-   
-             this.i=this.i+1;
-  
-            });
-  
-  
-  
-            newseries.unshift(data.categories)
-
-
-
-
-
-
-
-            console.log(newseries);
-
           this.data = {    
             title: '',
-            width: '90%',
+            width: '100%',
             height: '600px',
             text_color: '#000',
             graphic: {
-              source: newseries,
+              source:[
+               ["product","Enero","Febrero","Marzo"],
+               newseries[0],
+               newseries[1],
+               newseries[2],
+               newseries[3],
+               newseries[4],           
+              ] 
+              ,
               series: [
                 { 
                   type: 'bar',
                   label: {
+                    
                     show: true,
                     position: 'top',
                     formatter: function(params: any) {
-                      return  ''; 
+                      return params.value[1]; 
                     }
                   }
                 }, 
@@ -82,7 +67,7 @@ export class CrmRespondentsAndInconsistenciesComponent {
                     show: true,
                     position: 'top',
                     formatter: function(params: any) {
-                      return params.value[4] + '%'; 
+                      return params.value[2]; 
                     }
                   }
                 }, 
@@ -92,7 +77,7 @@ export class CrmRespondentsAndInconsistenciesComponent {
                     show: true,
                     position: 'top',
                     formatter: function(params: any) {                
-                      return params.value[6] + '%'; 
+                      return params.value[3]; 
                     }
                   }
                 }

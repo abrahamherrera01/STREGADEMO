@@ -2,17 +2,26 @@
     <div class="options animate__animated animate__fadeIn" *ngIf="show">
       <ul>
         <li (click)="selectIndex(0)">Resumen NPS e Incidencias Nuevos</li>        
+        <li (click)="selectIndex(0)">Comparativa: NPS</li>        
       </ul>
     </div>
   
     <div class="component" *ngIf="selectedIndex !== null">
-        <div *ngIf="selectedIndex === 0">
-            <div class="component-content">
-                <span class="mx-3 subtitle">Resumen NPS e Incidencias Nuevos.</span>       
-                <button (click)="toggleShow()" class="btn-index">Ver indice</button>
-            </div>  
-            <app-new-nps-and-incidents></app-new-nps-and-incidents>
-        </div>        
+      <div *ngIf="selectedIndex === 0">
+        <div class="component-content">
+            <span class="mx-3 subtitle">Resumen NPS e Incidencias Nuevos.</span>       
+            <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+        </div>  
+        <app-new-nps-and-incidents></app-new-nps-and-incidents>
+    </div>  
+    
+    <div *ngIf="selectedIndex === 1">
+      <div class="component-content">
+          <span class="mx-3 subtitle">Comparativa: NPS</span>       
+          <button (click)="toggleShow()" class="btn-index">Ver indice</button>
+      </div>  
+      <app-comparison-nps></app-comparison-nps>
+  </div>  
     </div>
 </div>
   
