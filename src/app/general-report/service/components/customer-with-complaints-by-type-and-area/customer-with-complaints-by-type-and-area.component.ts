@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServiceService } from '../../services/service.service';
 
 @Component({
   selector: 'app-customer-with-complaints-by-type-and-area',
@@ -6,6 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./customer-with-complaints-by-type-and-area.component.css']
 })
 export class CustomerWithComplaintsByTypeAndAreaComponent {
+  show:boolean = false;
+
+  constructor(
+    private _serviceService:ServiceService
+  ){
+    this.initGraphic();
+  }
   data = {    
     title: '',
     width: '100%',
@@ -90,4 +98,8 @@ export class CustomerWithComplaintsByTypeAndAreaComponent {
       ]        
     }
   }   
+
+  initGraphic():void {
+    this.show = true;
+  }
 }
