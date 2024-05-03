@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { DashboardVentas } from '../interfaces/dashboard-ventas.interface';
 import { UntraceableTypeExecutive } from '../interfaces/untraceable-type-executive';
 import { getQuarterlyComparisonInterface } from '../interfaces/get-quarterly-comparison.interface';
+import { GetCustomerComplaintsByTypeAreaWorkshop } from '../interfaces/customer-complaints-by-type-area-workshop.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +29,8 @@ export class ServiceService {
   getQuarterlyComparison():Observable<getQuarterlyComparisonInterface>{
     return this._http.get<getQuarterlyComparisonInterface>(`${this.url}/api/quarterlyComparisons`);
   }
+  getCustomerComplaintsByTypeAreaWorkshop():Observable<GetCustomerComplaintsByTypeAreaWorkshop>{
+    return this._http.get<GetCustomerComplaintsByTypeAreaWorkshop>(`${this.url}/api/customerComplaintsByTypeAreaWorkshop`);
+  }
+
 }
