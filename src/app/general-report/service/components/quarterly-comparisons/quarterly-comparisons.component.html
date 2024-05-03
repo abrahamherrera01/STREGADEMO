@@ -1,7 +1,7 @@
 <div class="container-fluid animate__animated animate__fadeIn">
     <div class="row mb-5">
         <div class="col-6 mb-1 box">
-            <app-multiple-vertical-bars [data]="data"></app-multiple-vertical-bars>
+            <app-multiple-vertical-bars [data]="data" *ngIf="show1"></app-multiple-vertical-bars>
         </div>
         <div class="col-6 mb-1 box">
             <app-multiple-vertical-bars [data]="nps"></app-multiple-vertical-bars>
