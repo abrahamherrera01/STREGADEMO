@@ -33,4 +33,7 @@ export class ServiceService {
     return this._http.get<GetCustomerComplaintsByTypeAreaWorkshop>(`${this.url}/api/customerComplaintsByTypeAreaWorkshop`);
   }
 
+  getNps():Observable<getQuarterlyComparisonInterface>{
+    return this._http.get<getQuarterlyComparisonInterface>(`${this.url}/api/npsComparisons`);
+  }
 }
