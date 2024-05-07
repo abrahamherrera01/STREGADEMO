@@ -6,6 +6,7 @@ import { DashboardVentas } from '../interfaces/dashboard-ventas.interface';
 import { UntraceableTypeExecutive } from '../interfaces/untraceable-type-executive';
 import { getQuarterlyComparisonInterface } from '../interfaces/get-quarterly-comparison.interface';
 import { GetCustomerComplaintsByTypeAreaWorkshop } from '../interfaces/customer-complaints-by-type-area-workshop.interface';
+import { GetguarantesInterface } from '../interfaces/getguarantes.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,9 @@ export class ServiceService {
 
   getNps():Observable<getQuarterlyComparisonInterface>{
     return this._http.get<getQuarterlyComparisonInterface>(`${this.url}/api/npsComparisons`);
+  }
+
+  getguarantes():Observable<GetguarantesInterface>{
+    return this._http.get<GetguarantesInterface>(`${this.url}/api/customerComplaintsByTypeAreaWarranty`);
   }
 }
