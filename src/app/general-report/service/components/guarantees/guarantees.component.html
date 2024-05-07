@@ -1,6 +1,6 @@
 <div class="container-fluid animate__animated animate__fadeIn">
     <div class="row mb-5">
-        <div class="col-12 mb-1 box">
+        <div class="col-12 mb-1 box" *ngIf="show">
             <app-stacked-horizontal-bar [data]="guarantes"></app-stacked-horizontal-bar>
         </div>
     </div>  
