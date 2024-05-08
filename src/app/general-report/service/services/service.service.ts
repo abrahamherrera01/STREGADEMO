@@ -8,6 +8,7 @@ import { getQuarterlyComparisonInterface } from '../interfaces/get-quarterly-com
 import { GetCustomerComplaintsByTypeAreaWorkshop } from '../interfaces/customer-complaints-by-type-area-workshop.interface';
 import { GetCustomerComplaintsByTypeAreaAdviser } from '../interfaces/customer-complaints-type-area-adviser.interface';
 import { GetguarantesInterface } from '../interfaces/getguarantes.interface';
+import { GetComplaintsAdvisorPointContact } from '../interfaces/complaints-advisor-point-contact.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -48,4 +49,7 @@ export class ServiceService {
   }
 
 
+  getComplaintsAdvisorPointContact():Observable<GetComplaintsAdvisorPointContact>{
+    return this._http.get<GetComplaintsAdvisorPointContact>(`${this.url}/api/complaintsAdvisorPointContact`);
+  }
 }
