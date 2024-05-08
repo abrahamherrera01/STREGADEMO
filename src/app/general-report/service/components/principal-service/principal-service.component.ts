@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class PrincipalServiceComponent {
   show:boolean = false; 
-  selectedIndex: number = 5;
+  selectedIndex: number = 7;
 
   selectIndex(index: number) {
     this.show = false;

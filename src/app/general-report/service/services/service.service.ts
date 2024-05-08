@@ -7,6 +7,7 @@ import { UntraceableTypeExecutive } from '../interfaces/untraceable-type-executi
 import { getQuarterlyComparisonInterface } from '../interfaces/get-quarterly-comparison.interface';
 import { GetCustomerComplaintsByTypeAreaWorkshop } from '../interfaces/customer-complaints-by-type-area-workshop.interface';
 import { GetCustomerComplaintsByTypeAreaAdviser } from '../interfaces/customer-complaints-type-area-adviser.interface';
+import { GetComplaintsAdvisorPointContact } from '../interfaces/complaints-advisor-point-contact.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,9 @@ export class ServiceService {
   
   getCustomerComplaintsByTypeAreaAdviser():Observable<GetCustomerComplaintsByTypeAreaAdviser>{
     return this._http.get<GetCustomerComplaintsByTypeAreaAdviser>(`${this.url}/api/customerComplaintsByTypeAreaAdviser`);
+  }
+
+  getComplaintsAdvisorPointContact():Observable<GetComplaintsAdvisorPointContact>{
+    return this._http.get<GetComplaintsAdvisorPointContact>(`${this.url}/api/complaintsAdvisorPointContact`);
   }
 }
